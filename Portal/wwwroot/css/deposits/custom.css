@@ -1,0 +1,891 @@
+.inner_body {
+
+    background: #f2f0f0;
+    position: relative;
+    padding: 18px 6px;
+    border: 1px solid #d0c9c9;
+    padding-right: 24px;
+    margin: 7px 5px;
+    background: #fff;
+    padding: 7px;
+    padding-left: 11px;
+    width: 100%;
+}
+
+.row {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+}
+
+.col, .col-1, .col-10, .col-11, .col-12, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-auto, .col-lg, .col-lg-1, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-lg-auto, .col-md, .col-md-1, .col-md-10, .col-md-11, .col-md-12, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-auto, .col-sm, .col-sm-1, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-auto, .col-xl, .col-xl-1, .col-xl-10, .col-xl-11, .col-xl-12, .col-xl-2, .col-xl-3, .col-xl-4, .col-xl-5, .col-xl-6, .col-xl-7, .col-xl-8, .col-xl-9, .col-xl-auto {
+    position: relative;
+    width: 100%;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+@media (min-width: 768px) {
+    .col-md-3 {
+        -ms-flex: 0 0 25%;
+        flex: 0 0 25%;
+        max-width: 25%;
+    }
+}
+
+.project-info-container .row {
+    display: flex;
+    margin-right: 0px;
+    margin-left: 0px;
+    margin-bottom: 1px;
+}
+
+
+/* width */
+#scroller-id::-webkit-scrollbar {
+  width: 12px;
+}
+
+/* Track */
+#scroller-id::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 15px #aadbd9;; 
+  border-radius: 25%;
+}
+ 
+/* Handle */
+#scroller-id::-webkit-scrollbar-thumb {
+  background: #67e2e2; 
+  border-radius: 5px;
+}
+
+/* Handle on hover */
+#scroller-id::-webkit-scrollbar-thumb:hover {
+  background: #67e2e2; 
+}
+.col-md-offset-8 {
+    max-width: 100%;
+}
+
+[type=button]:not(:disabled), [type=reset]:not(:disabled), [type=submit]:not(:disabled), button:not(:disabled) {
+    cursor: pointer;
+}
+
+button.btn-1 {
+    background: #464343;
+    border: unset;
+    width: 24px;
+    height: 21px;
+    margin: 0px;
+    text-align: center;
+    display: inline;
+    line-height: 17px;
+    color: #fff;
+    margin-right: 6px;
+    margin-right: 6px;
+}
+
+.five-ten button.btn-1 {
+    background: #464343;
+    border: unset;
+    width: 24px;
+    height: 21px;
+    margin: 0px;
+    text-align: center;
+    display: inline;
+    line-height: 17px;
+    color: #fff;
+    margin-right: 6px;
+    margin-left: 6px;
+}
+
+
+button.btn-2 {
+    background: #fff;
+    height: 23px;
+    margin: 0px;
+    text-align: center;
+    display: inherit;
+    line-height: 17px;
+    color: #67e2e2;
+    float: left;
+    margin-right: 6px;
+    font-size: 8px;
+    border: 1px solid #767676;
+    border-radius: 7px;
+    padding: 0px 6px;
+    margin-top: -1px;
+}
+
+/*  my custom */
+
+.form-element {
+    display: flex;
+    flex-direction: column;
+    width: auto;
+    min-width: 130px;
+    flex: 1 1 130px;
+}
+
+.form-element.small {
+    display: flex;
+    flex-direction: column;
+    width: auto;
+    min-width: 100px;
+    flex: 1 1 100px;
+    margin-right: 1em;
+}
+
+.form-element.tiny {
+    display: flex;
+    flex-direction: column;
+    width: auto;
+    min-width: 60px;
+    flex: 0.3 0.3 60px;
+    margin-right: 1em;
+}
+
+
+
+
+.form-element > label {
+    max-height: 36px;
+    margin-bottom: 0em;
+}
+
+
+.two-thirds {
+    flex: 2;
+    min-width: 200px;
+}
+
+.one-thirds {
+    flex: 1;
+}
+
+.half {
+    margin-right: 0px;
+}
+
+.five-ten {
+    flex: 5;
+    min-width: 110px;
+}
+
+.three-ten {
+    flex: 3;
+    min-width: 50px;
+}
+
+.two-ten {
+    flex: 2;
+    min-width: 20px;
+}
+
+.to-right {
+    margin-right: 0px;
+}
+
+.categoryBox {
+    background: #beb6b6;
+    padding-right: 6px;
+    padding-left: 6px;
+    padding-top: 9px;
+    padding-bottom: 9px;
+    min-height: 130px;
+    height: 355px;
+}
+
+    .categoryBox .form-element > label {
+        color: black;
+    }
+
+    .categoryBox .form-element > span {
+        line-height: 20px;
+    }
+
+    .categoryBox .form-element:first-child > span {
+        line-height: 20px;
+        padding-left: 20px;
+    }
+
+    .categoryBox .form-element > span.title {
+        font-weight: bold;
+        text-align: right;
+        white-space: inherit;
+        text-overflow: initial;
+    }
+
+    .categoryBox .form-element:first-child > span.title {
+        font-weight: bold;
+        text-align: left;
+    }
+
+    .categoryBox .row {
+        padding-bottom: 0.2em;
+        padding-top: 0.2em;
+    }
+
+
+
+
+
+.hide{
+    display: none;
+}
+
+
+
+.project-preview .items .row {
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
+#emailBox {
+    position: absolute;
+    top: 7px;
+    z-index: 20;
+    background: lightgoldenrodyellow;
+    width: 75%;
+    margin-right: 12.5%;
+    margin-left: 12.5%;
+    border: 1px solid grey;
+}
+    
+
+
+#emailBox .top-area {
+    height: 125px;
+}
+
+#emailBox .email-toolbar {
+    border-bottom: 1px solid lightgrey; padding: 7px;background: lightsteelblue;
+    min-height: 45px;
+}
+
+#emailBox .email-header {
+    padding: 7px;
+}
+
+#emailBody {
+    background: white;
+    padding: 7px;
+}
+
+.project-info-container > .project-details  .row.button-bar {
+    padding-top: 5px;
+    justify-content: flex-end;
+    margin-bottom: 0;
+}
+
+.project-info-container > .project-details  .row.button-bar .btn {
+    margin-left: 1em;
+}
+
+.dist-expand-btn, .dist-reduce-btn {
+    padding-left: 10px;
+}
+
+.distributionBox > .row span {
+    cursor: pointer;
+}
+
+.row.button-bar .btn {
+    margin-left: 1em;
+}
+
+#switchBox {
+    height: 30px;
+}
+
+.k-tabstrip-items .k-link {
+    padding: 5px 5px;
+}
+
+.project-info-container > .project-details {
+    padding-bottom: 0.5em;
+}
+
+
+
+/* Index update */
+.project-info-container > .project-details > .row {
+    display: flex;
+    margin-bottom: 1em;
+    justify-content: space-between;
+    margin-right: 0px;
+    margin-left: 0px;
+}
+
+
+#window .row, #edit-window .row, #detail-window .row, #detail-move-window .row {
+    margin-left: 0px;
+}
+
+.responseBox .form-element > label {
+    color: black; 
+}
+
+
+
+.first-column {
+    flex: 9;
+    margin-right: 0px; 
+}
+
+.second-column {
+    flex: 11;
+    margin-right: 0px; 
+}
+
+.project-budget-bar .popOut{
+    z-index: 1;
+}
+
+#budget-chart + .score {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100px;
+    height: 100px;
+    margin-top: -50px;
+    margin-left: -50px;
+    font-size: 2em;
+    line-height: 100px;
+    vertical-align: middle;
+    text-align: center;
+    color: #333;
+}
+
+    #budget-chart + .score.green {
+        color: #87d674;
+    }
+
+    #budget-chart + .score.yellow {
+        color: #ffbf48;
+    }
+
+    #budget-chart + .score.red {
+        color: #c03c53;
+    }
+
+.categories {
+    height: 250px;
+    overflow-y: scroll;
+}
+
+    /* width */
+    .categories::-webkit-scrollbar {
+        width: 12px;
+    }
+
+    /* Track */
+    .categories::-webkit-scrollbar-track {
+        box-shadow: inset 0 0 15px #aadbd9;
+        ;
+        border-radius: 25%;
+    }
+
+    /* Handle */
+    .categories::-webkit-scrollbar-thumb {
+        background: #67e2e2;
+        border-radius: 5px;
+    }
+
+        /* Handle on hover */
+        .categories::-webkit-scrollbar-thumb:hover {
+            background: #67e2e2;
+        }
+
+
+    .categories .form-element > span, .categories .form-element  input {
+        font-size: 11px;
+        height: 20px;
+    }
+
+    .categories .form-element > span {
+        font-size: 11px;
+        line-height: 20px;
+    }
+
+    .categories .form-element.currency > span, .summary .form-element.currency > span {
+        text-align: right;
+    }
+
+    .categories .editing {
+        background: lightyellow;
+    }
+
+    .categories .category-link {
+        text-decoration: underline;
+        cursor: pointer;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+
+
+.detail-pane .subheading tbody tr.editing {
+    background: lightyellow;
+}
+
+.detail-pane .subheading tbody tr.editing input {
+    background: lightyellow;
+}
+
+.detail-pane .subheading tbody tr td.currency input {
+    text-align: right;
+    font-size: 12px;
+    height: 22px;
+    border: 1px solid #aaa;
+}
+
+.detail-pane .total-d, .detail-pane #grand-d {
+    padding-right: 5px;
+}
+
+.summary {
+    border-radius: 10px;
+    /*padding-right: 1em;*/
+    padding-top: 0.3em;
+    padding-bottom: 0.3em;
+    /*rgba(239, 241, 216, 0.7)*/
+    /*rgba(93, 97, 98, .7)*/
+    background: rgba(239, 241, 216, 0.7);
+    box-shadow: 0px 0px 10px 2px rgba(239, 241, 216, 0.7);
+}
+
+.summary .form-element > span, .summary .form-element > input {
+    font-size: 11px;
+    height: 20px;
+}
+
+.summary .form-element > span {
+    font-size: 11px;
+    line-height: 20px;
+}
+
+
+
+
+.da-span {
+    font-size: 9px;
+    color: #3392a7;/*#1130d4*/
+}
+
+#contributors {
+    height: 140px;
+    overflow-y: scroll;
+    padding-left: 5px;
+}
+#contributors li, #contributors div {
+    list-style: none;
+    font-size: 14px;
+    font-weight: 200;
+    color: black;
+    font-family: 'Lato', sans-serif;
+}
+
+.toggle-button {
+    background: darkgrey;
+    color: grey;
+    border: none;
+    /*border-radius: 2px;*/
+}
+
+.toggle-button.selected {
+    background: #3392a7;
+    color: white;
+    border: none;
+}
+
+
+#avl-pnd-sf, #avl-pnd {
+    display: none;
+}
+
+.summary .toggle-button {
+    font-size: 10px;
+}
+
+
+.summary .tooltip .tooltiptext {
+    width: 150px;
+}
+
+.summary .tooltip-bottom {
+    top: 135%;
+    left: 0;
+    margin-left: -60px;
+    padding: 1px 1px;
+}
+
+.detail-pane {
+    display: none; /* none */
+    /*transition: all 1s ease-out;*/
+    width: 100%;
+    margin-bottom: 1em;
+}
+
+.detail-pane table{
+    width: 100%;
+}
+
+.detail-pane table tr{
+    display: flex;
+}
+
+.detail-pane table td{
+    min-width: 70px;
+    flex: 1;
+    text-align: right;
+}
+
+.detail-pane table td input{
+    width: 100%;
+    text-align: center;
+}
+
+.detail-pane .heading{
+    background: #a09999;
+    color: black;
+}
+
+    .detail-pane .heading .form-element {
+        min-width: 30px;
+        flex: 1 1 30px;
+    }
+
+
+    .detail-pane .heading thead tr {
+        margin-left: 15px;
+        border-bottom: 1px solid grey;
+    }
+
+    .detail-pane .heading thead tr sub{
+        line-height: 12px;
+    }
+
+
+    .detail-pane .grand-total {
+        background: #a09999;
+    }
+
+    .detail-pane .grand-total tr{
+        background: lightyellow;
+    }
+    .detail-pane .subheading {
+        border: 1px solid lightgrey;
+    }
+
+        .detail-pane .subheading thead .currency{
+            display: none;
+        }
+
+    .detail-pane .subheading.collapse tbody {
+        display: none;
+    }
+
+        .detail-pane .subheading.collapse thead .currency {
+            display: block;
+        }
+
+        
+
+        .detail-pane .subheading thead {
+            background: #3392a7;
+        }
+
+            .detail-pane .subheading thead tr {
+                margin: 2px 3px;
+                margin-left: 15px;
+            }
+                .detail-pane .subheading thead tr td.title {
+                    text-align: left;
+                }
+
+        .detail-pane .subheading tbody {
+            background: #a09999;
+        }
+
+            .detail-pane .subheading tbody tr {
+                margin: 1px;
+                margin-left: 15px;
+                background: white;
+            }
+
+    .detail-pane .tooltip-top {
+        margin-left: -100px;
+    }
+
+    .detail-pane .detail-basis.k-combobox {
+        height: 20.5px;
+    }
+
+.detail-pane .detail-basis.k-input {
+    height: 20.5px;
+}
+
+.categories .three-ten input, .categories .two-ten input {
+    text-align: right;
+}
+
+.summary .three-ten input, .summary .two-ten input {
+    text-align: right;
+}
+
+input.currency {
+    text-align: right;
+}
+
+.current-deposit {
+    min-width: 90px;
+    /*max-width: 90px;*/
+}
+
+.currency.alert {
+    color: red;
+}
+
+input.number {
+    text-align: center;
+}
+
+.detail-pane td {
+    line-height: 22px;
+}
+.detail-pane tr.hidden {
+    display: none;
+}
+
+.detail-pane table td.currency {
+    text-align: right;
+}
+
+.categories span.currency {
+    text-align: right;
+    padding-left: 0px;
+}
+
+.categories .row:nth-of-type(odd) {
+    background-color: #c8e3c1;
+}
+
+table.heading td {
+    text-align: right;
+    font-weight: bold;
+}
+
+.fa {
+    cursor: pointer;
+}
+
+.detail-menu-icon {
+    display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+}
+
+    .detail-menu-icon::before {
+        content: "\f0c9";
+        font-size: 20px;
+        position: absolute;
+        left: 100%;
+    }
+
+.k-icon.k-i-arrow-60-down.k-menu-expand-arrow {
+    display: none;
+    
+}
+
+.project-info-container > .project-details {
+    width: 100%;
+}
+
+.project-notes-handle {
+    background: #ffbf48;
+    padding: 9px 0;
+    z-index: 1;
+    width: 20px;
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    text-align: center;
+    cursor: pointer;
+}
+
+.project-info-container > .project-notes {
+    transition: all 12s linear;
+}
+
+.project-info-container > .project-notes.hide {
+    display: none;
+}
+
+/* commit switch style */
+
+.innerSwitchBox .k-switch .k-switch-container {
+    height: 20px;
+    overflow: hidden;
+}
+
+
+
+.innerSwitchBox .k-switch {
+    width: 140px;
+}
+
+.innerSwitchBox .k-switch-handle {
+    width: 20px;
+    height: 20px;
+    top: 0px;
+    left: 5px;
+}
+
+.innerSwitchBox .k-switch-off .k-switch-handle {
+    left: 0;
+}
+
+.innerSwitchBox .k-switch-label-off, .innerSwitchBox .k-switch-label-on {
+    display: block;
+    width: 140px;
+}
+
+
+.innerSwitchBox .k-switch-label-on {
+    left: -65px;
+    color: #050744;
+}
+
+.innerSwitchBox .k-switch-label-off {
+    left: -10px;
+}
+
+
+
+.categoryBox span.k-switch {
+    padding-left: 0px !important;
+}
+
+/* custom switch style */
+
+.dateSwitchBox .k-switch .k-switch-container {
+    height: 20px;
+    overflow: hidden;
+}
+
+
+
+.dateSwitchBox .k-switch {
+    width: 100px;
+}
+
+.dateSwitchBox .k-switch-handle {
+    width: 20px;
+    height: 20px;
+    top: 0px;
+    left: 5px;
+}
+
+.dateSwitchBox .k-switch-off .k-switch-handle {
+    left: 0;
+}
+
+.dateSwitchBox .k-switch-label-off, .dateSwitchBox .k-switch-label-on {
+    display: block;
+    width: 100px;
+}
+
+
+.dateSwitchBox .k-switch-label-on {
+    left: -65px;
+    color: #050744;
+}
+
+.dateSwitchBox .k-switch-label-off {
+    left: -10px;
+}
+
+/* custom budget switch style */
+
+.budgetSwitchBox {
+    padding-right: 5px;
+}
+
+.budgetSwitchBox .k-switch .k-switch-container {
+    height: 20px;
+    overflow: hidden;
+}
+
+
+
+.budgetSwitchBox .k-switch {
+    width: 50px;
+}
+
+.budgetSwitchBox .k-switch-handle {
+    width: 20px;
+    height: 20px;
+    top: 0px;
+    left: 26px;
+}
+
+.budgetSwitchBox .k-switch-off .k-switch-handle {
+    left: -1px;
+}
+
+.budgetSwitchBox .k-switch-on .k-switch-handle {
+    left: 5px;
+}
+
+.budgetSwitchBox .k-switch-label-off, .budgetSwitchBox .k-switch-label-on {
+    display: block;
+    width: 50px;
+}
+
+
+.budgetSwitchBox .k-switch-label-on {
+    left: -22px;
+    color: #050744;
+}
+
+.budgetSwitchBox .k-switch-label-off {
+    left: -7px;
+}
+
+.budgetSwitchBox .k-switch-off .k-switch-container {
+    background-color: #a2a0a0;
+}
+
+.project-items-container {
+    margin-top: 0;
+}
+
+.project-info-container .project-notes > div {
+    height: 100%;
+}
+
+table tr td {
+    /*border: 1px solid black*/;
+    /*padding-right: 5px;*/
+}
+
+table tr td:last-child {
+    padding-right: 10px;
+}
+
+.detail-pane .k-numeric-wrap .k-input {
+    padding : 0;
+}
+
+#save-button .tooltip-top, #draft-button .tooltip-top {
+    margin-left: -100px;
+}
+
+.project-info-container .project-notes .note-block > .previous-notes {
+    height: 344px;
+}

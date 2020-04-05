@@ -1,0 +1,68 @@
+﻿@{
+    ViewData["Title"] = "Document Upload";
+}
+
+@using Kendo.Mvc.UI
+
+
+<div class="box">
+    <h4>Information</h4>
+    <p>
+        The Upload is able to upload files out-of-band using the
+        HTML5 File API with fallback for legacy browsers. You need to configure save action that will receive
+        the uploaded files.
+    </p>
+</div>
+
+<div>
+    <div class="demo-section k-content wide">
+        <div class="wrapper">
+            <div id="products"></div>
+            <div class="dropZoneElement" style="height: 200px; width: 200px; border: 1px solid red; visibility:visible;">
+                <div class="textWrapper">
+                    <p class="dropImageHereText">Drop document here to upload</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <input name="files" id="files" type="file" />
+
+</div>
+
+@section scripts {
+    <script>
+        $("#files").kendoUpload({
+            async: {
+                saveUrl: "/upload/saveAsync",
+                removeUrl: "/upload/remove",
+                autoUpload: true
+            },
+            validation: {
+                allowedExtensions: [".txt", ".doc", ".docx", ".pdf", ".png",".gif",".jpg" ]
+            },
+            multiple: false,
+            success: onSuccess,
+            dropZone: ".dropZoneElement"
+        });
+
+        function onSuccess(e) {
+            //if (e.operation == "upload") {
+            //    for (var i = 0; i < e.files.length; i++) {
+            //        var file = e.files[i].rawFile;
+
+            //        if (file) {
+            //            var reader = new FileReader();
+
+            //            reader.onloadend = function () {
+            //                $("<div class='product'><img src=" + this.result + " /></div>").appendTo($("#products"));
+            //            };
+
+            //            reader.readAsDataURL(file);
+            //        }
+            //    }
+            //}
+            e.files = null;
+        }
+    </script>
+}

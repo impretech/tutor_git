@@ -1,0 +1,272 @@
+.inner_body {
+
+    background: #f2f0f0;
+    position: relative;
+    padding: 18px 6px;
+    border: 1px solid #d0c9c9;
+    padding-right: 24px;
+    margin: 7px 5px;
+    background: #fff;
+    padding: 7px;
+    padding-left: 11px;
+    width: 100%;
+}
+
+.row {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+}
+
+.col, .col-1, .col-10, .col-11, .col-12, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-auto, .col-lg, .col-lg-1, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-lg-auto, .col-md, .col-md-1, .col-md-10, .col-md-11, .col-md-12, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-auto, .col-sm, .col-sm-1, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-auto, .col-xl, .col-xl-1, .col-xl-10, .col-xl-11, .col-xl-12, .col-xl-2, .col-xl-3, .col-xl-4, .col-xl-5, .col-xl-6, .col-xl-7, .col-xl-8, .col-xl-9, .col-xl-auto {
+    position: relative;
+    width: 100%;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+@media (min-width: 768px) {
+    .col-md-3 {
+        -ms-flex: 0 0 25%;
+        flex: 0 0 25%;
+        max-width: 25%;
+    }
+}
+
+.project-info-container .row {
+    display: flex;
+    margin-right: 0px;
+    margin-left: 0px;
+    margin-bottom: 1px;
+}
+
+
+/* width */
+#scroller-id::-webkit-scrollbar {
+  width: 12px;
+}
+
+/* Track */
+#scroller-id::-webkit-scrollbar-track {
+  box-shadow: inset 0 0 15px #aadbd9;; 
+  border-radius: 25%;
+}
+ 
+/* Handle */
+#scroller-id::-webkit-scrollbar-thumb {
+  background: #67e2e2; 
+  border-radius: 5px;
+}
+
+/* Handle on hover */
+#scroller-id::-webkit-scrollbar-thumb:hover {
+  background: #67e2e2; 
+}
+.col-md-offset-8 {
+    max-width: 100%;
+}
+
+[type=button]:not(:disabled), [type=reset]:not(:disabled), [type=submit]:not(:disabled), button:not(:disabled) {
+    cursor: pointer;
+}
+
+button.btn-1 {
+    background: #464343;
+    border: unset;
+    width: 24px;
+    height: 21px;
+    margin: 0px;
+    text-align: center;
+    display: inherit;
+    line-height: 17px;
+    color: #fff;
+    float: left;
+    margin-right: 6px;
+}
+
+button.btn-2 {
+    background: #fff;
+    height: 23px;
+    margin: 0px;
+    text-align: center;
+    display: inherit;
+    line-height: 17px;
+    color: #67e2e2;
+    float: left;
+    margin-right: 6px;
+    font-size: 8px;
+    border: 1px solid #767676;
+    border-radius: 7px;
+    padding: 0px 6px;
+    margin-top: -1px;
+}
+
+/*  my custom */
+
+.form-element {
+    display: flex;
+    flex-direction: column;
+    width: auto;
+    min-width: 130px;
+    flex: 1 1 130px;
+}
+
+.form-element.small {
+    display: flex;
+    flex-direction: column;
+    width: auto;
+    min-width: 100px;
+    flex: 1 1 100px;
+    margin-right: 1em;
+}
+
+    .form-element > label {
+        max-height: 36px;
+        /*margin-bottom: -0.2em;*/
+        margin-bottom: 0em;
+    }
+
+
+.two-thirds {
+    flex: 2;
+    min-width: 200px;
+}
+
+.one-thirds {
+    flex: 1;
+}
+
+.half {
+    margin-right: 0px;
+}
+
+
+.to-right {
+    margin-right: 0px;
+}
+
+.recommendationRow {
+    background: #beb6b6;
+    padding-right: 6px;
+    padding-left: 6px;
+    padding-top: 9px;
+    padding-bottom: 9px;
+    min-height: 165px;
+
+}
+
+.recommendationRow .form-element {
+    display: flex;
+    flex-direction: column;
+    min-width: 50px;
+    width: auto;
+    flex: 1 1 50px;
+    margin-right: 0.3em;
+}
+
+.recommendationRow .row {
+    width: 100%;
+}
+
+.distributionRow {
+    padding-right: 6px;
+    padding-left: 6px;
+    padding-top: 9px;
+    padding-bottom: 20px;
+    border: 1px solid black;
+    min-height: 180px;
+}
+
+.distributionRow .form-element {
+    display: flex;
+    flex-direction: column;
+    min-width: 50px;
+    width: auto;
+    flex: 1 1 50px;
+    margin-right: 0.3em;
+}
+
+.distributionRow .row .form-element:nth-child(3) {
+    margin-right: 0.6em;
+}
+
+.hide{
+    display: none;
+}
+
+.distributionBox {
+    flex: 1;
+    margin-right: 1em;
+}
+
+.recommendationBox {
+    flex: 2;
+}
+
+.project-preview .items .row {
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
+#emailBox {
+    position: absolute;
+    top: 7px;
+    z-index: 20;
+    background: lightgoldenrodyellow;
+    width: 75%;
+    margin-right: 12.5%;
+    margin-left: 12.5%;
+    padding: 10px;
+    border: 1px solid grey;
+}
+    
+#emailBody {
+    background: white;
+}
+
+#emailBox .top-area {
+    height: 80px;
+}
+
+.project-info-container > .project-details  .row.button-bar {
+    padding-top: 5px;
+    justify-content: flex-end;
+    margin-bottom: 0;
+}
+
+.project-info-container > .project-details  .row.button-bar .btn {
+    margin-left: 1em;
+}
+
+.dist-expand-btn, .dist-reduce-btn {
+    padding-left: 10px;
+}
+
+.distributionBox > .row span {
+    cursor: pointer;
+}
+
+.row.button-bar .btn {
+    margin-left: 1em;
+}
+
+#switchBox {
+    height: 30px;
+}
+
+.k-tabstrip-items .k-link {
+    padding: 5px 5px;
+}
+
+.project-info-container > .project-details {
+    padding-bottom: 0.5em;
+}
+
+.recommendationBox .form-element > label {
+    color: black; 
+}
+
+

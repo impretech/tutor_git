@@ -1,0 +1,1167 @@
+﻿.inner_body {
+    background: #f2f0f0;
+    position: relative;
+    padding: 18px 6px;
+    border: 1px solid #d0c9c9;
+    padding-right: 24px;
+    margin: 7px 5px;
+    background: #fff;
+    padding: 7px;
+    padding-left: 11px;
+    width: 100%;
+}
+
+.row {
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
+}
+
+.col, .col-1, .col-10, .col-11, .col-12, .col-2, .col-3, .col-4, .col-5, .col-6, .col-7, .col-8, .col-9, .col-auto, .col-lg, .col-lg-1, .col-lg-10, .col-lg-11, .col-lg-12, .col-lg-2, .col-lg-3, .col-lg-4, .col-lg-5, .col-lg-6, .col-lg-7, .col-lg-8, .col-lg-9, .col-lg-auto, .col-md, .col-md-1, .col-md-10, .col-md-11, .col-md-12, .col-md-2, .col-md-3, .col-md-4, .col-md-5, .col-md-6, .col-md-7, .col-md-8, .col-md-9, .col-md-auto, .col-sm, .col-sm-1, .col-sm-10, .col-sm-11, .col-sm-12, .col-sm-2, .col-sm-3, .col-sm-4, .col-sm-5, .col-sm-6, .col-sm-7, .col-sm-8, .col-sm-9, .col-sm-auto, .col-xl, .col-xl-1, .col-xl-10, .col-xl-11, .col-xl-12, .col-xl-2, .col-xl-3, .col-xl-4, .col-xl-5, .col-xl-6, .col-xl-7, .col-xl-8, .col-xl-9, .col-xl-auto {
+    position: relative;
+    width: 100%;
+    padding-left: 15px;
+    padding-right: 15px;
+}
+
+@media (min-width: 768px) {
+    .col-md-3 {
+        -ms-flex: 0 0 25%;
+        flex: 0 0 25%;
+        max-width: 25%;
+    }
+}
+
+.project-info-container .row {
+    margin-right: 0px;
+    margin-left: 0px;
+    margin-bottom: 1px;
+}
+
+
+/* width */
+#scroller-id::-webkit-scrollbar {
+    width: 12px;
+}
+
+/* Track */
+#scroller-id::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 15px #aadbd9;
+    ;
+    border-radius: 25%;
+}
+
+/* Handle */
+#scroller-id::-webkit-scrollbar-thumb {
+    background: #67e2e2;
+    border-radius: 5px;
+}
+
+    /* Handle on hover */
+    #scroller-id::-webkit-scrollbar-thumb:hover {
+        background: #67e2e2;
+    }
+
+.col-md-offset-8 {
+    max-width: 100%;
+}
+
+[type=button]:not(:disabled), [type=reset]:not(:disabled), [type=submit]:not(:disabled), button:not(:disabled) {
+    cursor: pointer;
+}
+
+button.btn-1 {
+    background: #464343;
+    border: unset;
+    width: 24px;
+    height: 21px;
+    margin: 0px;
+    text-align: center;
+    display: inline;
+    line-height: 17px;
+    color: #fff;
+    margin-right: 6px;
+    margin-right: 6px;
+}
+
+    button.btn-1:disabled {
+        background: grey;
+    }
+
+.five-ten button.btn-1 {
+    background: #464343;
+    border: unset;
+    width: 24px;
+    height: 21px;
+    margin: 0px;
+    text-align: center;
+    display: inline;
+    line-height: 17px;
+    color: #fff;
+    margin-right: 6px;
+    margin-left: 6px;
+}
+
+
+button.btn-2 {
+    background: #fff;
+    height: 23px;
+    margin: 0px;
+    text-align: center;
+    display: inherit;
+    line-height: 17px;
+    color: #67e2e2;
+    float: left;
+    margin-right: 6px;
+    font-size: 8px;
+    border: 1px solid #767676;
+    border-radius: 7px;
+    padding: 0px 6px;
+    margin-top: -1px;
+}
+
+/*  my custom */
+
+.form-element {
+    display: flex;
+    flex-direction: column;
+    width: auto;
+    min-width: 130px;
+    flex: 1 1 130px;
+}
+
+    .form-element.small {
+        display: flex;
+        flex-direction: column;
+        width: auto;
+        min-width: 100px;
+        flex: 1 1 100px;
+        margin-right: 1em;
+    }
+
+    .form-element.tiny {
+        display: flex;
+        flex-direction: column;
+        width: auto;
+        min-width: 60px;
+        flex: 0.3 0.3 60px;
+        margin-right: 1em;
+    }
+
+
+
+
+    .form-element > label {
+        max-height: 36px;
+        margin-bottom: 0em;
+    }
+
+
+.two-thirds {
+    flex: 2;
+    min-width: 200px;
+}
+
+.one-thirds {
+    flex: 1;
+}
+
+.half {
+    margin-right: 0px;
+}
+
+.five-ten {
+    flex: 5;
+    min-width: 110px;
+}
+
+.three-ten {
+    flex: 3;
+    min-width: 50px;
+    margin-right: 2em;
+}
+
+.two-ten {
+    flex: 2;
+    min-width: 20px;
+}
+
+.to-right {
+    margin-right: 0px;
+}
+
+.categoryBox {
+    background: #beb6b6;
+    padding-right: 6px;
+    padding-left: 6px;
+    padding-top: 9px;
+    padding-bottom: 9px;
+    min-height: 130px;
+    height: 290px;
+}
+
+    .categoryBox .form-element > label {
+        color: black;
+    }
+
+    .categoryBox .form-element > span {
+        line-height: 20px;
+    }
+
+    .categoryBox .form-element:first-child > span {
+        line-height: 20px;
+        padding-left: 1.2em;
+     }
+
+    .categoryBox .form-element > span.title {
+        font-weight: bold;
+        /*text-align: center;*/
+    }
+
+    .categoryBox .form-element:first-child > span.title {
+        font-weight: bold;
+        text-align: left;
+    }
+
+    .categoryBox .row {
+        padding-bottom: 0.2em;
+        padding-top: 0.2em;
+    }
+
+    .categoryBox span {
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+    .categoryBox .form-element > span, .categoryBox .form-element input {
+        font-size: 11px;
+        height: 20px;
+    }
+
+.budgetRow {
+    border-radius: 10px;
+    padding: 0.5em;
+    padding-right: 0;
+    background: rgba(239, 241, 216, 0.7);
+    box-shadow: 0px 0px 10px 2px rgba(239, 241, 216, 0.7);
+}
+
+.hide {
+    display: none;
+}
+
+
+
+.project-preview .items .row {
+    margin-left: 0px;
+    margin-right: 0px;
+}
+
+#emailBox {
+    position: absolute;
+    top: 7px;
+    z-index: 20;
+    background: lightgoldenrodyellow;
+    width: 75%;
+    margin-right: 12.5%;
+    margin-left: 12.5%;
+    border: 1px solid grey;
+}
+
+
+
+    #emailBox .top-area {
+        height: 125px;
+    }
+
+    #emailBox .email-toolbar {
+        border-bottom: 1px solid lightgrey;
+        padding: 7px;
+        background: lightsteelblue;
+        min-height: 45px;
+    }
+
+    #emailBox .email-header {
+        padding: 7px;
+    }
+
+#emailBody {
+    background: white;
+    padding: 7px;
+}
+
+.project-info-container > .project-details .row.button-bar {
+    padding-top: 5px;
+    justify-content: flex-end;
+    margin-bottom: 0;
+}
+
+    .project-info-container > .project-details .row.button-bar .btn {
+        margin-left: 1em;
+    }
+
+.dist-expand-btn, .dist-reduce-btn {
+    padding-left: 10px;
+}
+
+.distributionBox > .row span {
+    cursor: pointer;
+}
+
+.row.button-bar .btn {
+    margin-left: 1em;
+}
+
+#switchBox {
+    height: 30px;
+}
+
+.k-tabstrip-items .k-link {
+    padding: 5px 5px;
+}
+
+.project-info-container > .project-details {
+    padding-bottom: 0.5em;
+}
+
+
+
+    /* Index update */
+    .project-info-container > .project-details > .row {
+        display: flex;
+        margin-bottom: 1em;
+        justify-content: space-between;
+        margin-right: 0px;
+        margin-left: 0px;
+    }
+
+
+#window .row, #edit-window .row, #detail-window .row, #detail-move-window .row {
+    margin-left: 0px;
+}
+
+.responseBox .form-element > label {
+    color: black;
+}
+
+
+
+.first-column {
+    flex: 4;
+    margin-right: 0px;
+}
+
+.second-column {
+    flex: 4;
+    margin-right: 0px;
+}
+
+.project-budget-bar .popOut {
+    z-index: 1;
+}
+
+#budget-chart + .score {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 100px;
+    height: 100px;
+    margin-top: -50px;
+    margin-left: -50px;
+    font-size: 2em;
+    line-height: 100px;
+    vertical-align: middle;
+    text-align: center;
+    color: #333;
+}
+
+    #budget-chart + .score.green {
+        color: #87d674;
+    }
+
+    #budget-chart + .score.yellow {
+        color: #ffbf48;
+    }
+
+    #budget-chart + .score.red {
+        color: #c03c53;
+    }
+
+.categories {
+    /*height: 140px;
+    overflow-y: scroll;*/
+}
+
+    /* width */
+    .categories::-webkit-scrollbar {
+        width: 12px;
+    }
+
+    /* Track */
+    .categories::-webkit-scrollbar-track {
+        box-shadow: inset 0 0 15px #aadbd9;
+        ;
+        border-radius: 25%;
+    }
+
+    /* Handle */
+    .categories::-webkit-scrollbar-thumb {
+        background: #67e2e2;
+        border-radius: 5px;
+    }
+
+        /* Handle on hover */
+        .categories::-webkit-scrollbar-thumb:hover {
+            background: #67e2e2;
+        }
+
+    /*.categories .row:nth-of-type(odd) {
+        background-color: #c8e3c1;
+    }*/
+
+#codeList .row:nth-of-type(odd),
+#invoicing .row:nth-of-type(odd) {
+    background-color: #c8e3c1;
+}
+
+    .categories .form-element > span, .categories .form-element > input {
+        font-size: 11px;
+        height: 20px;
+    }
+
+    .categories .form-element > span {
+        font-size: 11px;
+        line-height: 20px;
+    }
+
+    .categories .editing {
+        background: lightyellow;
+    }
+
+    .categories .category-link {
+        text-decoration: underline;
+        cursor: pointer;
+        white-space: nowrap;
+        overflow: hidden;
+        text-overflow: ellipsis;
+    }
+
+
+.detail-data  tbody tr.editing {
+    background: lightyellow;
+}
+
+    .detail-data  tbody tr.editing input {
+        background: lightyellow;
+    }
+
+.detail-pane .subheading tbody tr.editing {
+    background: lightyellow;
+}
+
+    .detail-pane .subheading tbody tr.editing input {
+        background: lightyellow;
+    }
+.detail-pane div.title {
+    background-color: #3392a7;
+    line-height: 28px;
+    font-weight: bold;
+    padding-left: 10px;
+}
+.detail-pane .subheading tbody tr.total-row {
+    background: #c8e3c1;
+}
+
+.detail-pane .detail-category {
+    font-weight: bold;
+    width: 200px;
+    padding-left: 10px;
+}
+
+.summary .form-element > span, .summary .form-element > input {
+    font-size: 11px;
+    height: 20px;
+}
+
+.summary .form-element > span {
+    font-size: 11px;
+    line-height: 20px;
+}
+
+
+
+
+.da-span {
+    font-size: 9px;
+    color: #3392a7; /*#1130d4*/
+}
+
+#contributors {
+    height: 140px;
+    overflow-y: scroll;
+    padding-left: 5px;
+}
+
+    #contributors li, #contributors div {
+        list-style: none;
+        font-size: 14px;
+        font-weight: 200;
+        color: black;
+        font-family: 'Lato', sans-serif;
+    }
+
+.toggle-button {
+    background: darkgrey;
+    color: grey;
+    border: none;
+    /*border-radius: 2px;*/
+}
+
+    .toggle-button.selected {
+        background: #3392a7;
+        color: white;
+        border: none;
+    }
+
+
+#avl-pnd-sf, #avl-pnd {
+    display: none;
+}
+
+.summary .toggle-button {
+    font-size: 10px;
+}
+
+
+.summary .tooltip .tooltiptext {
+    width: 150px;
+}
+
+.summary .tooltip-bottom {
+    top: 135%;
+    left: 0;
+    margin-left: -60px;
+    padding: 1px 1px;
+}
+
+.detail-pane {
+    display: none; /* none */
+    /*transition: all 1s ease-out;*/
+    width: 100%;
+}
+
+    .detail-pane table {
+        width: 100%;
+    }
+
+        .detail-pane table tr {
+            display: flex;
+        }
+
+        .detail-pane table td {
+            min-width: 70px;
+            text-align: left;
+            border-bottom: 1px solid lightgrey;
+        }
+
+            .detail-pane table td input {
+                width: 100%;
+                position: relative;
+                height: 30px;
+            }
+
+    .detail-pane .heading {
+        background: #a09999;
+        color: white;
+        /*display: flex;*/
+    }
+
+    .detail-pane .footer {
+        border: solid 1px #a09999;
+        background-color: #c8e3c1;
+        color: black;
+        font-weight: bold;
+        /*display: flex;*/
+    }
+        .detail-pane .footer .detail-subtotal {
+            text-align:right;
+        }
+    .detail-pane .itemlist {
+        
+        border: 1px solid lightgrey;
+    }
+        .detail-pane .itemlist tr {
+            /*margin-left: 15px;*/
+        }
+        .detail-data .itemlist td.center {
+            text-align: center;
+            }
+        .detail-data .itemlist td.right {
+            text-align: right;
+        }
+        .detail-pane .heading .form-element {
+            min-width: 30px;
+            flex: 1 1 30px;
+        }
+
+.detail-pane .detail-cat-desc {
+    white-space: nowrap;
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+        .detail-pane .heading thead tr {
+            /*margin-left: 15px;*/
+        }
+
+        /*.detail-pane .heading thead td {
+            text-align:center;
+        }*/
+    .detail-pane .subheading thead {
+        background: #3392a7;
+    }
+
+    #detail-window {
+        border: solid 1px lightgrey;
+    }
+
+    /*.k-numerictextbox input.k-input {
+        border: 1px solid #ccc;
+    }*/
+     
+    #detail-window div.row > div {
+            margin-right: 3px;
+        }
+    /*.detail-pane .subheading {
+        border: 1px solid lightgrey;
+    }
+
+        .detail-pane .subheading thead {
+            background: #3392a7;
+        }
+
+            .detail-pane .subheading thead tr {
+                margin: 2px 3px;
+                margin-left: 15px;
+            }
+
+        .detail-pane .subheading tbody {
+            background: #a09999;
+        }
+
+            .detail-pane .subheading tbody tr {
+                margin: 1px;
+                margin-left: 15px;
+                background: white;
+            }*/
+.detail-pane .detail-basis.k-combobox, .detail-pane .detail-basis.k-input, .detail-pane .detail-unit.k-combobox, .detail-pane .detail-unit.k-input,
+.detail-pane .detail-code.k-combobox {
+    height: 21.5px;
+    margin-top: -2px;
+}
+}
+
+.k-input.detail-code {
+    height: calc( 8px + 0.8em);
+}
+    .detail-pane .grand-total {
+        background: #a09999;
+    }
+
+        .detail-pane .grand-total tr {
+            background: lightyellow;
+        }
+
+
+    .detail-pane .detail-total-column {
+        text-align: right !important;
+    }
+
+.categories .three-ten input, .categories .two-ten input {
+    text-align: right;
+}
+
+.summary .three-ten input, .summary .two-ten input {
+    text-align: right;
+}
+
+input.currency {
+    text-align: right;
+}
+
+.currency.alert {
+    color: red;
+}
+
+input.number {
+    text-align: center;
+}
+
+.detail-pane td {
+    line-height: 22px;
+}
+.detail-data td {
+    line-height: 22px;
+}
+.detail-data table td input {
+    width: 100%;
+    position: relative;
+    height: 22px;
+}
+.detail-pane tr.hidden {
+    display: none;
+}
+
+.detail-pane table td.currency {
+    text-align: center;
+}
+
+.categories span.currency {
+    text-align: center;
+    padding-left: 0px;
+}
+
+.summary span.currency {
+    text-align: center;
+    padding-left: 0px;
+}
+
+table.heading td {
+    text-align: center;
+}
+
+.fa {
+    cursor: pointer;
+}
+
+.detail-menu-icon {
+    display: inline-block;
+    font: normal normal normal 14px/1 FontAwesome;
+    font-size: inherit;
+    text-rendering: auto;
+    -webkit-font-smoothing: antialiased;
+}
+
+    .detail-menu-icon::before {
+        content: "\f0c9";
+        font-size: 20px;
+        position: absolute;
+        left: 100%;
+    }
+
+.k-icon.k-i-arrow-60-down.k-menu-expand-arrow {
+    display: none;
+}
+
+
+.project-info-container > .project-details {
+    width: 100%;
+}
+
+
+.project-notes-handle {
+    background: #ffbf48;
+    padding: 9px 0;
+    z-index: 1;
+    width: 20px;
+    writing-mode: vertical-rl;
+    text-orientation: mixed;
+    text-align: center;
+    cursor: pointer;
+    height: 333px;
+}
+
+
+.project-info-container > .project-notes {
+    transition: all 12s linear;
+}
+
+.project-notes {
+    position: relative;
+    min-width: 220px;
+    height: 333px;
+}
+    .project-info-container > .project-notes.hide {
+        display: none;
+    }
+
+
+/* commit switch style */
+
+.innerSwitchBox .k-switch .k-switch-container {
+    height: 20px;
+    overflow: hidden;
+}
+
+
+
+.innerSwitchBox .k-switch {
+    width: 140px;
+}
+
+.innerSwitchBox .k-switch-handle {
+    width: 20px;
+    height: 20px;
+    top: 0px;
+    left: 5px;
+}
+
+.innerSwitchBox .k-switch-off .k-switch-handle {
+    left: 0;
+}
+
+.innerSwitchBox .k-switch-label-off, .innerSwitchBox .k-switch-label-on {
+    display: block;
+    width: 140px;
+}
+
+
+.innerSwitchBox .k-switch-label-on {
+    left: -65px;
+    color: #050744;
+}
+
+.innerSwitchBox .k-switch-label-off {
+    left: -10px;
+}
+
+
+
+.categoryBox span.k-switch {
+    padding-left: 0px !important;
+}
+
+/* custom switch style */
+
+.dateSwitchBox .k-switch .k-switch-container {
+    height: 20px;
+    overflow: hidden;
+}
+
+
+
+.dateSwitchBox .k-switch {
+    width: 100px;
+}
+
+.dateSwitchBox .k-switch-handle {
+    width: 20px;
+    height: 20px;
+    top: 0px;
+    left: 5px;
+}
+
+.dateSwitchBox .k-switch-off .k-switch-handle {
+    left: 0;
+}
+
+.dateSwitchBox .k-switch-label-off, .dateSwitchBox .k-switch-label-on {
+    display: block;
+    width: 100px;
+}
+
+
+.dateSwitchBox .k-switch-label-on {
+    left: -65px;
+    color: #050744;
+}
+
+.dateSwitchBox .k-switch-label-off {
+    left: -10px;
+}
+
+/* custom schedule switch style */
+
+.schedSwitchBox .k-switch .k-switch-container {
+    height: 20px;
+    overflow: hidden;
+}
+
+
+
+.schedSwitchBox .k-switch {
+    width: 50px;
+}
+
+.schedSwitchBox .k-switch-handle {
+    width: 20px;
+    height: 20px;
+    top: 0px;
+    left: 26px;
+}
+
+.schedSwitchBox .k-switch-off .k-switch-handle {
+    left: -1px;
+}
+
+.schedSwitchBox .k-switch-on .k-switch-handle {
+    left: 26px;
+}
+
+.schedSwitchBox .k-switch-label-off, .schedSwitchBox .k-switch-label-on {
+    display: block;
+    width: 50px;
+}
+
+
+.schedSwitchBox .k-switch-label-on {
+    left: 2px;
+    color: #050744;
+}
+
+.schedSwitchBox .k-switch-label-off {
+    left: -3px;
+}
+
+.schedSwitchBox .k-switch-off .k-switch-container {
+    background-color: #a2a0a0;
+}
+
+
+.project-info-container .project-notes > div {
+    height: 100%;
+}
+
+.tooltip-top {
+    bottom: 125%;
+    left: 0%;
+    margin-left: -5px;
+}
+
+.project-info-container .project-notes .note-block > .previous-notes {
+    height: 325px;
+}
+
+.totals-box-right {
+    margin-left: auto;
+    margin-right: 0;
+}
+
+.td-col-width {
+    width: 100px;
+}
+
+.po-sub-header {
+    background-color: #beb6b6;
+}
+
+
+
+.address {
+    height: 6em;
+}
+
+
+/*.detail-pane table td input {
+    width: 100%;
+    height: 100%;
+}*/
+
+.summary .form-element > span, .summary .form-element > input {
+    height: 30px;
+    font-size: 14px;
+}
+
+.custom-row {
+    padding-bottom: 15px;
+}
+
+.currency-format {
+    text-align: right;
+    /*font-size: 15px !important;*/
+}
+
+.currency-align {
+    text-align: right;
+}
+
+.center-align {
+    text-align: center;
+}
+
+.project-info-container {
+    background: #fff;
+    padding-top: 10px;
+    justify-content: space-between;
+    display: block;
+}
+
+
+.top-table-header {
+    background-color: #a09999 !important;
+    color: white;
+}
+
+.top-table-subheader {
+    background: #3392a7;
+    line-height: 20px;
+}
+
+.top-table-subheader tr {
+    background: #3392a7;
+}
+
+.detail-pane .subheading tbody tr {
+    margin: 1px;
+    margin-left: 15px;
+    background: white;
+}
+
+
+/*tbody {
+    background: #a09999 !important;
+}*/
+
+/*.categoryBox .row:nth-of-type(odd) {
+    background-color: #c8e3c1;
+}*/
+
+.btn.lightGray {
+    background-color: #999999;
+}
+.btn.lightGray:hover {
+    background-color: #d5d5d5;
+}
+
+.flex-container {
+  display: flex;
+  /*background-color: DodgerBlue;*/
+}
+
+.flex-container > input {
+    width: 50%;
+    border: none;
+    font-size: 14px;
+    font-weight: 200;
+    color: black;
+    font-family: 'Lato', sans-serif;
+}
+   
+
+
+#detail-window label{
+    text-align:center;
+}
+
+#detail-window .k-widget input {
+    height: calc( 8px + 0.9em);
+}
+
+#detail-window input {
+    height: calc( 8px + 1.05555555em);
+}
+
+.detail-pane .k-datepicker input.k-input {
+    height: calc( 8px + 0.9em);
+}
+.detail-pane .k-dropdown-wrap input.k-input {
+    height: calc( 8px + 0.9em);
+}
+.detail-pane .k-autocomplete,
+.detail-pane .k-flatcolorpicker .k-color-value,
+.detail-pane .k-combobox .k-dropdown-wrap,
+.detail-pane .k-datepicker .k-picker-wrap,
+.detail-pane .k-timepicker .k-picker-wrap,
+.detail-pane .k-datetimepicker .k-picker-wrap,
+.detail-pane .k-dateinput .k-dateinput-wrap,
+.detail-pane .k-textbox,
+.detail-pane .k-textarea,
+.detail-pane .k-input.k-textbox,
+.detail-pane .k-multiselect-wrap,
+.detail-pane .k-numerictextbox .k-numeric-wrap {
+    border-color: #ccc;
+    height: 23.5px;
+    font-size:12px;
+}
+
+.detail-pane .detail-data .k-k-numerictextbox input.k-input {
+    margin-top: -5px;
+    text-align: right;
+    margin-left: 3px;
+    width: calc(100% - 20px) !important;
+}
+
+.detail-pane .detail-data input{
+    font-size:12px !important;
+}
+
+table.heading thead td {
+    text-align:right;
+}
+
+table.footer thead td {
+    text-align: right;
+}
+
+span.detail-cat-desc,
+div.detail-avail-funds,
+div.detail-cost,
+div.detail-fund-balance {
+    /*border: solid 1px lightgrey;*/
+    height: 100%;
+}
+
+#extensionForm {
+    padding: 10px 0 10px 10px;
+    margin-right: 10px;
+}
+
+
+/* Extension detail*/
+
+.ext-detail-data tbody tr.editing {
+    background: lightyellow;
+}
+
+    .ext-detail-data tbody tr.editing input {
+        background: lightyellow;
+    }
+
+.ext-detail-data .itemlist td.center {
+    text-align: center;
+}
+
+.ext-detail-data .itemlist td.right {
+    text-align: right;
+}
+
+.ext-detail-data td {
+    line-height: 22px;
+}
+
+.ext-detail-data table td input {
+    width: 100%;
+    position: relative;
+    height: 22px;
+}
+
+.detail-pane .ext-detail-data .k-k-numerictextbox input.k-input {
+    margin-top: -5px;
+    text-align: right;
+    margin-left: 3px;
+    width: calc(100% - 20px) !important;
+}
+
+.detail-pane .ext-detail-data input {
+    font-size: 12px !important;
+}
+
+#codeList {
+    height: 228px;
+    overflow: auto;
+}
+
+#quoteDetail .row .title{
+    width:70px;
+    font-weight:600;
+}
+
+/*#quoteDetail .row {
+    font-family: 'Lato', sans-serif;
+    font-size: 12px;
+}*/

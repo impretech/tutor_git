@@ -1,0 +1,266 @@
+﻿<Project Sdk="Microsoft.NET.Sdk.Web">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.2</TargetFramework>
+    <TypeScriptToolsVersion>Latest</TypeScriptToolsVersion>
+    <AssemblyName>Portal</AssemblyName>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Content Remove="wwwroot\js\templates\messagingts.js" />
+    <Content Remove="wwwroot\typescript\@types\gantt\index.d.ts" />
+    <Content Remove="wwwroot\typescript\@types\scheduler\index.d.ts" />
+    <Content Remove="wwwroot\typescript\accordian.ts" />
+    <Content Remove="wwwroot\typescript\components\alerts-custom-panel.ts" />
+    <Content Remove="wwwroot\typescript\components\document-cards.ts" />
+    <Content Remove="wwwroot\typescript\components\email.ts" />
+    <Content Remove="wwwroot\typescript\components\events.ts" />
+    <Content Remove="wwwroot\typescript\components\location.ts" />
+    <Content Remove="wwwroot\typescript\components\project-budget-bar.ts" />
+    <Content Remove="wwwroot\typescript\components\project-schedule-bar.ts" />
+    <Content Remove="wwwroot\typescript\components\sliding-panel.ts" />
+    <Content Remove="wwwroot\typescript\components\tabs.ts" />
+    <Content Remove="wwwroot\typescript\contacts.ts" />
+    <Content Remove="wwwroot\typescript\messagehelper.ts" />
+    <Content Remove="wwwroot\typescript\messagingts.ts" />
+    <Content Remove="wwwroot\typescript\pmassignments.ts" />
+    <Content Remove="wwwroot\typescript\project-control-center.ts" />
+    <Content Remove="wwwroot\typescript\project-details.ts" />
+    <Content Remove="wwwroot\typescript\purchaseOrders.ts" />
+    <Content Remove="wwwroot\typescript\purchaseOrders_old.ts" />
+    <Content Remove="wwwroot\typescript\rfis.ts" />
+    <Content Remove="wwwroot\typescript\scheduling.ts" />
+    <Content Remove="wwwroot\typescript\submittals.ts" />
+    <Content Remove="wwwroot\typescript\utilities.ts" />
+    <Content Remove="wwwroot\typescript\vendors.ts" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.App" />
+    <PackageReference Include="Microsoft.AspNetCore.Authentication.Cookies" Version="2.2.0" />
+    <PackageReference Include="Microsoft.Azure.WebJobs.Extensions.SendGrid" Version="3.0.0" />
+    <PackageReference Include="Microsoft.EntityFrameworkCore.SqlServer.Design" Version="1.1.6" />
+    <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="2.2.4" />
+    <PackageReference Include="Okta.AspNetCore" Version="1.1.5" />
+    <PackageReference Include="System.ServiceModel.Duplex" Version="4.7.0" />
+    <PackageReference Include="System.ServiceModel.Http" Version="4.7.0" />
+    <PackageReference Include="System.ServiceModel.NetTcp" Version="4.5.3" />
+    <PackageReference Include="System.ServiceModel.Security" Version="4.7.0" />
+    <PackageReference Include="Telerik.UI.for.AspNet.Core.Trial" Version="2020.1.219" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <TypeScriptCompile Include="wwwroot\lib\gantt\codebase\dhtmlxgantt.d.ts" />
+    <TypeScriptCompile Include="wwwroot\typescript\%40types\gantt\index.d.ts" />
+    <TypeScriptCompile Include="wwwroot\typescript\@types\scheduler\index.d.ts" />
+    <TypeScriptCompile Include="wwwroot\typescript\components\accordian.ts" />
+    <TypeScriptCompile Include="wwwroot\typescript\app.ts" />
+    <TypeScriptCompile Include="wwwroot\typescript\components\document-cards.ts" />
+    <TypeScriptCompile Include="wwwroot\typescript\components\email.ts" />
+    <TypeScriptCompile Include="wwwroot\typescript\components\events.ts" />
+    <TypeScriptCompile Include="wwwroot\typescript\components\alerts-custom-panel.ts" />
+    <TypeScriptCompile Include="wwwroot\typescript\components\location.ts" />
+    <TypeScriptCompile Include="wwwroot\typescript\components\project-schedule-bar.ts" />
+    <TypeScriptCompile Include="wwwroot\typescript\components\project-budget-bar.ts" />
+    <TypeScriptCompile Include="wwwroot\typescript\components\sliding-panel.ts" />
+    <TypeScriptCompile Include="wwwroot\typescript\components\tabs.ts" />
+    <TypeScriptCompile Include="wwwroot\typescript\contacts.ts" />
+    <TypeScriptCompile Include="wwwroot\typescript\messagehelper.ts" />
+    <TypeScriptCompile Include="wwwroot\typescript\messagingts.ts" />
+    <TypeScriptCompile Include="wwwroot\typescript\project-details.ts" />
+    <TypeScriptCompile Include="wwwroot\typescript\project-control-center.ts" />
+    <TypeScriptCompile Include="wwwroot\typescript\purchaseOrders.ts" />
+    <TypeScriptCompile Include="wwwroot\typescript\purchaseOrders_old.ts" />
+    <TypeScriptCompile Include="wwwroot\typescript\rfis.ts" />
+    <TypeScriptCompile Include="wwwroot\typescript\pmassignments.ts" />
+    <TypeScriptCompile Include="wwwroot\typescript\scheduling.ts" />
+    <TypeScriptCompile Include="wwwroot\typescript\submittals.ts" />
+    <TypeScriptCompile Include="wwwroot\typescript\utilities.ts" />
+    <TypeScriptCompile Include="wwwroot\typescript\vendors.ts" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Include="wwwroot\lib\gantt\codebase\dhtmlxgantt.js" />
+    <None Include="wwwroot\lib\gantt\codebase\dhtmlxgantt.js.map" />
+    <None Include="wwwroot\lib\gantt\codebase\ext\dhtmlxgantt_auto_scheduling.js" />
+    <None Include="wwwroot\lib\gantt\codebase\ext\dhtmlxgantt_auto_scheduling.js.map" />
+    <None Include="wwwroot\lib\gantt\codebase\ext\dhtmlxgantt_click_drag.js" />
+    <None Include="wwwroot\lib\gantt\codebase\ext\dhtmlxgantt_click_drag.js.map" />
+    <None Include="wwwroot\lib\gantt\codebase\ext\dhtmlxgantt_critical_path.js" />
+    <None Include="wwwroot\lib\gantt\codebase\ext\dhtmlxgantt_critical_path.js.map" />
+    <None Include="wwwroot\lib\gantt\codebase\ext\dhtmlxgantt_csp.js" />
+    <None Include="wwwroot\lib\gantt\codebase\ext\dhtmlxgantt_csp.js.map" />
+    <None Include="wwwroot\lib\gantt\codebase\ext\dhtmlxgantt_fullscreen.js" />
+    <None Include="wwwroot\lib\gantt\codebase\ext\dhtmlxgantt_fullscreen.js.map" />
+    <None Include="wwwroot\lib\gantt\codebase\ext\dhtmlxgantt_grouping.js" />
+    <None Include="wwwroot\lib\gantt\codebase\ext\dhtmlxgantt_grouping.js.map" />
+    <None Include="wwwroot\lib\gantt\codebase\ext\dhtmlxgantt_keyboard_navigation.js" />
+    <None Include="wwwroot\lib\gantt\codebase\ext\dhtmlxgantt_keyboard_navigation.js.map" />
+    <None Include="wwwroot\lib\gantt\codebase\ext\dhtmlxgantt_marker.js" />
+    <None Include="wwwroot\lib\gantt\codebase\ext\dhtmlxgantt_marker.js.map" />
+    <None Include="wwwroot\lib\gantt\codebase\ext\dhtmlxgantt_multiselect.js" />
+    <None Include="wwwroot\lib\gantt\codebase\ext\dhtmlxgantt_multiselect.js.map" />
+    <None Include="wwwroot\lib\gantt\codebase\ext\dhtmlxgantt_overlay.js" />
+    <None Include="wwwroot\lib\gantt\codebase\ext\dhtmlxgantt_overlay.js.map" />
+    <None Include="wwwroot\lib\gantt\codebase\ext\dhtmlxgantt_quick_info.js" />
+    <None Include="wwwroot\lib\gantt\codebase\ext\dhtmlxgantt_quick_info.js.map" />
+    <None Include="wwwroot\lib\gantt\codebase\ext\dhtmlxgantt_smart_rendering.js" />
+    <None Include="wwwroot\lib\gantt\codebase\ext\dhtmlxgantt_smart_rendering.js.map" />
+    <None Include="wwwroot\lib\gantt\codebase\ext\dhtmlxgantt_tooltip.js" />
+    <None Include="wwwroot\lib\gantt\codebase\ext\dhtmlxgantt_tooltip.js.map" />
+    <None Include="wwwroot\lib\gantt\codebase\ext\dhtmlxgantt_undo.js" />
+    <None Include="wwwroot\lib\gantt\codebase\ext\dhtmlxgantt_undo.js.map" />
+    <None Include="wwwroot\lib\gantt\codebase\locale\locale.js" />
+    <None Include="wwwroot\lib\gantt\codebase\locale\locale.js.map" />
+    <None Include="wwwroot\lib\gantt\codebase\locale\locale_ar.js" />
+    <None Include="wwwroot\lib\gantt\codebase\locale\locale_ar.js.map" />
+    <None Include="wwwroot\lib\gantt\codebase\locale\locale_be.js" />
+    <None Include="wwwroot\lib\gantt\codebase\locale\locale_be.js.map" />
+    <None Include="wwwroot\lib\gantt\codebase\locale\locale_ca.js" />
+    <None Include="wwwroot\lib\gantt\codebase\locale\locale_ca.js.map" />
+    <None Include="wwwroot\lib\gantt\codebase\locale\locale_cn.js" />
+    <None Include="wwwroot\lib\gantt\codebase\locale\locale_cn.js.map" />
+    <None Include="wwwroot\lib\gantt\codebase\locale\locale_cs.js" />
+    <None Include="wwwroot\lib\gantt\codebase\locale\locale_cs.js.map" />
+    <None Include="wwwroot\lib\gantt\codebase\locale\locale_da.js" />
+    <None Include="wwwroot\lib\gantt\codebase\locale\locale_da.js.map" />
+    <None Include="wwwroot\lib\gantt\codebase\locale\locale_de.js" />
+    <None Include="wwwroot\lib\gantt\codebase\locale\locale_de.js.map" />
+    <None Include="wwwroot\lib\gantt\codebase\locale\locale_el.js" />
+    <None Include="wwwroot\lib\gantt\codebase\locale\locale_el.js.map" />
+    <None Include="wwwroot\lib\gantt\codebase\locale\locale_es.js" />
+    <None Include="wwwroot\lib\gantt\codebase\locale\locale_es.js.map" />
+    <None Include="wwwroot\lib\gantt\codebase\locale\locale_fa.js" />
+    <None Include="wwwroot\lib\gantt\codebase\locale\locale_fa.js.map" />
+    <None Include="wwwroot\lib\gantt\codebase\locale\locale_fi.js" />
+    <None Include="wwwroot\lib\gantt\codebase\locale\locale_fi.js.map" />
+    <None Include="wwwroot\lib\gantt\codebase\locale\locale_fr.js" />
+    <None Include="wwwroot\lib\gantt\codebase\locale\locale_fr.js.map" />
+    <None Include="wwwroot\lib\gantt\codebase\locale\locale_he.js" />
+    <None Include="wwwroot\lib\gantt\codebase\locale\locale_he.js.map" />
+    <None Include="wwwroot\lib\gantt\codebase\locale\locale_hr.js" />
+    <None Include="wwwroot\lib\gantt\codebase\locale\locale_hr.js.map" />
+    <None Include="wwwroot\lib\gantt\codebase\locale\locale_hu.js" />
+    <None Include="wwwroot\lib\gantt\codebase\locale\locale_hu.js.map" />
+    <None Include="wwwroot\lib\gantt\codebase\locale\locale_id.js" />
+    <None Include="wwwroot\lib\gantt\codebase\locale\locale_id.js.map" />
+    <None Include="wwwroot\lib\gantt\codebase\locale\locale_it.js" />
+    <None Include="wwwroot\lib\gantt\codebase\locale\locale_it.js.map" />
+    <None Include="wwwroot\lib\gantt\codebase\locale\locale_jp.js" />
+    <None Include="wwwroot\lib\gantt\codebase\locale\locale_jp.js.map" />
+    <None Include="wwwroot\lib\gantt\codebase\locale\locale_kr.js" />
+    <None Include="wwwroot\lib\gantt\codebase\locale\locale_kr.js.map" />
+    <None Include="wwwroot\lib\gantt\codebase\locale\locale_nb.js" />
+    <None Include="wwwroot\lib\gantt\codebase\locale\locale_nb.js.map" />
+    <None Include="wwwroot\lib\gantt\codebase\locale\locale_nl.js" />
+    <None Include="wwwroot\lib\gantt\codebase\locale\locale_nl.js.map" />
+    <None Include="wwwroot\lib\gantt\codebase\locale\locale_no.js" />
+    <None Include="wwwroot\lib\gantt\codebase\locale\locale_no.js.map" />
+    <None Include="wwwroot\lib\gantt\codebase\locale\locale_pl.js" />
+    <None Include="wwwroot\lib\gantt\codebase\locale\locale_pl.js.map" />
+    <None Include="wwwroot\lib\gantt\codebase\locale\locale_pt.js" />
+    <None Include="wwwroot\lib\gantt\codebase\locale\locale_pt.js.map" />
+    <None Include="wwwroot\lib\gantt\codebase\locale\locale_ro.js" />
+    <None Include="wwwroot\lib\gantt\codebase\locale\locale_ro.js.map" />
+    <None Include="wwwroot\lib\gantt\codebase\locale\locale_ru.js" />
+    <None Include="wwwroot\lib\gantt\codebase\locale\locale_ru.js.map" />
+    <None Include="wwwroot\lib\gantt\codebase\locale\locale_si.js" />
+    <None Include="wwwroot\lib\gantt\codebase\locale\locale_si.js.map" />
+    <None Include="wwwroot\lib\gantt\codebase\locale\locale_sk.js" />
+    <None Include="wwwroot\lib\gantt\codebase\locale\locale_sk.js.map" />
+    <None Include="wwwroot\lib\gantt\codebase\locale\locale_sv.js" />
+    <None Include="wwwroot\lib\gantt\codebase\locale\locale_sv.js.map" />
+    <None Include="wwwroot\lib\gantt\codebase\locale\locale_tr.js" />
+    <None Include="wwwroot\lib\gantt\codebase\locale\locale_tr.js.map" />
+    <None Include="wwwroot\lib\gantt\codebase\locale\locale_ua.js" />
+    <None Include="wwwroot\lib\gantt\codebase\locale\locale_ua.js.map" />
+    <None Include="wwwroot\lib\gantt\codebase\sources\dhtmlxgantt.js" />
+    <None Include="wwwroot\lib\gantt\codebase\sources\ext\dhtmlxgantt_auto_scheduling.js" />
+    <None Include="wwwroot\lib\gantt\codebase\sources\ext\dhtmlxgantt_click_drag.js" />
+    <None Include="wwwroot\lib\gantt\codebase\sources\ext\dhtmlxgantt_critical_path.js" />
+    <None Include="wwwroot\lib\gantt\codebase\sources\ext\dhtmlxgantt_csp.js" />
+    <None Include="wwwroot\lib\gantt\codebase\sources\ext\dhtmlxgantt_fullscreen.js" />
+    <None Include="wwwroot\lib\gantt\codebase\sources\ext\dhtmlxgantt_grouping.js" />
+    <None Include="wwwroot\lib\gantt\codebase\sources\ext\dhtmlxgantt_keyboard_navigation.js" />
+    <None Include="wwwroot\lib\gantt\codebase\sources\ext\dhtmlxgantt_marker.js" />
+    <None Include="wwwroot\lib\gantt\codebase\sources\ext\dhtmlxgantt_multiselect.js" />
+    <None Include="wwwroot\lib\gantt\codebase\sources\ext\dhtmlxgantt_overlay.js" />
+    <None Include="wwwroot\lib\gantt\codebase\sources\ext\dhtmlxgantt_quick_info.js" />
+    <None Include="wwwroot\lib\gantt\codebase\sources\ext\dhtmlxgantt_smart_rendering.js" />
+    <None Include="wwwroot\lib\gantt\codebase\sources\ext\dhtmlxgantt_tooltip.js" />
+    <None Include="wwwroot\lib\gantt\codebase\sources\ext\dhtmlxgantt_undo.js" />
+    <None Include="wwwroot\lib\gantt\codebase\sources\locale\locale.js" />
+    <None Include="wwwroot\lib\gantt\codebase\sources\locale\locale_ar.js" />
+    <None Include="wwwroot\lib\gantt\codebase\sources\locale\locale_be.js" />
+    <None Include="wwwroot\lib\gantt\codebase\sources\locale\locale_ca.js" />
+    <None Include="wwwroot\lib\gantt\codebase\sources\locale\locale_cn.js" />
+    <None Include="wwwroot\lib\gantt\codebase\sources\locale\locale_cs.js" />
+    <None Include="wwwroot\lib\gantt\codebase\sources\locale\locale_da.js" />
+    <None Include="wwwroot\lib\gantt\codebase\sources\locale\locale_de.js" />
+    <None Include="wwwroot\lib\gantt\codebase\sources\locale\locale_el.js" />
+    <None Include="wwwroot\lib\gantt\codebase\sources\locale\locale_es.js" />
+    <None Include="wwwroot\lib\gantt\codebase\sources\locale\locale_fa.js" />
+    <None Include="wwwroot\lib\gantt\codebase\sources\locale\locale_fi.js" />
+    <None Include="wwwroot\lib\gantt\codebase\sources\locale\locale_fr.js" />
+    <None Include="wwwroot\lib\gantt\codebase\sources\locale\locale_he.js" />
+    <None Include="wwwroot\lib\gantt\codebase\sources\locale\locale_hr.js" />
+    <None Include="wwwroot\lib\gantt\codebase\sources\locale\locale_hu.js" />
+    <None Include="wwwroot\lib\gantt\codebase\sources\locale\locale_id.js" />
+    <None Include="wwwroot\lib\gantt\codebase\sources\locale\locale_it.js" />
+    <None Include="wwwroot\lib\gantt\codebase\sources\locale\locale_jp.js" />
+    <None Include="wwwroot\lib\gantt\codebase\sources\locale\locale_kr.js" />
+    <None Include="wwwroot\lib\gantt\codebase\sources\locale\locale_nb.js" />
+    <None Include="wwwroot\lib\gantt\codebase\sources\locale\locale_nl.js" />
+    <None Include="wwwroot\lib\gantt\codebase\sources\locale\locale_no.js" />
+    <None Include="wwwroot\lib\gantt\codebase\sources\locale\locale_pl.js" />
+    <None Include="wwwroot\lib\gantt\codebase\sources\locale\locale_pt.js" />
+    <None Include="wwwroot\lib\gantt\codebase\sources\locale\locale_ro.js" />
+    <None Include="wwwroot\lib\gantt\codebase\sources\locale\locale_ru.js" />
+    <None Include="wwwroot\lib\gantt\codebase\sources\locale\locale_si.js" />
+    <None Include="wwwroot\lib\gantt\codebase\sources\locale\locale_sk.js" />
+    <None Include="wwwroot\lib\gantt\codebase\sources\locale\locale_sv.js" />
+    <None Include="wwwroot\lib\gantt\codebase\sources\locale\locale_tr.js" />
+    <None Include="wwwroot\lib\gantt\codebase\sources\locale\locale_ua.js" />
+    <None Include="wwwroot\lib\kendo-ui\styles\fonts\glyphs\KendoUIGlyphs.svg" />
+    <None Include="wwwroot\lib\kendo-ui\styles\fonts\glyphs\WebComponentsIcons.svg" />
+    <None Include="wwwroot\lib\perfect-scrollbar\dist\perfect-scrollbar.common.js" />
+    <None Include="wwwroot\lib\perfect-scrollbar\dist\perfect-scrollbar.js" />
+    <None Include="wwwroot\lib\perfect-scrollbar\docs\perfect-scrollbar.min.js" />
+    <None Include="wwwroot\lib\perfect-scrollbar\docs\prettify.js" />
+    <None Include="wwwroot\lib\perfect-scrollbar\dist\perfect-scrollbar.esm.min.d.ts" />
+    <None Include="wwwroot\lib\perfect-scrollbar\src\handlers\click-rail.js" />
+    <None Include="wwwroot\lib\perfect-scrollbar\src\handlers\drag-thumb.js" />
+    <None Include="wwwroot\lib\perfect-scrollbar\src\handlers\keyboard.js" />
+    <None Include="wwwroot\lib\perfect-scrollbar\src\handlers\mouse-wheel.js" />
+    <None Include="wwwroot\lib\perfect-scrollbar\src\handlers\touch.js" />
+    <None Include="wwwroot\lib\perfect-scrollbar\src\index.js" />
+    <None Include="wwwroot\lib\perfect-scrollbar\src\lib\class-names.js" />
+    <None Include="wwwroot\lib\perfect-scrollbar\src\lib\css.js" />
+    <None Include="wwwroot\lib\perfect-scrollbar\src\lib\dom.js" />
+    <None Include="wwwroot\lib\perfect-scrollbar\src\lib\event-manager.js" />
+    <None Include="wwwroot\lib\perfect-scrollbar\src\lib\util.js" />
+    <None Include="wwwroot\lib\perfect-scrollbar\src\process-scroll-diff.js" />
+    <None Include="wwwroot\lib\perfect-scrollbar\src\update-geometry.js" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <WCFMetadata Include="Connected Services" />
+  </ItemGroup>
+
+  <PropertyGroup Condition="'$(Configuration)' == 'Debug'">
+    <TypeScriptTarget>ES2015</TypeScriptTarget>
+    <TypeScriptJSXEmit>None</TypeScriptJSXEmit>
+    <TypeScriptModuleKind>ES6</TypeScriptModuleKind>
+    <TypeScriptCompileOnSaveEnabled>True</TypeScriptCompileOnSaveEnabled>
+    <TypeScriptNoImplicitAny>False</TypeScriptNoImplicitAny>
+    <TypeScriptRemoveComments>False</TypeScriptRemoveComments>
+    <TypeScriptOutFile />
+    <TypeScriptOutDir />
+    <TypeScriptGeneratesDeclarations>False</TypeScriptGeneratesDeclarations>
+    <TypeScriptNoEmitOnError>True</TypeScriptNoEmitOnError>
+    <TypeScriptSourceMap>True</TypeScriptSourceMap>
+    <TypeScriptMapRoot />
+    <TypeScriptSourceRoot />
+  </PropertyGroup>
+
+</Project>

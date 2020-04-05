@@ -1,0 +1,32 @@
+﻿@{
+    ViewData["Title"] = "Projects";
+}
+
+
+@section styles {
+    <link rel="stylesheet" href="~/css/list-page.css" />
+    <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet" />
+}
+
+<div class="page-header">
+    <h3>Projects</h3>
+</div>
+
+<div class="project-details-list">
+    <div class="action-item">
+        <h4 class="blue">Select a project below or </h4>
+        <button id="new-project-button" class="btn yellow">Start a New Project</button>
+    </div>
+
+    <div id="portfolio-grid"></div>
+</div>
+
+
+
+@section scripts {
+    <script type="module" asp-append-version="true">
+        import { ProjectDetailsList } from "/js/project-details.js"
+        new ProjectDetailsList(@Html.Raw(Json.Serialize(Model)));
+    </script>
+
+}

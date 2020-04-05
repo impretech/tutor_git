@@ -1,0 +1,657 @@
+﻿
+.action-item {
+    display: flex;
+    align-items: center;
+    margin-bottom: 1em;
+}
+
+.action-item h4 {
+    margin-right: 1em;
+}
+
+.btn {
+    color: #fff;
+    background-color: transparent;
+    outline: 0;
+    transition: background-color 0.3s ease;
+    font-family: inherit;
+    border: 0;
+    border-radius: 3px;
+    padding: 0.5em 1em;
+    font-size: 1em;
+    cursor: pointer;
+}
+
+    .btn.yellow {
+        background-color: #ffbf48;
+    }
+        .btn.yellow:hover {
+            background-color: #d4a754;
+        }
+
+    .btn.green {
+        background-color: #87D674;
+    }
+
+        .btn.green:hover {
+            background-color: #45BA29;
+        }
+
+    .btn.darkgreen {
+        background-color: #3392A7;
+    }
+        .btn.darkgreen:hover {
+            background-color: #3a7582;
+        }
+
+    .btn.darkred {
+        background-color: #cf5f67;
+    }
+        .btn.darkred:hover {
+            background-color: #ab6368;
+        }
+
+    .btn.gray {
+        background-color: #d5d5d5;
+    }
+
+        .btn.gray:hover {
+            background-color: #999;
+        }
+
+
+.btn:disabled, .btn:disabled:hover
+.btn[disabled], .btn[disabled]:hover {
+    background-color: #cccccc;
+    color: #666666;
+}
+.doc-button {
+    display: flex;
+    width: 2em;
+    margin-left: 1em;
+    cursor: pointer;
+    justify-content: center;
+}
+
+    .doc-button:hover > .icon {
+        fill: #ffffff;
+    }
+
+    .doc-button > .icon {
+        fill: #ffbf48;
+        width: 1.3em;
+        height: 2em;
+        transition: fill 0.3s ease-in;
+    }
+
+.doc-buttonPanel {
+    display: flex;
+    width: 2em;
+    margin-left: 1em;
+    cursor: pointer;
+    justify-content: center;
+}
+
+    .doc-buttonPanel:hover > .icon {
+        fill: #ffffff;
+    }
+
+    .doc-buttonPanel > .icon {
+        fill: #ffbf48;
+        width: 1.3em;
+        height: 2em;
+        transition: fill 0.3s ease-in;
+    }
+
+
+
+.project-info-container {
+    background: #fff;
+    padding-left: 10px;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    /*display: flex;*/
+    max-height:100%;
+    position:relative;
+    justify-content: space-between;
+    /*max-height: 450px;
+    overflow: scroll;*/
+}
+
+
+    .project-info-container > .project-details {
+        width: 98%;
+        border: 1px solid #ccc;
+        padding: 1em;
+        padding-right: 0px;
+        display: flex;
+        flex-direction: column;
+        background: #fcfcfc;
+    }
+
+        .project-info-container > .project-details > .row {
+            display: flex;
+            margin-bottom: 1em;
+            justify-content: space-between;
+            margin-right: 0px;
+            margin-left: 0px;
+            /*margin-bottom: 0px;*/
+        }
+
+            .project-info-container > .project-details > .row.button-bar {
+                justify-content: flex-end;
+                margin-bottom: 0;
+            }
+
+            .project-info-container > .project-details > .row.button-bar .btn {
+                margin-left: 1em;
+            }
+
+
+    .project-info-container > .project-notes {
+        width: 2%;
+        border: 1px solid #ccc;
+        display: flex;
+        flex-direction: column;
+        background: #fcfcfc;
+    }
+
+        .project-info-container > .project-notes > h4 {
+            border-bottom: 1px solid #ccc;
+            padding: 0.5em 1em;
+            background: #ffbf48;
+            color: #fff;
+            margin: 0;
+            text-align: center;
+        }
+
+        .project-info-container > .project-notes > textarea {
+            margin: 0;
+            border: 0;
+            padding: 5px;
+            color: #3392a7;
+            resize: none;
+        }
+
+        .project-info-container > .project-notes > .btn {
+            background: #fff;
+            color: #ffbf48;
+            border-top: 1px solid #ccc;
+            border-bottom: 1px solid #ccc;
+            border-radius: 0;
+        }
+
+        .project-info-container > .project-notes > .btn:hover {
+            background: #fcfcfc;
+        }
+
+        .project-info-container > .project-notes > .previous-notes {
+            overflow-y: auto;
+            height: 280px;
+        }
+
+            .project-info-container > .project-notes > .previous-notes > .note-item {
+                margin-bottom: 1em;
+            }
+
+            .project-info-container > .project-notes > .previous-notes > .note-item > .title {
+                border-top: 1px solid #eee;
+                color: #999;
+                font-size: 0.9em;
+                background: #f7f7f7;
+                padding: 3px 5px;
+            }
+
+            .project-info-container > .project-notes > .previous-notes > .note-item > .note {
+                padding: 5px;
+            }
+
+.form-element {
+    display: flex;
+    flex-direction: column;
+    min-width: 150px;
+    width: auto;
+    flex: 1 1 150px;
+    margin-right: 1em;
+}
+
+    .form-element > label {
+        font-size: 0.9em;
+        color: #666;
+    }
+
+        .form-element > label > abbr {
+            color: #d35f5f;
+            text-decoration: none;
+        }
+
+
+    .form-element > input,
+    .form-element > textarea {
+        padding: 5px;
+        border: 1px solid #ccc;
+        color: #3392a7;
+    }
+
+        .form-element > input::selection,
+        .form-element > textarea::selection {
+            background-color: #3392a7;
+            color: #ffffff;
+        }
+
+        .form-element > input:focus,
+        .form-element > textarea:focus {
+            border-color: #999;
+            box-shadow: 0 1px 2px 0 rgba(0, 0, 0, 0.03), 0 2px 3px 0 rgba(0, 0, 0, 0.04);
+        }
+
+
+.project-items-container {
+    margin-top: 1em;
+    background: #fff;
+}
+
+    .project-items-container .nav-tabs {
+        background: #3392a7;
+        padding: 5px;
+        margin-bottom: 1px;
+    }
+
+        .project-items-container .nav-tabs > li.active > a, .nav-tabs > li.active > a:hover,
+        .project-items-container .nav-tabs > li.active > a:focus {
+            color: #fff;
+            border-bottom: 5px solid #FFF;
+        }
+
+        .project-items-container .nav-tabs > li > a {
+            color: #f0f0f0;
+        }
+
+.project-info-container .nav-tabs {
+        background: #3392a7;
+        padding: 5px;
+        margin-bottom: 1px;
+    }
+
+        .project-info-container .nav-tabs > li.active > a, .nav-tabs > li.active > a:hover,
+        .project-info-container .nav-tabs > li.active > a:focus {
+            color: #fff;
+            border-bottom: 5px solid #FFF;
+        }
+
+        .project-info-container .nav-tabs > li > a {
+            color: #f0f0f0;
+        }
+
+
+.project-components-container {
+    display: flex;
+    border: 1px solid #ccc;
+    overflow: hidden;
+    width: 100%;
+}
+
+.project-preview {
+    display: flex;
+    flex-direction: column;
+    flex: 0 0 18%;
+    background: #3392a7;
+    color: #fff;
+    position: relative;
+}
+
+    .project-preview > .title {
+        padding: 0.5em;
+        background: #576a6f;
+        font-weight: bold;
+    }
+
+    .project-preview > .items {
+        padding: 0.5em;
+    }
+
+        .project-preview > .items > .spacer {
+            margin-bottom: 2em;
+        }
+
+    .project-preview > .items > .row{
+        margin-bottom: 0.5em;
+    }
+
+        .project-preview > .items > .row > .property{
+            font-weight: bold;
+        }
+
+        .project-preview > .items > .row > .value {
+            padding-left: 0.5em;
+        }
+
+.project-components {
+    width: 100%;
+    height: 100%;
+    overflow-y: auto;
+    height: 347px;
+    overflow-x: hidden;
+    position: relative;
+}
+
+    .project-components .expandable-list-icon {
+        width: 2em;
+        height: 2em;
+    }
+
+.project-components ul {
+    width: 100%;
+}
+
+    .project-components ul li {
+        border-bottom: 1px solid #ccc;
+    }
+
+        .project-components ul li > a {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0.5em 1em;
+            color: #333;
+            font-weight: 600;
+        }
+
+            .project-components ul li > a > span {
+                display: flex;
+                word-wrap: break-word;
+                align-items: center;
+            }
+
+            .project-components ul li > a.open {
+                background: #f7f7f7;
+            }
+
+            .project-components ul li > a.open > span:last-child {
+                transform: rotate(90deg);
+            }
+
+            .project-components ul li > a + .component-content {
+                display: none;
+            }
+
+            .project-components ul li > a.open + .component-content {
+                display: block;
+            }
+
+            .project-components ul li > a:hover {
+                background: #f7f7f7;
+            }
+
+            .project-components ul li > a .title {
+                font-size: 1em;
+            }
+
+                .project-components ul li > a .title > div:last-child {
+                    font-size: 0.9em;
+                    color: #999;
+                    margin-top: -2px;
+                }
+
+
+.component-table {
+    width: 98%;
+    margin: 1em;
+    border-collapse: collapse;
+    border: 1px solid #dfdfdf;
+}
+
+    .component-table th {
+        background: #f2f2f2;
+        border: 1px solid #dfdfdf;
+        padding: 5px;
+    }
+
+    .component-table td {
+        border: 1px solid #dfdfdf;
+        padding: 5px;
+    }
+
+
+.team-member-container {
+    display: flex;
+    flex-wrap: wrap;
+}
+
+    .team-member-container > .team-member {
+        display: flex;
+        border: 1px solid #ccc;
+        border-radius: 3px;
+        flex-direction: column;
+        margin: 1em;
+        padding: 5px 10px;
+        position: relative;
+        padding-right: 3em;
+    }
+
+    .team-member-container > .team-member > .name {
+        font-weight: bold;
+        font-size: 1.2em;
+    }
+
+        .team-member-container > .team-member > .role,
+        .team-member-container > .team-member > .title {
+            color: #999;
+            min-height: 18px;
+        }
+
+        .team-member-container > .team-member > .company {
+            margin-top: 1em;
+            font-weight: bold;
+            font-size: 1em;
+        }
+
+            .team-member-container > .team-member > .phone a,
+            .team-member-container > .team-member > .email a {
+                color: #333;
+            }
+
+.team-member .btn.remove {
+    position: absolute;
+    right: 5px;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    color: #333;
+    padding: 2px 8px;
+    background: #f2f2f2;
+}
+
+    .team-member .btn.remove:hover {
+        background: #d0ebf2;
+    }
+
+
+
+.project-info-container .row {
+    display: flex;
+    margin-right: 0px;
+    margin-left: 0px;
+    margin-bottom: 1em;
+    /*justify-content: space-between;*/
+}
+
+.right-end {
+    margin-right: 0px;
+}
+
+.project-info-container > .project-details .row.button-bar {
+    justify-content: flex-end;
+    margin-bottom: 0;
+}
+
+.project-info-container > .project-details .row.button-bar .btn {
+    margin-left: 1em;
+}
+
+/* custom label and grid styles */
+.form-element > label {
+    font-size: 14px;
+    font-weight: 200;
+    color: #989898; 
+    font-family: 'Lato', sans-serif;
+}
+
+.form-element > input, .form-element > textarea {
+    font-size: 14px;
+    font-weight: 200;
+    color: black;
+    font-family: 'Lato', sans-serif;
+}
+
+
+.k-datepicker input.k-input, .k-numerictextbox input.k-input, .k-dropdown-wrap input.k-input {
+    font-size: 14px;
+    font-weight: 200;
+    color: black;
+    font-family: 'Lato', sans-serif;
+}
+
+
+.k-grid-header table th {
+    font-size: 14px;
+    font-weight: 200;
+    color: #989898; 
+    font-family: 'Lato', sans-serif;
+}
+
+.k-grid-content table tbody td, .k-grid-content table tbody td input {
+    font-size: 14px;
+    font-weight: 200;
+    color: black;
+    font-family: 'Lato', sans-serif;
+}
+
+
+
+
+/* note and save */
+
+.row.button-bar {
+    justify-content: flex-end;
+    margin-bottom: 10px;
+    margin-top: 10px;
+}
+
+.row.button-bar .btn {
+    margin-left: 1em;
+}
+
+.project-info-container > .project-notes {
+    border: 0px;
+}
+
+        .project-info-container  .project-notes > div {
+            width: 100%;
+            border: 1px solid #ccc;
+            display: flex;
+            flex-direction: column;
+            background: #fcfcfc;
+            /*height: 407px;*/
+            height: 471px;
+        }
+
+        .project-info-container  .project-notes .note-block > h4 {
+            border-bottom: 1px solid #ccc;
+            padding: 0.5em 1em;
+            background: #ffbf48;
+            color: #fff;
+            margin: 0;
+            text-align: center;
+        }
+
+        .project-info-container  .project-notes .note-block > textarea {
+            margin: 0;
+            border: 0;
+            padding: 5px;
+            color: #3392a7;
+            resize: none;
+        }
+
+        .project-info-container  .project-notes .note-block > .btn {
+            background: #fff;
+            color: #ffbf48;
+            border-top: 1px solid #ccc;
+            border-bottom: 1px solid #ccc;
+            border-radius: 0;
+        }
+
+        .project-info-container  .project-notes .note-block > .btn:hover {
+            background: #fcfcfc;
+        }
+
+        .project-info-container  .project-notes .note-block > .previous-notes {
+            overflow-y: auto;
+            height: 100%;
+        }
+
+            .project-info-container  .project-notes .note-block > .previous-notes > .note-item {
+                margin-bottom: 1em;
+            }
+
+            .project-info-container  .project-notes .note-block > .previous-notes > .note-item > .title {
+                border-top: 1px solid #eee;
+                color: #999;
+                font-size: 0.9em;
+                background: #f7f7f7;
+                padding: 3px 5px;
+            }
+
+            .project-info-container  .project-notes .note-block > .previous-notes > .note-item > .note {
+                padding: 5px;
+            }
+
+/* custom border */
+
+.project-info-container > .project-details {
+    position: relative;
+}
+
+#detail-right-border {
+    border-right: 1px solid #ccc;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 45px;
+}
+
+#detail-right-color-box {
+    height: 45px;
+    width: 5px;
+    background: #fcfcfc;
+    right: -5px;
+    position: absolute;
+    top: calc(100% - 45px);
+}
+
+#button-top-border {
+    border-top: 1px solid #ccc;
+    position: absolute;
+    top: 0;
+    left: -7.5px;
+    right: 0;
+}
+
+#button-bottom-border {
+    border-bottom: 1px solid #ccc;
+    position: absolute;
+    bottom: -12px;
+    left: -7.5px;
+    right: 0;
+}
+
+#button-right-border {
+    border-right: 1px solid #ccc;
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: -12px;
+}
+
+.close-button {
+    z-index: 1000;
+}

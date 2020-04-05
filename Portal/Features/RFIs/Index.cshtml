@@ -1,0 +1,30 @@
+﻿@{
+    ViewData["Title"] = "RFIs";
+}
+
+@section styles {
+    <link rel="stylesheet" href="~/css/list-page.css" />
+    <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet" />
+
+}
+
+<div class="page-header">
+    <h3>RFIs</h3>
+</div>
+
+<div class="project-details-list">
+    <div class="action-item">
+        <h4 class="blue">Select a RFI below or </h4>
+        <button id="new-rfi-button" class="btn yellow">Start a New RFI</button>
+    </div>
+
+    <div id="rfi-grid"></div>
+</div>
+
+@section scripts {
+    <script type="module" asp-append-version="true">
+        import { RFIsList } from "/js/rfis.js"
+        new RFIsList(@Html.Raw(Json.Serialize(Model)));
+    </script>
+
+}

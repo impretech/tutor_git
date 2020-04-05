@@ -1,0 +1,614 @@
+﻿@{
+    ViewData["Title"] = "Deposit Details";
+}
+
+
+@section styles {
+    <link rel="stylesheet" href="~/css/detail-page.css" />
+    <link rel="stylesheet" href="~/css/carousel.css" />
+    <link rel="stylesheet" href="~/css/switch.css" />
+    <link rel="stylesheet" href="~/css/deposits/custom.css" />
+    <link rel="stylesheet" href="~/css/loading.css" />
+    <link rel="stylesheet" href="~/css/loading-btn.css" />
+    <link rel="stylesheet" href="~/css/notification.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet" />
+}
+
+<div class="page-header">
+    <h3>Financial - Deposit - @Model.Dep.DepositID </h3>
+    <div class="doc-button" title="Upload Document">
+        <svg class="icon">
+            <use xlink:href="/images/icons.svg#paperclip"></use>
+        </svg>
+    </div>
+    <div class="back-button" title="Back To List">
+        <svg class="icon">
+            <use xlink:href="/images/icons.svg#angle-double-left"></use>
+        </svg>
+        <span>Back To List</span>
+    </div>
+</div>
+
+
+
+<div class="project-info-container" style="position: relative;">
+    <div class="project-details">
+        <div class="view--tabs" style="margin-right: 10px;">
+            <ul class="nav-tabs">
+                <li class="active"><a href="javascript:;" id="general-view-btn">Summary</a></li>
+                <li><a href="javascript:;" id="detail-view-btn">Line Items</a></li>
+            </ul>
+            <div class="tab-content" style="margin-left: 5px;">
+
+                <div>
+                    <div style="width: 100%;">
+
+                        <div class="row">
+                            <div class="form-element first-column">
+                                <div class="row">
+                                    <div class="form-element two-thirds">
+                                        <div class="row">
+                                            <div class="form-element">
+                                                <label for="project">Project: <abbr title="required">*</abbr></label>
+                                                <input id="project" type="text" name="project">
+                                            </div>
+                                            <div class="form-element tiny" style="margin-right: 0px;">
+                                                <label for="ad">Ver#: <abbr title="required">*</abbr></label>
+                                                <input id="ad" disabled type="text" name="ad">
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                    <div class="form-element one-thirds">
+                                        <div class="row">
+                                            <div class="form-element" style="margin-right: 0px;">
+                                                <label for="date">Date:</label>
+                                                <input id="date" type="text" name="date">
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row" style="margin-top: 10px;">
+                                    <div class="form-element two-thirds">
+                                        <div class="row">
+                                            <div class="form-element small">
+                                                <label for="description">Transaction Description: <abbr title="required">*</abbr></label>
+                                                <input id="description" type="text" name="description">
+                                            </div>
+                                            <div class="form-element small" style="margin-right: 0px;">
+                                                <label for="transaction-type">Transacion Type: <abbr title="required">*</abbr></label>
+                                                <input id="transaction-type" type="text" name="transaction-type">
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-element one-thirds">
+                                        <label for="use-type">Project Use Type: <abbr title="required">*</abbr></label>
+                                        <input id="use-type" type="text" name="use-type">
+                                    </div>
+                                </div>
+                                <div class="row" style="margin-top: 5px;">
+                                    <div class="form-element">
+                                        <label for="budgets">Budget: </label>
+                                        <div id="budgets" style="border: 1px solid lightgrey;">
+                                            <div class="row" style="margin-right: 5px; margin-left: 5px; margin-bottom: 3px;">
+                                                <div class="form-element small" style="flex: 2 2 150px;">
+                                                    <label for="budget-title">Budget $: </label>
+                                                    <input id="budget-title" type="text" name="budget-title" disabled>
+                                                    <input id="budget-id" type="hidden">
+                                                </div>
+                                                <div class="form-element small">
+                                                    <label for="funding-source">Funding Source (#): </label>
+                                                    <input id="funding-source" type="text" name="funding-source">
+                                                </div>
+                                                <div class="form-element small" style="margin-right: 0px;">
+                                                    <label for="funding-type">Funding Type: </label>
+                                                    <input id="funding-type" type="text" name="funding-type">
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+
+                                <div class="row" style="margin-top: 5px;">
+                                    <div class="form-element one-thirds">
+                                        <div class="row">
+                                            <div class="form-element" style="margin-right: 0;">
+                                                <label for="status">Status: </label>
+                                                <input id="status" type="text" disabled name="status">
+                                            </div>
+                                        </div>
+                                        <div class="row" style="margin-top: 5px;">
+                                            <div class="form-element" style="margin-right: 0;">
+                                                <label for="contributors">Contributors: <button class="btn-1" id="cont-add-btn">+</button> </label>
+                                                <div id="contributors" type="text" name="contributors"></div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="form-element two-thirds" style="margin-left: 20px;">
+
+                                        <div class="row" style="position: relative;">
+                                            <div class="title">Budget by Category</div>
+                                            <div id="budget-chart" style="background: #fcfcfc"></div>
+                                            <div class="score"></div>
+                                        </div>
+
+                                        <div class="row">
+                                            <div class="label">Financial Progress Bar:</div>
+                                            <div class="project-budget-bar"></div>
+                                        </div>
+                                    </div>
+                                </div>
+
+
+                            </div>
+                            <div class="form-element second-column " style="min-width: 580px;">
+                                <div class="categoryBox">
+                                    <div class="row" style="padding-right: 1em;">
+                                        <div class="form-element five-ten">
+                                            <span class="title">
+                                                <br /> Category
+                                            </span>
+                                        </div>
+                                        <div class="form-element three-ten">
+                                            <span class="title"><br /> Budget </span>
+                                        </div>
+                                        <div class="form-element three-ten">
+                                            <span class="title">Current <br /> Funding </span>
+                                        </div>
+                                        <div class="form-element three-ten">
+                                            <span class="title">Available <br /> Funds </span>
+                                        </div>
+                                        <div class="form-element two-ten">
+                                            <span class="title"> </span>
+                                        </div>
+                                        <div class="form-element three-ten current-deposit">
+                                            <span class="title" style="padding-right: 8px;">Current <br /> Deposit </span>
+                                        </div>
+                                        <div class="form-element three-ten">
+                                            <span class="title">New <br /> Funding </span>
+                                        </div>
+                                    </div>
+                                    <div class="categories"></div>
+                                    <div class="row" style="border-top: 2px solid grey;">
+                                    </div>
+                                    <div class="summary">
+                                        <div class="row" style="padding-right: 1em;">
+                                            <div class="form-element five-ten">
+                                                <span>Total  </span>
+                                            </div>
+                                            <div class="form-element three-ten currency">
+                                                <span id="total-budget"></span>
+                                            </div>
+                                            <div class="form-element three-ten currency">
+                                                <span id="total-cur-funding"></span>
+                                            </div>
+                                            <div class="form-element three-ten currency">
+                                                <span id="total-available"></span>
+                                            </div>
+                                            <div class="form-element two-ten budgetSwitchBox"></div>
+                                            <div class="form-element three-ten currency current-deposit">
+                                                <span id="total-cur-deposit" style="padding-right: 8px;"></span>
+                                            </div>
+                                            <div class="form-element three-ten currency">
+                                                <span id="total-new-funding"></span>
+                                            </div>
+                                        </div>
+
+                                    </div>
+                                </div>
+                                <div class="form-element" style="position: relative; flex: 1 1 50px;">
+                                    <div class="row button-bar">
+                                        <button id="save-button" class="btn darkgreen tooltip ld-over" style="flex:1; min-width: 50px;">
+                                            Deposit
+                                            <span class="tooltiptext tooltip-top">
+                                                Deposit funds and make available to spend.
+                                            </span>
+                                            <div style="font-size:30px;color:#999" class="ld ld-ring ld-spin"></div>
+                                        </button>
+                                        <button id="draft-button" class="btn yellow tooltip ld-over" style="flex:1; min-width: 50px;">
+                                            Draft
+                                            <span class="tooltiptext tooltip-top">
+                                                Save in drat mode for reference. Funds are not available to spend until they are deposited.
+                                            </span>
+                                            <div style="font-size:30px;color:#999" class="ld ld-ring ld-spin"></div>
+                                        </button>
+
+                                        <button id="cancel-button" class="btn gray" style="flex:1; min-width: 50px;">Cancel</button>
+                                    </div>
+                                </div>
+                            </div>
+
+                        </div>
+
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+    <div class="project-notes-handle">
+        PROGRESS NOTES
+        <span class="expand-symbol fa fa-angle-double-left" style="font-size:20px"></span>
+        <span class="collapse-symbol fa fa-angle-double-right" style="font-size:20px; display: none"></span>
+    </div>
+    <div class="project-notes hide" style="position: relative; min-width: 0px;">
+        <div class="note-block">
+            <h4>Progress Notes</h4>
+            <textarea id="new-note" type="text" name="new-note" rows="3"></textarea>
+            <button class="btn" id="add-note-button">Add Note</button>
+            <div class="previous-notes">
+                
+            </div>
+        </div>
+
+    </div>
+</div>
+
+
+
+<div id="cont-add-window" style="display: none;">
+    <div class="row" style="margin-top: 5px; padding: 0 20px;">
+
+        <div class="form-element" style="margin-right: 0px;">
+            <label for="add-contact">Name: </label>
+            <input id="add-contact" type="text" name="add-contact">
+        </div>
+
+    </div>
+    <div class="row button-bar" style="margin-left: 0px; margin-top: 5px;">
+
+        <button class="save-button btn yellow">Save</button>
+        <button class="cancel-button btn gray">Cancel</button>
+
+    </div>
+</div>
+
+<div class="project-info-container" style="padding-top: 0; padding-bottom: 0;">
+    <div class="detail-pane">
+
+        <table class="heading" cellspacing="0">
+            <thead>
+                <tr style="display: flex; align-items: center;">
+                    <td>
+                        <span class="expand-all-btn fa fa-angle-double-right count-icon" style="float:left; font-size: 14px; font-weight: 800; color: rgb(5, 12, 224); display:none;"></span>
+                        <span class="collapse-all-btn fa fa-angle-double-down count-icon" style="float:left; font-size: 14px; font-weight: 800; color: rgb(5, 12, 224);"></span>
+                        Code
+                    </td>
+                    <td style="width: 150px;flex: 3;">Item</td>
+                    <td>Budget</td>
+                    <td style="width: 90px;flex: 1.5; text-align: right;">Current <br /> Funding</td>
+
+                    <td style="width: 90px;flex: 1.5; text-align: right; display: flex; flex-direction: column;" class="tooltip">
+                        <span>BAL/VAR</span>
+                        <span class="tooltiptext tooltip-top">
+                            Budget - Current Funding
+                        </span>
+                    </td>
+                    <td class="budgetSwitchBox"> </td>
+                    <td style="width: 90px;flex: 1.5; text-align: right; " class="current-deposit">Current <br /> Deposit</td>
+                    <td style="width: 90px;flex: 1.5; text-align: right; display: flex; flex-direction: column;" class="tooltip">
+                        <span>BAL/VAR</span>
+                        <span class="tooltiptext tooltip-top">
+                            Budget - (Current Funding + Current Deposit)
+                        </span>
+                    </td>
+                    <td style="width: 90px;flex: 1.5; text-align: right;" class="tooltip">
+                        New <br /> Funding
+                        <span class="tooltiptext tooltip-top">
+                            Current Funding + Current Deposit
+                        </span>
+                    </td>
+                    <td class="tooltip">
+                        LTD <br /> Purchases
+                        <span class="tooltiptext tooltip-top">
+                            Life To Date
+                        </span>
+                    </td>
+                    <td class="tooltip">
+                        Budget <br /> Balance
+                        <span class="tooltiptext tooltip-top">
+                            New Funding - LTD Purchases
+                        </span>
+                    </td>
+                    <td> Note </td>
+                </tr>
+            </thead>
+        </table>
+        <div class="detail-data">
+        </div>
+        <table class="grand-total" cellspacing="0">
+            <thead>
+                <tr style="display: flex; align-items: center; margin: 1px;margin-left: 15px;">
+                    <td colspan="2" style="min-width: 250px;flex: 4.05;">Grand Total</td>
+                    <td id="grand-a"></td>
+                    <td id="grand-b" style="width: 90px;flex: 1.5; text-align: right;"></td>
+                    <td id="grand-c" style="width: 90px;flex: 1.5; text-align: right;"></td>
+                    <td class="budgetSwitchBox"> </td>
+                    <td id="grand-d" style="width: 90px;flex: 1.5; text-align: right;"></td>
+                    <td id="grand-e" style="width: 90px;flex: 1.5; text-align: right;"></td>
+                    <td id="grand-f" style="width: 90px;flex: 1.5; text-align: right;"></td>
+                    <td id="grand-g"></td>
+                    <td id="grand-h"></td>
+                    <td>  </td>
+                </tr>
+            </thead>
+        </table>
+    </div>
+</div>
+
+
+
+
+<div class="project-items-container">
+    <div class="container--tabs">
+        <ul class="nav-tabs">
+            <li class="active tooltip">
+                <a href="#tab-documents">Documents</a>
+                <span class="tooltiptext tooltip-top">Emails, Attachments & Correspondence</span>
+            </li>
+            <li><a href="#tab-project-items">Project Items</a></li>
+            <li><a href="#tab-schedule">Schedule</a></li>
+            <li><a href="#tab-team">Team</a></li>
+        </ul>
+        <div class="tab-content">
+            <div id="emailBox" style="display: none;">
+                <div class="top-area">
+                </div>
+                <div id="emailBody">
+                </div>
+            </div>
+            <div id="tab-documents" class="tab-pane active">
+                <div class="inner_body">
+                    <div id="switchBox">
+                        Table <input type="checkbox" id="switch" /> &nbsp; Card
+                    </div>
+                    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+                        <div class="carousel-inner"></div>
+                        <ol class="carousel-indicators"></ol>
+                    </div>
+                    <div id="emailBox" style="display: none;">
+                        <div class="top-area">
+                        </div>
+                        <div id="emailBody">
+                        </div>
+                    </div>
+                    <div id="emailGridBox" style="display: none;">
+                        <div id="emails-grid">
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="tab-project-items" class="tab-pane">
+                <div class="project-components-container">
+                    <div class="project-components">
+                        <ul>
+                            <li>
+                                <a href="estimate">
+                                    <span>
+                                        <span id="head_estimate">Estimate</span>
+                                    </span>
+                                    <span>
+                                        <svg class="expandable-list-icon">
+                                            <use xlink:href="/images/icons.svg#angle-right"></use>
+                                        </svg>
+                                    </span>
+                                </a>
+                                <div class="component-content">
+                                    <div class="component-table">
+                                        <div id="estimate-grid"></div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <a href="budget" class="open">
+                                    <span>
+                                        <span id="head_budget">Budget</span>
+                                    </span>
+                                    <span>
+                                        <svg class="expandable-list-icon">
+                                            <use xlink:href="/images/icons.svg#angle-right"></use>
+                                        </svg>
+                                    </span>
+                                </a>
+                                <div class="component-content">
+                                    <div class="component-table">
+                                        <div id="budget-grid"></div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <a href="accounts">
+                                    <span>
+                                        <span id="head_accounts">Accounts</span>
+                                    </span>
+                                    <span>
+                                        <svg class="expandable-list-icon">
+                                            <use xlink:href="/images/icons.svg#angle-right"></use>
+                                        </svg>
+                                    </span>
+                                </a>
+                                <div class="component-content">
+                                    <div class="component-table">
+                                        <div id="deposit-grid"></div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <a href="quotes">
+                                    <span>
+                                        <span id="head_quotes">Quotes</span>
+                                    </span>
+                                    <span>
+                                        <svg class="expandable-list-icon">
+                                            <use xlink:href="/images/icons.svg#angle-right"></use>
+                                        </svg>
+                                    </span>
+                                </a>
+                                <div class="component-content">
+                                    <div class="component-table">
+                                        <div id="proposal-grid"></div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <a href="contracts">
+                                    <span>
+                                        <span id="head_contracts">Contracts</span>
+                                    </span>
+                                    <span>
+                                        <svg class="expandable-list-icon">
+                                            <use xlink:href="/images/icons.svg#angle-right"></use>
+                                        </svg>
+                                    </span>
+                                </a>
+                                <div class="component-content">
+                                    <div class="component-table">
+                                        <div id="contract-grid"></div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <a href="pos">
+                                    <span>
+                                        <span id="head_pos">Purchase Orders</span>
+                                    </span>
+                                    <span>
+                                        <svg class="expandable-list-icon">
+                                            <use xlink:href="/images/icons.svg#angle-right"></use>
+                                        </svg>
+                                    </span>
+                                </a>
+                                <div class="component-content">
+                                    <div class="component-table">
+                                        <div id="pos-grid"></div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <a href="cos">
+                                    <span>
+                                        <span id="head_cos">Change Orders</span>
+                                    </span>
+                                    <span>
+                                        <svg class="expandable-list-icon">
+                                            <use xlink:href="/images/icons.svg#angle-right"></use>
+                                        </svg>
+                                    </span>
+                                </a>
+                                <div class="component-content">
+                                    <div class="component-table">
+                                        <div id="co-grid"></div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <a href="submittals">
+                                    <span>
+                                        <span id="head_subs">Submittals</span>
+                                    </span>
+                                    <span>
+                                        <svg class="expandable-list-icon">
+                                            <use xlink:href="/images/icons.svg#angle-right"></use>
+                                        </svg>
+                                    </span>
+                                </a>
+                                <div class="component-content">
+                                    <div class="component-table">
+                                        <div id="subs-grid"></div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <a href="invoices">
+                                    <span>
+                                        <span id="head_invoice">Invoices</span>
+                                    </span>
+                                    <span>
+                                        <svg class="expandable-list-icon">
+                                            <use xlink:href="/images/icons.svg#angle-right"></use>
+                                        </svg>
+                                    </span>
+                                </a>
+                                <div class="component-content">
+                                    <div class="component-table">
+                                        <div id="invoice-grid"></div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <a href="rfis">
+                                    <span>
+                                        <span id="head_rfi">RFIs</span>
+                                    </span>
+                                    <span>
+                                        <svg class="expandable-list-icon">
+                                            <use xlink:href="/images/icons.svg#angle-right"></use>
+                                        </svg>
+                                    </span>
+                                </a>
+                                <div class="component-content">
+                                    <div class="component-table">
+                                        <div id="rfi-grid"></div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="project-preview">
+                        <div class="title">Financial Summary</div>
+                        <div class="items">
+                            <div class="row">
+                                <div class="property">Budget</div>
+                                <div class="value">$1,300,000.00</div>
+                            </div>
+                            <div class="row">
+                                <div class="property">Committed</div>
+                                <div class="value">$678,000.00</div>
+                            </div>
+                            <div class="row">
+                                <div class="property">Paid</div>
+                                <div class="value">$507,000.00</div>
+                            </div>
+                            <div class="spacer"></div>
+                            <div class="row">
+                                <div class="property">Start Date</div>
+                                <div class="value">04/04/2019</div>
+                            </div>
+                            <div class="row">
+                                <div class="property">End Date</div>
+                                <div class="value">05/19/2019</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="tab-schedule" class="tab-pane">
+                <h3>Coming soon...</h3>
+            </div>
+            <div id="tab-team" class="tab-pane">
+                <h3>Coming soon...</h3>
+                <div class="team-member-container"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+@section scripts {
+    <script id="noDataTemplate" type="text/x-kendo-tmpl">
+        <div>
+            No data found. Do you want to add new item - '#: instance.text() #' ?
+        </div>
+        <br />
+        <button id="new-contact-button" name="new-contact-button" class="new-contact-button">Add new item</button>
+    </script>
+
+    <script type="module" asp-append-version="true">
+        import { DepositDetailsItem } from "/js/deposits.js"
+        new DepositDetailsItem(@Html.Raw(Json.Serialize(Model)));
+    </script>
+
+}

@@ -1,0 +1,339 @@
+﻿@{
+    ViewData["Title"] = "Control Center";
+}
+
+
+@section styles {
+    <link rel="stylesheet" href="~/css/pcc/index.css" />
+}
+
+<div class="page-header">
+    <h3>Project Control Center</h3>
+<div>
+
+    <input type="text" placeholder="Enter Search Item" />
+
+</div>
+
+</div>
+
+<div class="control-center-top">
+    <div class="left">
+        <div class="container--tabs">
+            <ul class="nav-tabs">
+                <li class="active"><a href="#tab-alerts">Alerts</a></li>
+                <li><a href="#tab-concierge">Concierge</a></li>
+                <li><a href="#tab-portfolio">Portfolio</a></li>
+                <li><a href="#tab-recentactivity">Recent Activity</a></li>
+                <li><a href="#tab-recentnotes">Recent Notes</a></li>
+            </ul>
+            <div class="tab-content">
+                <div id="tab-alerts" class="tab-pane active">
+                    <div id="alerts-grid"></div>
+                </div>
+                <div id="tab-concierge" class="tab-pane">
+                    <h3>Coming soon...</h3>
+                </div>
+                <div id="tab-portfolio" class="tab-pane">
+                    <div id="portfolio-grid"></div>
+                </div>
+                <div id="tab-recentactivity" class="tab-pane">
+                    <div id="recentactivity-grid"></div>
+                </div>
+                <div id="tab-recentnotes" class="tab-pane">
+                    <div id="recentnotes-grid"></div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="right">
+        <div id="project-accordion">
+            <div class="accordian-title green">Milestone Reached</div>
+            <div class="accordion-content">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</div>
+            <div class="accordian-title red">Urgent Requests</div>
+            <div class="accordion-content">Lorem Ipsum is simply dummy text of the printing and typesetting industry. Lorem Ipsum has been the industry's standard dummy text ever since the 1500s, when an unknown printer took a galley of type and scrambled it to make a type specimen book. It has survived not only five centuries, but also the leap into electronic typesetting, remaining essentially unchanged. It was popularised in the 1960s with the release of Letraset sheets containing Lorem Ipsum passages, and more recently with desktop publishing software like Aldus PageMaker including versions of Lorem Ipsum.</div>
+            <div class="accordian-title active blue">Quick Graphs</div>
+            <div class="accordion-content k-content">
+                <div id="quick-charts" class="sliding-panel">
+                    <div class="sliding-panel-header">
+                        <div class="title"></div>
+                        <div class="control-bar">
+                            <a href="javascript:">
+                                <svg class="sliding-panel-icon">
+                                    <use xlink:href="/images/icons.svg#angle-left"></use>
+                                </svg>
+                            </a>
+                            <a href="javascript:">
+                                <svg class="sliding-panel-icon">
+                                    <use xlink:href="/images/icons.svg#angle-right"></use>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                    <div class="sliding-panel-container">
+                        <div class="sliding-panel-content" data-title="Project Health">
+                            <div id="projectHealthChart"></div>
+                            <div class="score"></div>
+                        </div>
+                        <div class="sliding-panel-content" data-title="Project By Status">
+                            <div id="projectStatusChart"></div>
+                        </div>
+                        <div class="sliding-panel-content" data-title="Project By Phase">
+                            <div id="projectPhaseChart"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="control-center-bottom">
+    <div class="alerts-panel-container">
+        <div class="alerts-panel-menu">
+            <div class="project-image">
+                <img src="~/images/project-image.jpg" />
+                <div class="overlay"></div>
+            </div>
+            <div class="quick-links">
+                <div class="title">QUICK LINKS</div>
+                <div class="link"><a href="#">- Financial</a></div>
+                <div class="link"><a href="#">- Schedule</a></div>
+                <div class="link"><a href="#">- Project Team</a></div>
+            </div>
+            <div class="next-meeting">
+                <div class="title">NEXT MEETING</div>
+                <div class="item" title="Architecture plan review meeting today.  Attendance mandatory.">
+                    <div class="timestamp">12:30 PM, Today</div>
+                    <div class="message">Architecture plan review meeting today.  Attendance mandatory.</div>
+                </div>
+                <div class="control-bar">
+                    <button class="btn yellow">Snooze</button>
+                    <button class="btn red">Dismiss</button>
+                </div>
+            </div>
+        </div>
+        <div class="alerts-panel">
+            <div id="alerts-project-information">
+                <div class="left">
+                    <div class="column1">
+                        <div class="title">Project 1</div>
+                        <div class="project-details">
+                            <div class="row">
+                                <div class="label">PM:</div>
+                                <div class="data pm"></div>
+                            </div>
+                            <div class="row">
+                                <div class="label">Project No:</div>
+                                <div class="data project-number"></div>
+                            </div>
+                            <div class="spacer"></div>
+                            <div class="row">
+                                <div class="label">Phase:</div>
+                                <div class="data phase"></div>
+                            </div>
+                            <div class="row">
+                                <div class="label">Type:</div>
+                                <div class="data type"></div>
+                            </div>
+                            <div class="spacer"></div>
+                            <div class="row">
+                                <div class="label">Budget:</div>
+                                <div class="data budget"></div>
+                            </div>
+                            <div class="row">
+                                <div class="label">Committed:</div>
+                                <div class="data committed"></div>
+                            </div>
+                            <div class="row">
+                                <div class="label">Paid:</div>
+                                <div class="data paid"></div>
+                            </div>
+                            <div class="spacer"></div>
+                            <div class="pbb-container">
+                                <div class="label">Financial Progress Bar:</div>
+                                <div class="project-budget-bar"></div>
+                            </div>
+                            <div class="spacer"></div>
+                            <div class="row">
+                                <div class="description">
+                                    <div class="label">Description:</div>
+                                    <textarea readonly="readonly" rows="6"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="column2">
+                        <div class="title">&nbsp;</div>
+                        <div class="project-details">
+                            <div class="row">
+                                <div class="label">Client:</div>
+                                <div class="data client"></div>
+                            </div>
+                            <div class="row">
+                                <div class="label">Score:</div>
+                                <div class="data score"></div>
+                            </div>
+                            <div class="spacer"></div>
+                            <div class="row">
+                                <div class="label">Status:</div>
+                                <div class="data status"></div>
+                            </div>
+                            <div class="row">
+                                <div class="label">GSF:</div>
+                                <div class="data gsf"></div>
+                            </div>
+                            <div class="spacer"></div>
+                            <div class="row">
+                                <div class="label">Start Date:</div>
+                                <div class="data startDate"></div>
+                            </div>
+                            <div class="row">
+                                <div class="label">End Date:</div>
+                                <div class="data endDate"></div>
+                            </div>
+                            <div class="row">
+                                <div class="label">% Complete:</div>
+                                <div class="data percentComplete"></div>
+                            </div>
+                            <div class="spacer"></div>
+                            <div class="psb-container">
+                                <div class="label">Schedule Progress Bar:</div>
+                                <div class="project-schedule-bar"></div>
+                            </div>
+                            <div class="spacer"></div>
+                            <div class="row">
+                                <div class="notes">
+                                    <div class="label">Notes:</div>
+                                    <textarea readonly="readonly" rows="6"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="right">
+                    <div id="alerts-detail-panel" class="alerts-custom-panel">
+                        <div class="alerts-custom-panel-header">
+                            <a href="javascript:">
+                                <svg class="alerts-custom-panel-icon">
+                                    <use xlink:href="/images/icons.svg#angle-left"></use>
+                                </svg>
+                            </a>
+                            <div class="title">Alert Details</div>
+                        </div>
+                        <div class="alerts-custom-panel-container">
+                            <div class="alerts-custom-panel-content types">
+                                <ul>
+                                    <li>
+                                        <a href="Budget" style="color: #ffbf48;">
+                                            <span>
+                                                <span>Budget</span>
+                                                <span class="numberCircle budgetCount" style="background: #ffbf48;">1</span>
+                                            </span>
+                                            <span>
+                                                <svg class="alerts-custom-panel-icon" style="fill: #ffbf48;">
+                                                    <use xlink:href="/images/icons.svg#angle-right"></use>
+                                                </svg>
+                                            </span>
+                                        </a>
+                                        <div class="alerts-custom-panel-content categories Budget"></div>
+                                    </li>
+                                    <li>
+                                        <a href="Buyout" style="color: #cf5f67;">
+                                            <span>
+                                                <span>Buyout</span>
+                                                <span class="numberCircle buyoutCount" style="background: #cf5f67;">14</span>
+                                            </span>
+                                            <span>
+                                                <svg class="alerts-custom-panel-icon" style="fill: #cf5f67;">
+                                                    <use xlink:href="/images/icons.svg#angle-right"></use>
+                                                </svg>
+                                            </span>
+                                        </a>
+                                        <div class="alerts-custom-panel-content categories Buyout"></div>
+                                    </li>
+                                    <li>
+                                        <a href="Milestone" style="color: #3392a7;">
+                                            <span>
+                                                <span>Milestone</span>
+                                                <span class="numberCircle milestoneCount" style="background: #3392a7;">3</span>
+                                            </span>
+                                            <span>
+                                                <svg class="alerts-custom-panel-icon" style="fill: #3392a7;">
+                                                    <use xlink:href="/images/icons.svg#angle-right"></use>
+                                                </svg>
+                                            </span>
+                                        </a>
+                                        <div class="alerts-custom-panel-content categories Milestone"></div>
+                                    </li>
+                                    <li>
+                                        <a href="Documents" style="color: #8633a7;">
+                                            <span>
+                                                <span>Documents</span>
+                                                <span class="numberCircle documentsCount" style="background: #8633a7;">7</span>
+                                            </span>
+                                            <span>
+                                                <svg class="alerts-custom-panel-icon" style="fill: #8633a7;">
+                                                    <use xlink:href="/images/icons.svg#angle-right"></use>
+                                                </svg>
+                                            </span>
+                                        </a>
+                                        <div class="alerts-custom-panel-content categories Documents"></div>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="alerts-custom-panel-content details">
+                                <div class="alert-details">
+                                    <div class="row">
+                                        <div class="label">Date:</div>
+                                        <div class="data date"></div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="label">Alert Type:</div>
+                                        <div class="data alert-type"></div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="label">Stage:</div>
+                                        <div class="data stage"></div>
+                                    </div>
+                                    <div class="spacer"></div>
+                                    <div class="row">
+                                        <div class="label">Node ID:</div>
+                                        <div class="data node-id"></div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="label">Description:</div>
+                                        <div class="data node-desc"></div>
+                                    </div>
+                                    <div class="spacer"></div>
+                                    <div class="row">
+                                        <div class="label">Condition:</div>
+                                        <div class="data condition"></div>
+                                    </div>
+                                    <div class="recommendationRow">
+                                        <div class="label">Recommendation:</div>
+                                        <div class="data recommendation"></div>
+                                    </div>
+                                    <div class="spacer"></div>
+                                    <div class="control-bar">
+                                        <button class="btn blue">Resolve Issue</button>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+@section scripts {
+    <script type="module" asp-append-version="true">
+        import { ProjectControlCenter } from "/js/project-control-center.js"
+        new ProjectControlCenter();
+    </script>
+
+}

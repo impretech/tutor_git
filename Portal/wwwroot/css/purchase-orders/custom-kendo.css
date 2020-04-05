@@ -1,0 +1,71 @@
+﻿
+
+/*.k-grid {
+    border-color: unset;
+    color: unset;
+    background-color: unset;
+    background-clip: unset;
+    flex-direction: unset;
+    position: unset;
+}
+
+
+.k-widget {
+    border-width: unset;
+    border-style: unset;
+    box-sizing: unset;
+    outline: unset;
+    /*font-size: unset;*/
+    /*line-height: unset;*/
+
+
+/*.k-grid th, .k-grid td {
+    padding: unset;
+    border-style: unset;
+    border-color: unset;
+}*/
+
+
+
+
+
+
+.k-grid-header, .k-grid-toolbar, .k-grouping-header, .k-grid-add-row, .k-grid-footer {
+    color: #333;
+    background-color: #A09999;
+}
+
+.k-grid-toolbar {
+    padding: unset;
+    border-width: unset;
+    border-style: unset;
+    border-color: unset;
+    text-overflow: unset;
+    cursor: unset;
+    /* display: unset; */
+    width: 100%;
+    /* max-width: none; */
+    background-color: #3392A7;
+}
+
+th {
+    color: white;
+}
+
+
+k-grid th, .k-grid td {
+    border-style: unset;
+    border-color: unset;
+}
+
+button.btn-1 {
+    background: #464343;
+    border: unset;
+    width: 24px;
+    height: 21px;
+    text-align: center;
+    display: inline;
+    line-height: 17px;
+    color: #fff;
+    margin:5px;
+}

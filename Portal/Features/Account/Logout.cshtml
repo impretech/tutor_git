@@ -1,0 +1,32 @@
+﻿@{
+    Layout = "";
+}
+
+@using Microsoft.Extensions.Options;
+@inject IOptions<OktaSettings> oktaSettings;
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    ViewData["Title"] = "Logout";
+}
+
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="SHORTCUT ICON" href="images/favicon.ico">
+    <title>SYVENN Logout</title>
+
+    <link rel="stylesheet" href="~/css/site.css" />
+
+</head>
+<body>
+    <div class="flex" style="width: 100%;">
+        <div class="logo"><a href="/"><img src="~/images/logo.png" /></a></div>
+     </div>
+    <span>
+        Thank you for using Syvenn.  You have successfully logged out.
+    </span>
+
+</body>
+</html>

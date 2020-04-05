@@ -1,0 +1,233 @@
+﻿/* contacts index styling */
+#contacts-grid {
+    height: 100%;
+}
+
+
+
+/* contacts Add and Edit styling */
+
+.content {
+    margin: 10px;
+    width: unset;
+    min-width: unset;
+    height: unset;
+    /*height: 100%*/
+}
+
+.outer-grid {
+    height: 100%;
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+    /*justify-items: stretch;*/
+    grid-gap: 10px 10px;
+    /*margin: 0 auto;*/
+}
+
+.grid-item {
+    background: #fcfcfc;
+}
+
+.inner-grid {
+    display: grid;
+    /*height: 100%;*/
+    background: #f7f7f7;
+    grid-template-columns: 1fr;
+    align-items: stretch;
+    grid-gap: 10px 10px;
+}
+
+.grid-item-header {
+    background-color: #3392A7;
+    display: flex;
+    padding: 0 10px;
+    align-items: center;
+    height: 36px;
+    justify-content: space-between;
+}
+
+.grid-item-content {
+    padding: 10px;
+}
+
+.grid-item-header h3 {
+    font-weight: 600;
+    /*font-size: 1.2em;*/
+    color: #fff;
+}
+
+.grid-item-header .grid-item-header-buttons {
+
+}
+
+    .grid-item-header .grid-item-header-buttons .btn {
+        padding: 0 4px;
+        padding-top: 3px;
+        border-radius: 2px;
+        border: 1px solid #ccc;
+    }
+
+    .grid-item-header .grid-item-header-buttons .btn.add {
+        margin-right: 1em;
+    }
+
+    .grid-item-header .grid-item-header-buttons .grid-item-icon {
+        width: 15px;
+        height: 15px;
+        fill: #ddd;
+    }
+
+        .grid-item-header .grid-item-header-buttons .grid-item-icon.yellow {
+            fill: #ffbf48;
+        }
+        .grid-item-header .grid-item-header-buttons .grid-item-icon.green {
+            fill: #87D674;
+        }
+
+.btn.toolbar {
+    background-color: #5e9dac;
+}
+
+    .btn.toolbar:hover {
+        background-color: #4eafc5;
+    }
+
+
+.item-border {
+    background: #fcfcfc;
+    border: 1px solid #ccc;
+}
+
+.flex-button-bar {
+    margin: 1em 0;
+    display: flex;
+    justify-content: flex-end;
+    margin-bottom: 0;
+}
+
+    .flex-button-bar .btn {
+        margin-right: 1em;
+    }
+
+
+
+.contact-info-container {
+    background: #fff;
+    padding: 10px;
+    display: flex;
+    justify-content: space-between;
+}
+
+
+    .contact-info-container > .contact-details {
+        width: 60%;
+        border: 1px solid #ccc;
+        padding: 1em;
+        display: flex;
+        flex-direction: column;
+        background: #fcfcfc;
+    }
+
+        .contact-info-container > .contact-details > .row {
+            display: flex;
+            margin-bottom: 1em;
+            justify-content: space-between;
+        }
+
+            .contact-info-container > .contact-details > .row.button-bar {
+                justify-content: flex-end;
+                margin-bottom: 0;
+            }
+
+                .contact-info-container > .contact-details > .row.button-bar .btn {
+                    margin-left: 1em;
+                }
+
+
+    .contact-info-container > .contact-components {
+        width: 39%;
+        /*border: 1px solid #ccc;*/
+        display: flex;
+        flex-direction: column;
+        background: #fcfcfc;
+    }
+
+        .contact-info-container > .contact-components > h4 {
+            border-bottom: 1px solid #ccc;
+            padding: 0.5em 1em;
+            background: #ffbf48;
+            color: #fff;
+            margin: 0;
+            text-align: center;
+        }
+
+        .contact-info-container > .contact-components > textarea {
+            margin: 0;
+            border: 0;
+            padding: 5px;
+            color: #3392a7;
+            resize: none;
+        }
+
+        .contact-info-container > .contact-components > .btn {
+            background: #fff;
+            color: #ffbf48;
+            border-top: 1px solid #ccc;
+            border-bottom: 1px solid #ccc;
+            border-radius: 0;
+        }
+
+            .contact-info-container > .contact-components > .btn:hover {
+                background: #fcfcfc;
+            }
+
+        .contact-info-container > .contact-components > .previous-notes {
+            overflow-y: auto;
+            height: 180px;
+        }
+
+            .contact-info-container > .contact-components > .previous-notes > .note-item {
+                margin-bottom: 1em;
+            }
+
+                .contact-info-container > .contact-components > .previous-notes > .note-item > .title {
+                    border-top: 1px solid #eee;
+                    color: #999;
+                    font-size: 0.9em;
+                    background: #f7f7f7;
+                    padding: 3px 5px;
+                }
+
+                .contact-info-container > .contact-components > .previous-notes > .note-item > .note {
+                    padding: 5px;
+                }
+
+.form-element > label {
+    font-size: 14px;
+    font-weight: 200;
+    color: #989898; 
+    font-family: 'Lato', sans-serif;
+}
+
+.form-element > input, .form-element > textarea {
+    font-size: 14px;
+    font-weight: 200;
+    color: black;
+    font-family: 'Lato', sans-serif;
+}
+
+
+
+.k-grid-header table th {
+    font-size: 14px;
+    font-weight: 200;
+    color: #989898; 
+    font-family: 'Lato', sans-serif;
+}
+
+.k-grid-content table tbody td, .k-grid-content table tbody td input {
+    font-size: 14px;
+    font-weight: 200;
+    color: black;
+    font-family: 'Lato', sans-serif;
+}

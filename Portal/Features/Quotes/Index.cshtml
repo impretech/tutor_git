@@ -1,0 +1,29 @@
+﻿@{
+    ViewData["Title"] = "Quotes";
+}
+
+
+@section styles {
+    <link rel="stylesheet" href="~/css/list-page.css" />
+    <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet" />
+}
+
+<div class="page-header">
+    <h3>Quotes</h3>
+</div>
+
+<div class="">
+    <div class="action-item">
+        <h4 class="blue">Select a contact below or </h4>
+        <button id="new-contact-button" class="btn yellow">Add a New Quote</button>
+    </div>
+    <div id="contacts-grid"></div>
+</div>
+
+@section scripts {
+    <script type="module" asp-append-version="true">
+        import { QuotesList } from "/js/quotes.js"
+        new QuotesList(@Html.Raw(Json.Serialize(Model)));
+    </script>
+
+}

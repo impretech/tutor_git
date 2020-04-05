@@ -1,0 +1,53 @@
+﻿@model Portal.Data.Models.ScheduleVM
+
+@{
+    ViewData["Title"] = "Schedule";
+}
+
+
+@section styles {
+    <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet" />
+
+    <style>
+        .schedule-container {
+            background: #fff;
+            padding: 10px;
+            display: flex;
+            flex-direction: column
+        }
+    </style>
+}
+
+
+<div class="page-header">
+    <h3>Monitor - Schedule -@Model.SchedID - @Model.ProjectTitle  </h3>
+    <div class="back-button" title="Back To List">
+        <svg class="icon">
+            <use xlink:href="/images/icons.svg#angle-double-left"></use>
+        </svg>
+        <span>Back To List</span>
+    </div>
+</div>
+
+<div class="schedule-container" style="height: calc(100% - 50px);">
+    <div class="gantt-header">
+        <ul class="gantt-controls">
+            <li class="gantt-menu-item"><a data-action="collapseAll"><img src="~/images/gantt/ic_collapse_all_24.png">Collapse All</a></li>
+            <li class="gantt-menu-item gantt-menu-item-last"><a data-action="expandAll"><img src="~/images/gantt/ic_expand_all_24.png">Expand All</a></li>
+            <li class="gantt-menu-item"><a data-action="undo"><img src="~/images/gantt/ic_undo_24.png">Undo</a></li>
+            <li class="gantt-menu-item gantt-menu-item-last"><a data-action="redo"><img src="~/images/gantt/ic_redo_24.png">Redo</a></li>
+            <li class="gantt-menu-item gantt-menu-item-right"><a data-action="fullscreen"><img src="~/images/gantt/ic_fullscreen_24.png">Fullscreen</a></li>
+            <li class="gantt-menu-item gantt-menu-item-right gantt-menu-item-last"><a data-action="zoomToFit"><img src="~/images/gantt/ic_zoom_to_fit_24.png">Zoom to Fit</a></li>
+            <li class="gantt-menu-item gantt-menu-item-right"><a data-action="zoomOut"><img src="~/images/gantt/ic_zoom_out.png">Zoom Out</a></li>
+            <li class="gantt-menu-item gantt-menu-item-right"><a data-action="zoomIn"><img src="~/images/gantt/ic_zoom_in.png">Zoom In</a></li>
+        </ul>
+    </div>
+    <div id="gantt_schedule" style="height: 100%;"></div>
+</div>
+
+@section scripts {
+    <script type="module" asp-append-version="true">
+        import { SchedDetailItem } from "/js/scheduling.js"
+        new SchedDetailItem(@Html.Raw(Json.Serialize(Model)));
+    </script>
+}

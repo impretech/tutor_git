@@ -1,0 +1,254 @@
+/* common */
+
+
+.k-switch {
+    border-radius: 5.4em;
+    cursor: pointer;
+    width: 5.4em;
+    background: 0 0;
+    border: 0;
+    outline: 0;
+    box-shadow: none;
+    display: -ms-inline-flexbox;
+    display: inline-flex;
+    overflow: hidden;
+    vertical-align: middle;
+    font-size: 10px;
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    text-align: left
+}
+
+.k-switch [type=checkbox] {
+    display: none
+}
+
+.k-switch,.k-switch-container,.k-switch-handle {
+    box-sizing: border-box
+}
+
+.k-switch-container {
+    border-radius: 5.4em;
+    padding: 0 0;
+    border-width: 0;
+    border-style: solid;
+    -ms-flex: 1 0 auto;
+    flex: 1 0 auto;
+    position: relative;
+    outline: 0;
+    transition: background-color .2s ease-out 0s
+}
+
+.k-switch-handle {
+    border-radius: 5.4em;
+    width: 3em;
+    height: 3em;
+    border-width: 0;
+    border-style: solid;
+    background-position: 50%;
+    display: inline-block;
+    vertical-align: middle;
+    position: relative;
+    left: 0;
+    transition: left .2s ease-out 0s
+}
+
+.k-ie11 .k-switch-handle {
+    display: block
+}
+
+.k-switch-on .k-switch-handle {
+    left: calc(100% - 3em)
+}
+
+.k-edge .k-switch-on .k-switch-handle,.k-ie .k-switch-on .k-switch-handle {
+    left: 100%;
+    margin-left: -3em
+}
+
+.k-switch-off .k-switch-handle {
+    left: 0
+}
+
+.k-switch-label-off,.k-switch-label-on {
+    display: none;
+    width: calc(100% - 3em - 10px);
+    position: absolute;
+    top: 50%;
+    -webkit-transform: translateY(-50%);
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+    text-shadow: none;
+    line-height: 3em;
+    overflow: hidden
+}
+
+.k-switch-label-on {
+    text-align: left;
+    left: 8px
+}
+
+.k-switch-label-off {
+    text-align: right;
+    right: 8px
+}
+
+.k-switch {
+    overflow: visible
+}
+
+.k-switch .k-switch-container {
+    height: 1.6em
+}
+
+.k-switch .k-switch-handle {
+    top: -.7em
+}
+
+.k-rtl .k-switch.k-switch-on .k-switch-handle,.k-switch[dir=rtl].k-switch-on .k-switch-handle {
+    left: 0
+}
+
+.k-rtl .k-switch.k-switch-off .k-switch-handle,.k-switch[dir=rtl].k-switch-off .k-switch-handle {
+    left: calc(100% - 3em)
+}
+
+.k-rtl .k-switch .k-switch-label-on,.k-switch[dir=rtl] .k-switch-label-on {
+    text-align: right;
+    left: initial;
+    right: 8px
+}
+
+.k-rtl .k-switch .k-switch-label-off,.k-switch[dir=rtl] .k-switch-label-off {
+    text-align: left;
+    left: 8px;
+    right: initial
+}
+
+
+/* material */
+.k-switch-handle {
+    background-clip: border-box
+}
+
+.k-switch-on .k-switch-container {
+    border-color: transparent;
+    color: #fff;
+    background-color: #98a2db
+}
+
+.k-switch-on .k-switch-handle {
+    border-color: transparent;
+    color: #fff;
+    background-color: #3f51b5;
+    box-shadow: 0 1px 3px rgba(0,0,0,.12),0 1px 2px rgba(0,0,0,.2)
+}
+
+.k-switch-on.k-state-focused .k-switch-container,.k-switch-on:focus .k-switch-container {
+    border-color: transparent;
+    color: #fff;
+    background-color: #98a2db
+}
+
+.k-switch-on.k-state-focused .k-switch-handle,.k-switch-on:focus .k-switch-handle {
+    border-color: transparent;
+    color: #fff;
+    background-color: #2e3b84
+}
+
+.k-switch-on.k-state-hover .k-switch-container,.k-switch-on:hover .k-switch-container {
+    border-color: transparent;
+    color: #fff;
+    background-color: #8591d5
+}
+
+.k-switch-on.k-state-hover .k-switch-handle,.k-switch-on:hover .k-switch-handle {
+    border-color: transparent;
+    color: #fff;
+    background-color: #5c6cc6
+}
+
+.k-switch-on .k-switch-label-off {
+    color: transparent
+}
+
+.k-switch-off .k-switch-container {
+    border-color: transparent;
+    color: #fff;
+    background-color: #f5f5f5
+}
+
+.k-switch-off .k-switch-handle {
+    border-color: transparent;
+    color: #fff;
+    background-color: #fafafa;
+    box-shadow: 0 1px 3px rgba(0,0,0,.12),0 1px 2px rgba(0,0,0,.2)
+}
+
+.k-switch-off.k-state-focused .k-switch-container,.k-switch-off:focus .k-switch-container {
+    border-color: transparent;
+    color: #fff;
+    background-color: #ebebeb
+}
+
+.k-switch-off.k-state-focused .k-switch-handle,.k-switch-off:focus .k-switch-handle {
+    border-color: transparent;
+    color: #fff;
+    background-color: #ebebeb
+}
+
+.k-switch-off.k-state-hover .k-switch-container,.k-switch-off:hover .k-switch-container {
+    border-color: transparent;
+    color: #fff;
+    background-color: #ebebeb
+}
+
+.k-switch-off.k-state-hover .k-switch-handle,.k-switch-off:hover .k-switch-handle {
+    border-color: transparent;
+    color: #fff;
+    background-color: #ebebeb
+}
+
+.k-switch-off .k-switch-label-on {
+    color: transparent
+}
+
+.k-switch {
+    background-color: transparent;
+    box-shadow: none
+}
+
+.k-switch.k-state-focused .k-switch-container,.k-switch:focus .k-switch-container {
+    outline: 0
+}
+
+.k-switch.k-state-disabled {
+    cursor: default
+}
+
+.k-switch[aria-readonly=true] {
+    pointer-events: none
+}
+
+
+/* custom switch style */
+
+#switchBox .k-switch .k-switch-container {
+    height: 0.6em;
+}
+
+#switchBox .k-switch-handle {
+    width: 2em;
+    height: 2em;
+}
+
+#switchBox .k-switch {
+    width: 4em;
+}
+
+#switchBox .k-switch-on .k-switch-handle {
+    left: calc(100% - 2em);
+}
+

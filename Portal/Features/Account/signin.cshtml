@@ -1,0 +1,171 @@
+﻿@{
+    Layout = "";
+}
+
+@using Microsoft.Extensions.Options;
+@inject IOptions<OktaSettings> oktaSettings;
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+@{
+    ViewData["Title"] = "Syvenn Sign In 1";
+}
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="SHORTCUT ICON" href="images/favicon.ico">
+    <title>SYVENN Sign In</title>
+
+    <link href="https://ok1static.oktacdn.com/assets/js/sdk/okta-signin-widget/2.16.0/css/okta-sign-in.min.css" type="text/css" rel="stylesheet" />
+    <link href="https://ok1static.oktacdn.com/assets/js/sdk/okta-signin-widget/2.16.0/css/okta-theme.css" type="text/css" rel="stylesheet" />
+
+    <script src="https://ok1static.oktacdn.com/assets/js/sdk/okta-signin-widget/2.16.0/js/okta-sign-in.min.js" type="text/javascript"></script>
+</head>
+<body>
+    <div id="okta-login-container">
+        <script type="text/javascript">
+            var oktaSignIn = new oktaSignIn({
+                baseUrl: '@oktaSettings.Value.OktaDomain',
+                clientId: '0oaivc8tjgoSec5X20h7',
+                authParams: {
+                    issuer: '@oktaSettings.Value.OktaDomain' + '/oauth2/default',
+                    responseType: ['token', 'id_token'],
+                    display: 'page'
+                }
+            });
+            if (oktaSignIn.token.hasTokensInUrl()) {
+                oktaSignIn.token.parseTokensFromUrl(
+                    function success(res) {
+                        var accessToken = res[0];
+                        var idToken = res[1];
+
+                        console.log('Hello, ' + idToken.claims.email);
+
+                        oktaSignIn.tokenManager.add('accessToken', accessToken);
+                        oktaSignIn.tokenManager.add('idToken', idToken);
+
+                        window.location.hash = '';
+                    },
+                    function eror(err) {
+                        console.error(err);
+                    }
+                );
+            } else {
+                oktaSignIn.session.get(function (res) {
+                    if (res.status === 'ACTIVE') {
+                        console.log('Welcome back, ' + res.login);
+                        return;
+                    }
+                    oktaSignIn.renderEl(
+                        {
+                            el: '#okta-login-container'
+                        },
+                        function succss(res) {
+
+                        },
+                        function error(err) {
+                            console.error(err);
+                        }
+
+                    );
+                });
+            }
+        </script>
+    </div>
+</body>
+</html>
+
+@*<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="SHORTCUT ICON" href="images/favicon.ico">
+    <title>SYVENN Sign In</title>
+
+    <link href="https://ok1static.oktacdn.com/assets/js/sdk/okta-signin-widget/2.16.0/css/okta-sign-in.min.css" type="text/css" rel="stylesheet" />
+    <link href="https://ok1static.oktacdn.com/assets/js/sdk/okta-signin-widget/2.16.0/css/okta-theme.css" type="text/css" rel="stylesheet" />
+
+    <script src="https://ok1static.oktacdn.com/assets/js/sdk/okta-signin-widget/2.16.0/js/okta-sign-in.min.js" type="text/javascript"></script>
+    <style>
+        #boxes {
+            content: "";
+            display: table;
+            clear: both;
+        }
+
+        div {
+            float: left;
+            width: 23%;
+            padding: 0 10px;
+        }
+
+        #column1 {
+            background-color: #a1edcc;
+        }
+
+        #column2 {
+            width: 30%;
+        }
+    </style>
+</head>
+<body>
+    <div id="boxes">
+        <div id="column1">
+            <img src="~/images/PCC-Login Screen.png" />
+        </div>
+        <div id="column2">
+            <div id="okta-login-container">
+                <script type="text/javascript">
+            var oktaSignIn = new oktaSignIn({
+                baseUrl: '@oktaSettings.Value.OktaDomain',
+                clientId: '0oaivc8tjgoSec5X20h7',
+                authParams: {
+                    issuer: '@oktaSettings.Value.OktaDomain' + '/oauth2/default',
+                    responseType: ['token', 'id_token'],
+                    display: 'page'
+                }
+            });
+            if (oktaSignIn.token.hasTokensInUrl()) {
+                oktaSignIn.token.parseTokensFromUrl(
+                    function success(res) {
+                        var accessToken = res[0];
+                        var idToken = res[1];
+
+                        console.log('Hello, ' + idToken.claims.email);
+
+                        oktaSignIn.tokenManager.add('accessToken', accessToken);
+                        oktaSignIn.tokenManager.add('idToken', idToken);
+
+                        window.location.hash = '';
+                    },
+                    function eror(err) {
+                        console.error(err);
+                    }
+                );
+            } else {
+                oktaSignIn.session.get(function (res) {
+                    if (res.status === 'ACTIVE') {
+                        console.log('Welcome back, ' + res.login);
+                        return;
+                    }
+                    oktaSignIn.renderEl(
+                        {
+                            el: '#okta-login-container'
+                        },
+                        function succss(res) {
+
+                        },
+                        function error(err) {
+                            console.error(err);
+                        }
+
+                    );
+                });
+            }
+                </script>
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>*@

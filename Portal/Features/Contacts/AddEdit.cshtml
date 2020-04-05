@@ -1,0 +1,310 @@
+﻿@model ContactViewModel
+
+@{
+    ViewData["Title"] = "Contact Details";
+}
+
+
+@section styles {
+    <link rel="stylesheet" href="~/css/detail-page.css" />
+    <link rel="stylesheet" href="~/css/contacts/index.css" />
+    <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet"/>
+}
+
+    <div class="page-header">
+        <h3>Contact ID: @Model.contact.ContactID  (@Model.contact.FirstName @Model.contact.LastName)</h3>
+        <h3 style="margin-left:50px">Mode: @Model.Mode</h3>
+
+        <div class="doc-button" id="doc-button" title="Upload Document">
+            <svg class="icon">
+                <use xlink:href="/images/icons.svg#paperclip"></use>
+            </svg>
+        </div>
+        <div class="back-button" title="Back To List">
+            <svg class="icon">
+                <use xlink:href="/images/icons.svg#angle-double-left"></use>
+            </svg>
+            <span>Back To List</span>
+        </div>
+    </div>
+
+<div class="outer-grid">
+    <div class="grid-item item-border">
+        <div class="grid-item-content">
+            <div class="contact-info-container">
+                <div class="contact-details">
+                    <div class="row" style="display:none">
+                        <input id="contactid" type="text" name="contactid">
+                    </div>
+                    <div class="row">
+                        <div class="form-element" style="min-width: 50px;">
+                            <label for="prefix">Prefix: </label>
+                            <input id="prefix" type="text" name="prefix">
+                        </div>
+                        <div class="form-element" style="min-width: 100px;">
+                            <label for="firstname">First: <abbr title="required">*</abbr></label>
+                            <input id="firstname" type="text" name="firstname">
+                        </div>
+                        <div class="form-element" style="min-width: 100px;">
+                            <label for="lastname">Last: <abbr title="required">*</abbr></label>
+                            <input id="lastname" type="text" name="lastname">
+                        </div>
+                        <div class="form-element" style="min-width: 50px;">
+                            <label for="Suffix">Suffix: </label>
+                            <input id="suffix" type="text" name="suffix">
+                        </div>
+                    </div>
+                    <div class="row">
+
+                    </div>
+                    <div class="row">
+                        <div class="form-element">
+                            <label for="company">Company: <abbr title="required">*</abbr></label>
+                            <input id="companyCombo" type="text" name="company">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-element">
+                            <label for="jobtitle">Title: </label>
+                            <input id="jobtitle" type="text" name="jobtitle">
+                        </div>
+                        <div class="form-element">
+                            <label for="dept">Dept: </label>
+                            <input id="dept" type="text" name="dept">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-element">
+                            <label for="preferredname">Preferred (Goes by): </label>
+                            <input id="preferredname" type="text" name="preferredname">
+                        </div>
+                        <div class="form-element">
+                            <label for="showasname">Show As: </label>
+                            <input id="showasname" type="text" name="showasname">
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="form-element">
+                            <label for="note">Notes: </label>
+                            <textarea id="note" type="text" name="note" rows="2"></textarea>
+                        </div>
+                    </div>
+                    <div class="row button-bar">
+                        <button id="save-button" class="btn yellow">Save</button>
+                        <button id="cancel-button" class="btn gray">Cancel</button>
+                    </div>
+                    <div class="row" style="margin-top:20px;">
+                        <div class="grid-item item-border">
+                            <div class="grid-item-header">
+                                <h3>Project Roles</h3>
+                            </div>
+                            <div class="grid-item-content">
+                                <div id="roles-grid"></div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="contact-components">
+                    <div class="inner-grid">
+                        <div class="grid-item item-border">
+                            <div class="grid-item-header">
+                                <h3>Phone Numbers</h3>
+                                <div class="grid-item-header-buttons phone">
+                                    <button class="btn toolbar add" title="Add New Record">
+                                        <svg class="grid-item-icon green">
+                                            <use xlink:href="/images/icons.svg#plus"></use>
+                                        </svg>
+                                    </button>
+                                    <button class="btn toolbar save" title="Save Changes">
+                                        <svg class="grid-item-icon yellow">
+                                            <use xlink:href="/images/icons.svg#save"></use>
+                                        </svg>
+                                    </button>
+                                    <button class="btn toolbar cancel" title="Cancel Changes">
+                                        <svg class="grid-item-icon">
+                                            <use xlink:href="/images/icons.svg#times"></use>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="grid-item-content">
+                                <div id="phone-grid"></div>
+                            </div>
+                            @*<div id="phone-component" ></div>*@
+                        </div>
+
+                        <div class="grid-item item-border">
+                            <div class="grid-item-header">
+                                <h3>Emails</h3>
+                                <div class="grid-item-header-buttons email">
+                                    <button class="btn toolbar add" title="Add New Record">
+                                        <svg class="grid-item-icon green">
+                                            <use xlink:href="/images/icons.svg#plus"></use>
+                                        </svg>
+                                    </button>
+                                    <button class="btn toolbar save" title="Save Changes">
+                                        <svg class="grid-item-icon yellow">
+                                            <use xlink:href="/images/icons.svg#save"></use>
+                                        </svg>
+                                    </button>
+                                    <button class="btn toolbar cancel" title="Cancel Changes">
+                                        <svg class="grid-item-icon">
+                                            <use xlink:href="/images/icons.svg#times"></use>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="grid-item-content">
+                                <div id="email-grid"></div>
+                            </div>
+                        </div>
+                        <div class="grid-item item-border">
+                            <div class="grid-item-header">
+                                <h3>Locations</h3>
+                                <div class="grid-item-header-buttons location">
+                                    <button class="btn toolbar add" title="Add New Record">
+                                        <svg class="grid-item-icon green">
+                                            <use xlink:href="/images/icons.svg#plus"></use>
+                                        </svg>
+                                    </button>
+                                    <button class="btn toolbar save" title="Save Changes">
+                                        <svg class="grid-item-icon yellow">
+                                            <use xlink:href="/images/icons.svg#save"></use>
+                                        </svg>
+                                    </button>
+                                    <button class="btn toolbar cancel" title="Cancel Changes">
+                                        <svg class="grid-item-icon">
+                                            <use xlink:href="/images/icons.svg#times"></use>
+                                        </svg>
+                                    </button>
+                                </div>
+                            </div>
+                            <div class="grid-item-content">
+                                <div id="location-grid"></div>
+                                <script id="location-popup-editor" type="text/x-kendo-template">
+
+                                    <div class="k-edit-label">
+                                        <label for="LocationID">ID</label>
+                                    </div>
+                                    <div data-container-for="LocationID" class="k-edit-field">
+                                        <input type="text" class="k-input k-textbox" name="LocationID" data-bind="value:locationID" />
+                                    </div>
+
+                                    <div class="k-edit-label">
+                                        <label for="Label">Label</label>
+                                    </div>
+                                    <div data-container-for="Label" class="k-edit-field">
+                                        <input type="text" class="k-input k-textbox" name="Label" data-bind="value:label" />
+                                    </div>
+
+
+                                    <div class="k-edit-label">
+                                        <label for="Address1">Address 1</label>
+                                    </div>
+                                    <div data-container-for="Adress1" class="k-edit-field">
+                                        <input type="text" class="k-input k-textbox" name="Address1" data-bind="value:address1" />
+                                    </div>
+
+                                    <div class="k-edit-label">
+                                        <label for="Address2">Address 2</label>
+                                    </div>
+                                    <div data-container-for="Adress2" class="k-edit-field">
+                                        <input type="text" class="k-input k-textbox" name="Address2" data-bind="value:address2" />
+                                    </div>
+
+                                    <div class="row">
+                                        <div>
+                                            <div class="k-edit-label">
+                                                <label for="AddCity">City</label>
+                                            </div>
+                                            <div data-container-for="AddCity" class="k-edit-field">
+                                                <input type="text" class="k-input k-textbox" name="AddCity" data-bind="value:addCity" />
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div class="k-edit-label">
+                                                <label for="AddState">State</label>
+                                            </div>
+                                            <div data-container-for="AddState" class="k-edit-field">
+                                                <input type="text" class="k-input k-textbox" name="AddState" data-bind="value:addState" />
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div class="k-edit-label">
+                                                <label for="AddZip">Zipcode</label>
+                                            </div>
+                                            <div data-container-for="AddZip" class="k-edit-field">
+                                                <input type="text" class="k-input k-textbox" name="AddZip" data-bind="value:addZip" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div>
+                                            <div class="k-edit-label">
+                                                <label for="Bldg">Building</label>
+                                            </div>
+                                            <div data-container-for="AddZip" class="k-edit-field">
+                                                <input type="text" class="k-input k-textbox" name="Bldg" data-bind="value:bldg" />
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div class="k-edit-label">
+                                                <label for="Floor">Floor</label>
+                                            </div>
+                                            <div data-container-for="AddZip" class="k-edit-field">
+                                                <input type="text" class="k-input k-textbox" name="Floor" data-bind="value:floor" />
+                                            </div>
+                                        </div>
+                                        <div>
+                                            <div class="k-edit-label">
+                                                <label for="Room">Room</label>
+                                            </div>
+                                            <div data-container-for="AddZip" class="k-edit-field">
+                                                <input type="text" class="k-input k-textbox" name="Room" data-bind="value:room" />
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="k-edit-label">
+                                        <label for="ParentID">ParentID</label>
+                                    </div>
+                                    <div data-container-for="ParentID" class="k-edit-field">
+                                        <input type="text" class="k-input k-textbox" name="ParentID" data-bind="value:parentID" />
+                                    </div>
+                                    <div class="k-edit-label">
+                                        <label for="ParentType">Parent Type</label>
+                                    </div>
+                                    <div data-container-for="ParentType" class="k-edit-field">
+                                        <input type="text" class="k-input k-textbox" name="ParentType" data-bind="value:parentType" />
+                                    </div>
+                                </script>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@*<div class="flex-button-bar">
+        <button id="save-button" class="btn yellow">Save</button>
+        <button id="cancel-button" class="btn gray">Cancel</button>
+    </div>*@
+
+
+@section scripts {
+    <script id="noDataTemplate" type="text/x-kendo-tmpl">
+        <div>
+            No data found. Do you want to add new Vendor - '#: instance.text() #' ?
+        </div>
+        <br />
+        <button id="new-vendor-button" name="new-vendor-button" class="new-vendor-button">Add new Vendor</button>
+    </script>
+
+    <script type="module" asp-append-version="true">
+    import { ContactDetailsItem } from "/js/contacts.js"
+    new ContactDetailsItem(@Html.Raw(Json.Serialize(Model)));
+    </script>
+
+}
+

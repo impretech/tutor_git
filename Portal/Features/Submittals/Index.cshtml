@@ -1,0 +1,29 @@
+﻿@{
+    ViewData["Title"] = "Submittals";
+}
+
+
+@section styles {
+    <link rel="stylesheet" href="~/css/list-page.css" />
+    <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet" />
+}
+
+<div class="page-header">
+    <h3>Submittals</h3>
+</div>
+
+<div class="">
+    <div class="action-item">
+        <h4 class="blue">Select a submittal below or </h4>
+        <button id="new-submittal-button" class="btn yellow">Add a New Submittal</button>
+    </div>
+    <div id="sub-grid"></div>
+</div>
+
+@section scripts {
+    <script type="module" asp-append-version="true">
+        import { SubmittalsList } from "/js/submittals.js"
+        new SubmittalsList(@Html.Raw(Json.Serialize(Model)));
+    </script>
+
+}

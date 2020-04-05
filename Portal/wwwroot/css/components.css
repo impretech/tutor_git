@@ -1,0 +1,454 @@
+﻿.nav-tabs {
+    display: flex;
+    list-style-type: none;
+    margin-bottom: 3px;
+}
+
+    .nav-tabs > li > a {
+        margin-right: 1em;
+        padding: 0em 1em;
+        border-bottom: 5px solid transparent;
+        color: #999;
+        display: block;
+        font-weight: 600;
+    }
+
+
+    .nav-tabs > li.active > a,
+    .nav-tabs > li.active > a:hover,
+    .nav-tabs > li.active > a:focus {
+        color: #333;
+        cursor: default;
+        border-bottom: 5px solid #3392A7;
+    }
+
+.tab-content {
+}
+
+    .tab-content > .tab-pane {
+        display: none;
+    }
+
+        /*.tab-content > .tab-pane.active {
+            background-color: #fff;
+        }*/
+
+    .tab-content > .active {
+        display: flex;
+    }
+
+#tab-project-summary .item-border{
+    max-height:316px !important;
+    overflow:auto;
+}
+
+
+
+.sliding-panel {
+    display: flex;
+    flex-direction: column;
+}
+
+    .sliding-panel > .sliding-panel-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        margin-bottom: 1em;
+    }
+
+
+        .sliding-panel > .sliding-panel-header > .title {
+            font-size: 1em;
+        }
+
+        .sliding-panel > .sliding-panel-header > .control-bar {
+            flex: 0 0 4em;
+            display: flex;
+        }
+
+            .sliding-panel > .sliding-panel-header > .control-bar > a {
+                display: flex;
+                align-items: center;
+            }
+
+            .sliding-panel > .sliding-panel-header > .control-bar .sliding-panel-icon {
+                width: 2em;
+                height: 2em;
+            }
+
+    .sliding-panel > .sliding-panel-container {
+        width: 100%;
+        height: 100%;
+        overflow: hidden;
+        position: relative;
+    }
+
+        .sliding-panel > .sliding-panel-container > .sliding-panel-content {
+            display: flex;
+            position: relative;
+            top: 0;
+            left: 0;
+        }
+
+            .sliding-panel > .sliding-panel-container > .sliding-panel-content.hidden {
+                display: none;
+            }
+
+
+.project-budget-bar {
+    width: 100%;
+    display: flex;
+    position: relative;
+}
+
+    .project-budget-bar > .bar {
+        flex: 1 1 auto;
+        border: 1px solid #333;
+        height: 40px;
+        position: relative;
+        border-radius: 17px;
+        background: #000;
+    }
+
+        .project-budget-bar > .bar > .inner-border {
+            position: absolute;
+            top: 3px;
+            left: 3px;
+            right: 3px;
+            bottom: 3px;
+            border: 1px solid #333;
+            border-radius: 14px;
+            background: #999;
+        }
+
+    .project-budget-bar > .bar > .total-budget {
+        border: 4px solid #ccc;
+        height: 37px;
+        position: absolute;
+        top: 1px;
+        left: 1px;
+        width: 90%;
+        border-radius: 15px;
+        background: #f7f7f7;
+    }
+
+    .project-budget-bar > .bar > .committed-po {
+        border: 4px solid #3392a7;
+        height: 25px;
+        position: absolute;
+        top: 7px;
+        left: 7px;
+        width: 60%;
+        border-radius: 11px;
+    }
+
+    .project-budget-bar > .bar > .pending-po {
+        border: 4px solid #ffbf48;
+        height: 25px;
+        position: absolute;
+        top: 7px;
+        left: calc(60% + 9px);
+        width: 20%;
+        border-radius: 11px;
+    }
+
+    .project-budget-bar > .bar > .invoice-total {
+        border: 4px solid #87d674;
+        height: 15px;
+        position: absolute;
+        top: 12px;
+        left: 12px;
+        width: 40%;
+        border-radius: 11px;
+    }
+
+    .project-budget-bar > .bar > .invoice-paid {
+        border: 4px solid #87d674;
+        background-color: #87d674;
+        height: 15px;
+        position: absolute;
+        top: 12px;
+        left: 12px;
+        width: 30%;
+        border-top-left-radius: 11px;
+        border-bottom-left-radius: 11px;
+    }
+
+    .project-budget-bar > .button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex: 0 0 3em;
+    }
+
+        .project-budget-bar > .button > .action {
+            background: white;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            color: #fff;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            transition: all .5s ease-in-out;
+            border-color: #333;
+            border-width: 2px;
+            border-style: solid;
+            transition: background 0.3s ease-in;
+            cursor: pointer;
+        }
+
+        .project-budget-bar > .button > .action:hover {
+            background: #ccc;
+        }
+
+            .project-budget-bar > .button > .action > .icon {
+                fill: rgb(51, 51, 51);
+                width: 1em;
+                transform: rotate(90deg);
+                height: 2em;
+            }
+
+    .project-budget-bar > .popOut {
+        width: calc(100% - 64px);
+        position: absolute;
+        top: 42px;
+        left: 14px;
+        background: #fff;
+        border: none;
+        max-height: 0;
+        transition: max-height 0.15s ease-out;
+        overflow: hidden;
+    }
+
+        .project-budget-bar > .popOut.visible {
+            max-height: 200px;
+            border: 1px solid #333;
+        }
+
+        .project-budget-bar > .popOut > div {
+            display: flex;
+            justify-content: space-between;
+            padding: 3px;
+            color: #333;
+        }
+
+            .project-budget-bar > .popOut > div:nth-child(1) {
+                background: #999;
+                color: #fff;
+            }
+
+            .project-budget-bar > .popOut > div:nth-child(2) {
+                background: #f7f7f7;
+            }
+
+            .project-budget-bar > .popOut > div:nth-child(3) {
+                background: #3392a7;
+                color: #fff;
+            }
+
+            .project-budget-bar > .popOut > div:nth-child(4) {
+                background: #ffbf48;
+            }
+
+            .project-budget-bar > .popOut > div:nth-child(5) {
+                background: #87d674;
+            }
+
+            .project-budget-bar > .popOut > div:nth-child(6) {
+                background: #c8e3c1;
+            }
+
+
+
+
+
+
+.project-schedule-bar {
+    width: 100%;
+    display: flex;
+    position: relative;
+}
+
+    .project-schedule-bar > .progress {
+        flex: 1 1 auto;
+        border: 1px solid #333;
+        height: 20px;
+        position: relative;
+        border-radius: 9px;
+        background: #000;
+    }
+
+        .project-schedule-bar > .progress > .inner-border {
+            position: absolute;
+            top: 1px;
+            left: 1px;
+            right: 1px;
+            bottom: 1px;
+            border: 1px solid #333;
+            border-radius: 7px;
+            background: #f7f7f7;
+        }
+
+        .project-schedule-bar > .progress > .schedule-progress {
+            height: 14px;
+            position: absolute;
+            top: 2px;
+            left: 2px;
+            width: 90%;
+            border-radius: 6px;
+            background: #87d674;
+            text-align: center;
+            line-height: 1.5em;
+            color: #fff;
+            font-size: 0.9em;
+        }
+
+
+    .project-schedule-bar > .button {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        flex: 0 0 2em;
+    }
+
+        .project-schedule-bar > .button > .action {
+            background: white;
+            border-radius: 50%;
+            width: 20px;
+            height: 20px;
+            color: #fff;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+            transition: all .5s ease-in-out;
+            border-color: #333;
+            border-width: 2px;
+            border-style: solid;
+            transition: background 0.3s ease-in;
+            cursor: pointer;
+        }
+
+            .project-schedule-bar > .button > .action:hover {
+                background: #ccc;
+            }
+
+            .project-schedule-bar > .button > .action > .icon {
+                fill: rgb(51, 51, 51);
+                width: 1em;
+                /*transform: rotate(90deg);*/
+                height: 1em;
+            }
+
+    .project-schedule-bar > .popOut {
+        width: 200px;
+        position: absolute;
+        top: 0;
+        left: calc(100% + 5px);
+        background: #fff;
+        transition: max-height 0.15s ease-out;
+        overflow: hidden;
+        z-index: 999;
+        height: 200px;
+        max-height: 0;
+    }
+
+        .project-schedule-bar > .popOut.visible {
+            max-height: 200px;
+            border: 1px solid #333;
+        }
+
+        .project-schedule-bar > .popOut > div {
+            display: flex;
+            justify-content: space-between;
+            padding: 3px;
+            color: #333;
+        }
+
+
+
+.modal-container {
+    width: 100%;
+    position: fixed;
+    z-index: 20000;
+    left: 0;
+    top: 0;
+    background-color: rgb(255,255,255);
+    background-color: rgba(255,255,255, 0.95);
+    overflow-x: hidden;
+    transition: 0.5s;
+    height: 0;
+}
+
+.modal-container.visible {
+    height: 100%;
+}
+
+.modal-content {
+    position: relative;
+    top: 7%; 
+    width: 100%; 
+    text-align: center; 
+    margin-top: 30px; 
+}
+
+
+.modal-container .close-button {
+    position: absolute;
+    top: 15px;
+    right: 30px;
+    font-size: 60px;
+    color: #3392A7;
+    line-height: 50px;
+    transition: color .3s ease-in;
+}
+.modal-container .close-button:hover {
+    color: #333;
+}
+
+/* outlook365 email */
+#outlookEmailBox {
+    z-index: 20;
+    /*background: lightgoldenrodyellow;*/
+    width: 100%;
+    padding: 10px 5%;
+    padding-bottom:5%;
+    /*border: 1px solid grey;*/
+    text-align: left;
+}
+.messageTitle {
+    text-align: left;
+    font-size:24px;
+    font-weight:bold;
+    padding-left:3%;
+}
+.email-header1 {
+    font-size: 15px;
+    line-height: 20px;
+}
+        .email-header1 span{
+            font-weight:bold;
+        }
+
+        #outlookEmailBox .top-area {
+            height: 80px;
+        }
+
+#outlookEmailBody {
+    background: white;
+    font-size: 15px;
+    word-break:break-all;
+}
+.msgBody {
+    font-size: 15px;
+    margin-top: 5%;
+}
+.msgTxt {
+    font-weight: bold;
+    font-size: 15px;
+    line-height: 20px;
+}
+
+    
