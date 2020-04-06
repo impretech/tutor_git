@@ -1,0 +1,322 @@
+﻿@model MessagingViewModel
+@using System.Web
+@{
+    var pm = 0;
+    var cl = "";
+    var v_class = "col-lg-12";
+    var v_class2 = "";
+}
+@*
+    For more information on enabling MVC for empty projects, visit https://go.microsoft.com/fwlink/?LinkID=397860
+
+*@
+@{
+    <link rel="stylesheet" href="~/css/components.css" />
+}
+
+<input type="hidden" value="Project" id="hdnbtn" />
+<div class="row messaging-container form-element">
+    @*<input type="text" placeholder="New Message" id="new-message" class="responseArea" autocomplete="off"/>*@
+    <textarea placeholder="New Message" id="new-message" class="responseArea" autocomplete="off"></textarea>
+    <a href="#" class="" id="new-message-btn">
+        <img src="~/images/next.svg" />
+    </a>
+    <div id="new-message-container" class="compose-container"></div>
+    <div id="importantDiv">
+        <br />
+        @foreach (var message in Model.ProjectMessages)
+        {
+            @if (message.parentId != 0)
+            {
+                pm = pm + 1;
+                cl = "";
+            }
+            else
+            {
+                pm = 0;
+                cl = "";
+            }
+            @if(message.DocumentDb.Count>0)
+            {
+                v_class = "col-lg-11";
+                v_class2 = "col-lg-1";
+            }
+            else
+            {
+                v_class = "col-lg-12";
+                v_class2 = "";
+            }
+    <div class="@(message.parentId == 0 ? "one-message" : pm%2==1 ? "replyMessagePanel" : "replyMessagePanelSecond") question row1">
+        <div class="@v_class firstCol" style="padding-top:5px;padding-bottom:5px;">
+            @*<i class="fa fa-user-o userIcon" aria-hidden="true"></i>*@
+            @if (!message.isRead)
+            {
+                <i class="fa fa-exclamation-circle" aria-hidden="true" style="float:left;font-size:20px;margin-top:7px;" title="No reply has been sent"></i>
+            }
+            <div class="circle">
+                <span class="initials">@message.initial</span>
+            </div>
+            <span style="font-size: 13px; font-weight: bold;padding-left:10px;">@message.From</span> &nbsp;&nbsp;&nbsp; <span><i class="fa fa-arrow-right"></i></span> &nbsp;&nbsp;&nbsp;<span style="font-size: 13px; font-weight: bold;">@message.To</span>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span>@message.SendDate.ToString("MM/dd/yyyy hh:mm tt")</span>&nbsp;&nbsp;&nbsp;
+            @if (message.Type == "Action")
+            {
+            <span class="typetxt">@message.Type: @message.actionType</span>
+            }
+            else
+            {
+                <span class="typetxt">@message.Type</span>
+            }
+
+            &nbsp;&nbsp;&nbsp;<span>Due: @message.dueDate.ToString("MM/dd/yyyy")</span>
+            <input type="hidden" value="@(message.parentId != 0 ? message.parentId : message.Id )" id="hdnParenId-@message.Id" />
+
+            <hr />
+            <div style="padding-left:42px;font-size: 13px; color: #000;word-break: break-all;padding-right:10px;">
+                @Html.Raw(HttpUtility.HtmlDecode(message.Message.Replace("\r\n", "<br />")))
+            </div>
+        </div>
+        @if (message.DocumentDb.Count > 0)
+        {
+                <div class="secondCol @v_class2" style="border:1px solid gray;padding-left:0;padding-right:0">
+                    <div style="display:block;text-align:center;font-weight:bold;color:#fff;background:#576A6F;">
+                        <span> Attachments:</span>
+                    </div>
+                    <div id="message_tabstrip-@message.Id" class="message_tabstrip">
+                        <ul class="tapstrip-buttons msg">
+                            @foreach (var item in message.DocumentDb)
+                            {
+
+                                <li title="@item.DocID-@item.Name" id="@item.DocID" style="bottom:-10px;margin-bottom:10px;"><i class="fa fa-file" aria-hidden="true"></i><span style="z-index:999;color:#fff">@item.DocID</span></li>
+
+                            }
+                        </ul>
+                    </div>
+                </div>
+        }
+                <a id="replyMessage-@message.Id" class="replyMessage"><i class="fa fa-reply envelopeClass circle1 @cl" aria-hidden="true"></i></a>
+            </div>
+            <div id="new-message-container-reply-@message.Id" class="compose-container-reply-new"></div>
+            <script id="second-message-template-@message.Id" class="second-class-msg" type="text/x-custom-template">
+                <div class="row compose-container-reply form-element ">
+                    @*<input type="text" placeholder="New Message" id="new-message-reply-@message.Id" class="responseArea newMessage" autocomplete="off"/>*@
+                    <textarea placeholder="New Message" id="new-message-reply-@message.Id" class="responseArea newMessage" autocomplete="off"></textarea>
+                    
+                            <a href="#" class="new-message-btn-reply" id="new-message-btn-reply-@message.Id">
+                                <img src="/images/next.svg" />
+                            </a>
+                            <div id="message-container-reply" class="messaging-content">
+                                <div class="row1">
+                                    <div class="col-lg-11 borderRow">
+                                        <div id="firstDiv" style="float:left">
+                                            <div class="doc-button" title="Add attachment to message">
+                                                <svg class="icon" id="addDocumentReply-@message.Id" ">
+                                                    <use xlink:href="/images/icons.svg#paperclip"></use>
+                                                </svg>
+                                            </div>
+                                        </div>
+                                        <div class="col-lg-2" id="secondDiv-@message.Id">
+                                            Type<span class="red">*</span>:
+                                            <select id="message-type-reply-@message.Id" class="message-type-reply" style="display:block;border-color:#ccc">
+                                                @foreach (var type in Model.MessagingTypes)
+                                                {
+                                                    <option value="@type.Name">@type.Name</option>
+                                                }
+                                            </select>
+                                        </div>
+                                        <div class="col-lg-2" id="thirdDiv-@message.Id">
+                                            To<span class="red">*</span>:
+                                            <select id="send-to-reply-@message.Id" class="send-to-reply" style="display:block;border-color:#ccc">
+                                                @foreach (var team in Model.ProjectTeamEmails)
+                                                {
+                                                    <option value="@team.param">@team.Name</option>
+                                                }
+                                            </select>
+                                        </div>
+                                        <div style="display:none;" id="actionDivOne-@message.Id">
+                                            Action<span class="red">*</span>:
+                                            <select id="action-type-@message.Id" class="action-type" style="display:block;border-color:#ccc">
+                                                @foreach (var type in Model.Actions)
+                                                {
+                                                    <option value="@type.Name">@type.Name</option>
+                                                }
+                                            </select>
+                                        </div>
+                                        <div style="display:none;" id="actionDivTwo-@message.Id">
+                                            Due<span class="red">*</span>:
+                                            <input type="text" class="dueInp" id="dueInp-@message.Id" style="display:block;margin:-1px !important;"/>
+                                        </div>
+                                        <div style="display:none;margin-right:1%;" id="actionDivThree-@message.Id">
+                                            Status<span class="red">*</span>:
+                                            <select id="action-type-status-@message.Id" class="type-status" style="display:block">
+                                                @foreach (var type in Model.Statuses)
+                                                {
+                                                    <option value="@type.Name">@type.Name</option>
+                                                }
+                                            </select>
+                                        </div>
+                                        <div id="fourthDiv-@message.Id" class="col-lg-2">
+                                            CC:
+                                            <input id="has-cc-reply-@message.Id" type="checkbox" class="has-cc-reply" />
+                                            <div id="cc-list-reply1-@message.Id" class="cc-list-reply1">
+                                                <select multiple="multiple" id="cc-list-reply-@message.Id" class="cc-list-reply" style="display:block;border-color:#ccc">
+                                                    @foreach (var team in Model.ProjectTeamEmails)
+                                                    {
+                                                        <option value="@team.param">@team.Name</option>
+                                                    }
+                                                </select>
+                                            </div>
+                                        </div>
+                                        <div id="fifthDiv-@message.Id" class="col-lg-2">
+                                            On Sched:
+                                            <label class="switch">
+                                                <input id="has-schedule-reply-@message.Id" class="has-schedule-reply" type="checkbox">
+                                                <span class="slider round"></span>
+                                            </label>
+                                            <select id="schedule-list-reply-@message.Id" class="schedule-list-reply">
+                                                @foreach (var task in Model.Tasks)
+                                                {
+                                                    <option value="@task.Id">@task.Name</option>
+                                                }
+                                            </select>
+                                            On
+                                        </div>
+                                    </div>
+                                        <div class="col-lg-1 secondCol" style="border:1px solid gray;padding-left:0;padding-right:0;display:none">
+                        <div style="display:block;text-align:center;font-weight:bold;color:#fff;background:#576A6F;">
+                            <span> Attachments:</span>
+                        </div>
+                                            <div id="message_tabstripMain-@message.Id" class="message_tabstrip">
+                                                <ul class="tapstrip-buttons"></ul>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <a href="#" id="cancel-btn-@message.Id" class="cancel-btn">
+                                        <img src="/images/cancel.svg" />
+                                    </a>
+                                </div>
+                                    </div>
+
+</script>
+        }
+    </div>
+</div>
+
+<script id="message-container-template" type="text/x-custom-template">
+    <div id="message-container" class="messaging-content row1">
+        <div class="col-lg-11 borderRow">
+            <div id="firstDiv" style="float:left">
+                <div class="doc-button" title="Add attachment to message">
+                    <svg class="icon" id="addDocumentReply">
+                        <use xlink:href="/images/icons.svg#paperclip"></use>
+                    </svg>
+                </div>
+            </div>
+            <div class="col-lg-2" id="secondDiv">
+                Type<span class="red">*</span>:
+                <select id="message-type" class="response-type" style="display:block">
+                    @foreach (var type in Model.MessagingTypes)
+                    {
+                        <option value="@type.Name">@type.Name</option>
+                    }
+                </select>
+            </div>
+            <div class="col-lg-2" id="thirdDiv">
+                To<span class="red">*</span>:
+                <select id="send-to" class="from-name" style="display:block">
+                    @foreach (var team in Model.ProjectTeamEmails)
+                    {
+                        <option value="@team.param">@team.Name</option>
+                    }
+                </select>
+            </div>
+            <div style="display:none;" id="actionDivOne">
+                Action<span class="red">*</span>:
+                <select id="action-type" class="action-type" style="display:block">
+                    @foreach (var type in Model.Actions)
+                    {
+                        <option value="@type.Name">@type.Name</option>
+                    }
+                </select>
+            </div>
+            <div style="display:none;" id="actionDivTwo">
+                Due<span class="red">*</span>:
+                <input type="text" id="dueInp" class="dueInp" style="display:block" />
+            </div>
+            <div style="display:none" id="actionDivThree">
+                <label>
+                    Status<span class="red">*</span>:
+                    <select id="action-type-status" class="type-status" style="display:block">
+                        @foreach (var type in Model.Statuses)
+                        {
+                            <option value="@type.Name">@type.Name</option>
+                        }
+                    </select>
+                </label>
+            </div>
+            <div class="col-lg-2" id="fourthDiv">
+                CC:
+                <input id="has-cc" type="checkbox" class="has-cc-reply" />
+                <div id="cc-list1" class="cc-list-reply1">
+                    <select multiple="multiple" id="cc-list" class="cc-list-reply">
+                        @foreach (var team in Model.ProjectTeamEmails)
+                        {
+                            <option value=@team.param>@team.Name</option>
+                        }
+                    </select>
+                </div>
+            </div>
+            <div class="col-lg-2" id="fifthDiv">
+                On Sched:
+                <label class="switch">
+                    <input id="has-schedule" type="checkbox" class="has-schedule-reply">
+                    <span class="slider round"></span>
+                </label>
+                <select id="schedule-list" class="schedule-list-reply">
+                    @foreach (var task in Model.Tasks)
+                    {
+                        <option value="@task.Id">@task.Name</option>
+                    }
+                </select>
+                On
+            </div>
+        </div>
+        <div class="col-lg-1 secondCol" style="border:1px solid gray;padding-left:0;padding-right:0;display:none">
+                        <div style="display:block;text-align:center;font-weight:bold;color:#fff;background:#576A6F;">
+                            <span> Attachments:</span>
+                        </div>
+                <div id="message_tabstripMain" class="message_tabstrip">
+                    <ul class="tapstrip-buttons"></ul>
+                </div>
+            </div>
+        </div>
+            <div id="sixthDiv">
+                <a href="#" id="cancel-btn" style="top:55px !important" class="cancel-btn">
+                    <img src="/images/cancel.svg" />
+                </a>
+            </div>
+</script>
+
+@*<script type="text/javascript" src="~/js/components/modal.js"></script>*@
+
+<div id="modal" style="display:none">
+    <div class="modal-container visible animated zoomIn faster">
+        <a href="#" class="close-button">×</a>
+        <div class="modal-content">
+            <div class='box'><h2>Document Upload</h2></div>
+            <div style='display: flex;flex-direction: row;align-items: center; margin-top:40px;padding: 0 20px;'>
+                <div class='demo-section k-content wide' style='width: 50%;flex:1;padding-right:20px;'>
+                    <div class='wrapper' style='display: flex;justify-content: center;'>
+                        <div class='dropZoneElement' style='height: 100px; width: 100%; border: 2px solid #999; visibility:visible;'>
+                            <div class='textWrapper'><p class='dropImageHereText'>Drop document here to upload</p></div>
+                        </div>
+                    </div>
+                </div>
+                <input name='files' id='files' type='file' />
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="module" asp-append-version="true">
+        import { MessagingList } from "/js/messagingts.js"
+        new MessagingList(@Html.Raw(Json.Serialize(Model)));
+</script>

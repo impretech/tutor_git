@@ -1,0 +1,21 @@
+﻿@{
+
+}
+<div>
+    <label class="switch">
+        <span>Card View</span>
+        <input id="isCard" type="checkbox">
+        <span class="slider">Table View</span>
+    </label>
+    <div id="carouselview" class=".carousel-container"></div>
+    <div id="documents-grid" style="display:none"></div>
+</div>
+
+
+@section scripts {
+    <script type="module" asp-append-version="true">
+        import { DocumentCardList } from "/js/components/document-cards.js"
+        new DocumentCardList(@Html.Raw(Json.Serialize(Model)));
+    </script>
+
+}

@@ -1,0 +1,256 @@
+﻿nav {
+    position: relative;
+    min-width: 0;
+    display: flex;
+    flex-flow: column;
+    height: 100%;
+    transition: min-width .5s ease;
+}
+
+    nav.docked {
+        min-width: 180px;
+    }
+
+    nav.show-slider {
+        min-width: 0;
+    }
+
+    nav.docked.show-slider {
+        min-width: 200px;
+    }
+
+
+#right-pane {
+    position: relative;
+    min-width: 0;
+    width: 0;
+    display: flex;
+    flex-flow: column;
+    height: 100%;
+    transition: min-width .5s ease;
+    border-left: 1px solid #ccc;
+}
+
+    #right-pane.docked {
+        min-width: 200px;
+    }
+
+
+.nav-slider {
+    position: absolute;
+    right: 0;
+    justify-content: center;
+    align-items: center;
+    flex-flow: column;
+    height: 100%;
+    display: flex;
+    border-right: 1px solid #999;
+    width: 20px;
+    min-width: 20px;
+    z-index: 1;
+    background: #fff;
+}
+
+    .nav-slider i {
+        color: #999;
+    }
+
+        .nav-slider i:nth-of-type(2) {
+            font-size: 24px;
+            color: #333;
+        }
+
+
+.sidebar {
+    position: relative;
+    left: -180px;
+    background: #fff;
+    width: 180px;
+    height: 100%;
+    overflow-y: auto;
+    overflow-x: hidden;
+    z-index: 2;
+    transition: left .5s ease;
+    box-shadow: none;
+    border-right: 1px solid #ccc;
+    box-shadow: 6px 0px 29px -27px rgba(0,0,0,0.75);
+}
+
+    .sidebar.visible {
+        left: 0;
+    }
+
+    .sidebar.floating {
+        position: fixed;
+        top: 40px;
+        height: calc( 100% - 60px);
+
+    }
+
+
+
+
+    .sidebar .header {
+        height: 50px;
+        display: flex;
+    }
+
+        .sidebar .header .push-pin {
+            justify-content: flex-end;
+            display: flex;
+            width: 100%;
+            padding: 5px 10px;
+        }
+
+            .sidebar .header .push-pin i {
+                font-size: 20px;
+                padding: 5px;
+                text-shadow: 0 0 1px #000;
+                color: white;
+                transform: rotate(90deg);
+                transition: all .5s ease;
+            }
+
+                .sidebar .header .push-pin i:hover {
+                    font-size: 24px;
+                }
+
+            .sidebar .header .push-pin.pushed i {
+                color: #263238;
+                text-shadow: none;
+                transform: rotate(45deg);
+            }
+
+
+    .sidebar .title {
+        padding: 7px 8px;
+        text-transform: uppercase;
+        font-size: 14px;
+        font-weight: 600;
+        color: #999;
+    }
+
+        .sidebar .title span {
+            color: #3392A7;
+        }
+
+.main-menu h3 {
+    background: #576a6f;
+    margin: 0;
+    font-weight: normal;
+    font-size: 1.1em;
+}
+
+    .main-menu h3 a {
+        padding: 5px 28px;
+        display: flex;
+        color: #fff;
+        text-decoration: none;
+        align-items: center;
+    }
+
+.main-menu > ul {
+    /*margin-left: 8px;
+    margin-top: 5px;*/ 
+    background: #EBF8FA;
+}
+
+    .main-menu > ul > li.active > h3 > a > svg {
+        fill: #576a6f;
+        transform: rotate(90deg) translateY(5px) translateX(5px);
+    }
+
+    .main-menu > ul > li.active > h3 > a > svg:last-of-type {
+        fill: #fff;
+        transform: none;
+    }
+
+svg.main-menu-icon {
+    width: 22px;
+    height: 10px;
+    fill: #fff;
+    padding-right: 5px;
+    position: absolute;
+    left: 5px;
+    transition: all 0.15s ease-in;
+}
+
+
+
+svg.caret-menu-icon {
+    width: 25px;
+    height: 20px;
+    fill: #ccc;
+    padding-right: 15px;
+    position: absolute;
+    right: 0;
+    transition: all 0.15s ease-in;
+}
+
+
+.main-menu li {
+    list-style-type: none;
+}
+
+.main-menu ul ul li a {
+    color: #666;
+    text-decoration: none;
+    display: block;
+    padding: 4px 36px;
+    transition: all 0.15s;
+    position: relative;
+    background: #EBF8FA;
+}
+
+    .main-menu ul ul li a:hover {
+        background: #fefefe;
+        /*border-left: 3px solid #596b8c;*/
+    }
+
+    .main-menu ul ul li a.selected {
+        background: #3392A7;
+        font-weight: 600;
+        color: #fff;
+    }
+
+.main-menu ul ul {
+    display: none;
+    
+}
+
+.main-menu li.active > ul {
+    display: block;
+    /*margin-left: 20px;
+    border-left: 1px dotted rgba(0, 0, 0, 0.5);*/
+}
+
+/*.main-menu a:not(:only-child):after {
+    content: "";
+    position: absolute;
+    right: 10px;
+    top: 0;
+    font-size: 14px;
+    background-image: url('/images/icons.svg#caret-down');
+    height: 20px;
+    width: 20px;
+    background-size: 100%;
+}
+*/
+
+
+.main-menu .active > a:not(:only-child) {
+    background: #f5f5f5;
+    font-weight: 500;
+}
+
+    .main-menu .active > a:not(:only-child) > svg {
+        fill: #aaa;
+        transform: rotate(90deg) translateY(7px) translateX(7px);
+    }
+
+
+
+@media screen and (max-width:1366px) { /*What happens when screen is between 1280 and 1366*/
+
+
+}

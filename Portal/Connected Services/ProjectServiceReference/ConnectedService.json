@@ -1,0 +1,25 @@
+﻿{
+  "ProviderId": "Microsoft.VisualStudio.ConnectedService.Wcf",
+  "Version": "15.0.20628.921",
+  "ExtendedData": {
+    "Uri": "https://cloud-lbh.prosysusa.com/LBHSECPMSQL/ProjectsSQLServiceLibrary.ProjectsService.svc",
+    //"13.82.222.52": null,
+    "Namespace": "ProjectServiceReference",
+    "SelectedAccessLevelForGeneratedClass": "Public",
+    "GenerateMessageContract": false,
+    "ReuseTypesinReferencedAssemblies": true,
+    "ReuseTypesinAllReferencedAssemblies": true,
+    "CollectionTypeReference": {
+      "Item1": "System.Array",
+      "Item2": "System.Runtime.dll"
+    },
+    "DictionaryCollectionTypeReference": {
+      "Item1": "System.Collections.Generic.Dictionary`2",
+      "Item2": "System.Collections.dll"
+    },
+    "CheckedReferencedAssemblies": [],
+    "InstanceId": null,
+    "Name": "ProjectServiceReference",
+    "Metadata": {}
+  }
+}

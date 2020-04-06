@@ -1,0 +1,544 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="SHORTCUT ICON" href="/images/favicon.ico">
+    <title>@ViewData["Title"] - Syvenn</title>
+
+    <link rel="stylesheet" href="~/css/site.css" />
+    <link rel="stylesheet" href="~/css/main-menu.css" />
+    <link rel="stylesheet" href="~/css/components.css" />
+    <link rel="stylesheet" href="~/css/animate.css" />
+    <link rel="stylesheet" href="~/css/perfect-scrollbar.css" />
+    <link rel="stylesheet" href="~/css/notification.css" />
+    <link href="~/css/rfi-details/tapstrip.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/lib/gantt/codebase/dhtmlxgantt.css" />
+    <link rel="stylesheet" href="~/lib/scheduler/codebase/dhtmlxscheduler.css" />
+    <link rel="stylesheet" href="~/lib/kendo-ui/styles/syvenn.css" />
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+
+    @RenderSection("styles", required: false)
+
+    <style>
+        /*#preloader {
+            display: block;
+            position: fixed;
+            z-index: 99999;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            min-width: 100%;
+            background: #3393A7 url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iNTciIGhlaWdodD0iNTciIHZpZXdCb3g9IjAgMCA1NyA1NyIgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiBzdHJva2U9IiNmZmYiPg0KICAgIDxnIGZpbGw9Im5vbmUiIGZpbGwtcnVsZT0iZXZlbm9kZCI+DQogICAgICAgIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKDEgMSkiIHN0cm9rZS13aWR0aD0iMiI+DQogICAgICAgICAgICA8Y2lyY2xlIGN4PSI1IiBjeT0iNTAiIHI9IjUiPg0KICAgICAgICAgICAgICAgIDxhbmltYXRlIGF0dHJpYnV0ZU5hbWU9ImN5IiBiZWdpbj0iMHMiIGR1cj0iMi4ycyIgdmFsdWVzPSI1MDs1OzUwOzUwIiBjYWxjTW9kZT0ibGluZWFyIiByZXBlYXRDb3VudD0iaW5kZWZpbml0ZSIvPg0KICAgICAgICAgICAgICAgIDxhbmltYXRlIGF0dHJpYnV0ZU5hbWU9ImN4IiBiZWdpbj0iMHMiIGR1cj0iMi4ycyIgdmFsdWVzPSI1OzI3OzQ5OzUiIGNhbGNNb2RlPSJsaW5lYXIiIHJlcGVhdENvdW50PSJpbmRlZmluaXRlIi8+DQogICAgICAgICAgICA8L2NpcmNsZT4NCiAgICAgICAgICAgIDxjaXJjbGUgY3g9IjI3IiBjeT0iNSIgcj0iNSI+DQogICAgICAgICAgICAgICAgPGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iY3kiIGJlZ2luPSIwcyIgZHVyPSIyLjJzIiBmcm9tPSI1IiB0bz0iNSIgdmFsdWVzPSI1OzUwOzUwOzUiIGNhbGNNb2RlPSJsaW5lYXIiIHJlcGVhdENvdW50PSJpbmRlZmluaXRlIi8+DQogICAgICAgICAgICAgICAgPGFuaW1hdGUgYXR0cmlidXRlTmFtZT0iY3giIGJlZ2luPSIwcyIgZHVyPSIyLjJzIiBmcm9tPSIyNyIgdG89IjI3IiB2YWx1ZXM9IjI3OzQ5OzU7MjciIGNhbGNNb2RlPSJsaW5lYXIiIHJlcGVhdENvdW50PSJpbmRlZmluaXRlIi8+DQogICAgICAgICAgICA8L2NpcmNsZT4NCiAgICAgICAgICAgIDxjaXJjbGUgY3g9IjQ5IiBjeT0iNTAiIHI9IjUiPg0KICAgICAgICAgICAgICAgIDxhbmltYXRlIGF0dHJpYnV0ZU5hbWU9ImN5IiBiZWdpbj0iMHMiIGR1cj0iMi4ycyIgdmFsdWVzPSI1MDs1MDs1OzUwIiBjYWxjTW9kZT0ibGluZWFyIiByZXBlYXRDb3VudD0iaW5kZWZpbml0ZSIvPg0KICAgICAgICAgICAgICAgIDxhbmltYXRlIGF0dHJpYnV0ZU5hbWU9ImN4IiBmcm9tPSI0OSIgdG89IjQ5IiBiZWdpbj0iMHMiIGR1cj0iMi4ycyIgdmFsdWVzPSI0OTs1OzI3OzQ5IiBjYWxjTW9kZT0ibGluZWFyIiByZXBlYXRDb3VudD0iaW5kZWZpbml0ZSIvPg0KICAgICAgICAgICAgPC9jaXJjbGU+DQogICAgICAgIDwvZz4NCiAgICA8L2c+DQo8L3N2Zz4=') center no-repeat;
+            background-size: 2.5em;
+            opacity: 1;
+        }*/
+        div#preloader {
+            position: fixed;
+            left: 0;
+            top: 0;
+            z-index: 999;
+            width: 100%;
+            height: 100%;
+            overflow: visible;
+            background: #3393A7;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+    </style>
+</head>
+<body>
+    <div id="preloader">
+        <svg viewBox="-10 -1 60 60" width="200px" height="200px" transform="translate(0 0)" xmlns="http://www.w3.org/2000/svg">
+            <style type="text/css"></style>
+            <defs>
+                <linearGradient x1="8.042%" y1="0%" x2="65.682%" y2="23.865%" id="a">
+                    <stop stop-color="#FFF" stop-opacity="0" offset="0%" />
+                    <stop stop-color="#FFF" stop-opacity=".631" offset="63.146%" />
+                    <stop stop-color="#FFF" offset="100%" />
+                </linearGradient>
+
+                <filter id="glow">
+                    <feGaussianBlur stdDeviation="1" result="coloredBlur" />
+                    <feMerge>
+                        <feMergeNode in="coloredBlur" />
+                        <feMergeNode in="SourceGraphic" />
+                    </feMerge>
+                </filter>
+
+            </defs>
+
+            <g fill="none" fill-rule="evenodd">
+                <g transform="translate(13.5 0) scale(.45, .45)">
+                    <circle fill="none" stroke="#e71e25" stroke-width="2.5" cx="18" cy="18" r="18">
+                        <animateTransform attributeName="transform"
+                                          type="rotate"
+                                          from="0 18 18"
+                                          to="360 18 18"
+                                          dur="1.5s"
+                                          repeatCount="indefinite" />
+                    </circle>
+                    <path d="M36 18c0-9.94-8.06-18-18-18" id="Oval-2" filter="url(#glow)" stroke="none" stroke-width="1.8">
+                        <animateTransform attributeName="transform"
+                                          type="rotate"
+                                          from="0 18 18"
+                                          to="360 18 18"
+                                          dur="1.5s"
+                                          repeatCount="indefinite" />
+                    </path>
+                    <circle fill="#FFF" filter="url(#glow)" cx="36" cy="18" r="1.65">
+                        <animateTransform attributeName="transform"
+                                          type="rotate"
+                                          from="0 18 18"
+                                          to="360 18 18"
+                                          dur="1.5s"
+                                          repeatCount="indefinite" />
+                    </circle>
+
+                </g>
+            </g>
+            <g fill="none" fill-rule="evenodd">
+                <g transform="translate(15 8) scale(.63, .63)">
+                    <circle fill="none" stroke="#e71e25" stroke-width="1.9" cx="18" cy="18" r="18">
+                        <animateTransform attributeName="transform"
+                                          type="rotate"
+                                          from="0 18 18"
+                                          to="360 18 18"
+                                          dur="2s"
+                                          repeatCount="indefinite" />
+                    </circle>
+                    <path d="M36 18c0-9.94-8.06-18-18-18" id="Oval-2" filter="url(#glow)" stroke="none" stroke-width="1.3">
+                        <animateTransform attributeName="transform"
+                                          type="rotate"
+                                          from="0 18 18"
+                                          to="360 18 18"
+                                          dur="2s"
+                                          repeatCount="indefinite" />
+                    </path>
+                    <circle fill="#FFF" filter="url(#glow)" cx="36" cy="18" r="1.2">
+                        <animateTransform attributeName="transform"
+                                          type="rotate"
+                                          from="0 18 18"
+                                          to="360 18 18"
+                                          dur="2s"
+                                          repeatCount="indefinite" />
+                    </circle>
+
+                </g>
+            </g>
+            <g fill="none" fill-rule="evenodd">
+                <g transform="translate(0 6) scale(.75, .75)">
+                    <circle fill="none" stroke="#e71e25" stroke-width="1.6" cx="18" cy="18" r="18">
+                        <animateTransform attributeName="transform"
+                                          type="rotate"
+                                          from="0 18 18"
+                                          to="360 18 18"
+                                          dur="3s"
+                                          repeatCount="indefinite" />
+                    </circle>
+                    <path d="M36 18c0-9.94-8.06-18-18-18" id="Oval-2" filter="url(#glow)" stroke="none" stroke-width="1.2">
+                        <animateTransform attributeName="transform"
+                                          type="rotate"
+                                          from="0 18 18"
+                                          to="360 18 18"
+                                          dur="3s"
+                                          repeatCount="indefinite" />
+                    </path>
+                    <circle fill="#FFF" filter="url(#glow)" cx="36" cy="18" r="1">
+                        <animateTransform attributeName="transform"
+                                          type="rotate"
+                                          from="0 18 18"
+                                          to="360 18 18"
+                                          dur="3s"
+                                          repeatCount="indefinite" />
+                    </circle>
+
+                </g>
+            </g>
+            <script type="text/ecmascript" xlink:href="https://leunen.me/fakesmile/smil.user.js"></script>
+        </svg>
+    </div>
+    <header class="hide-transitions">
+        <div class="flex" style="width: 100%;">
+            <div class="logo"><a href="/"><img src="~/images/logo.png" /></a></div>
+            <div class="push-pin pushed">
+                <a href="javascript:">
+                    <svg class="menu-icon">
+                        <use xlink:href="/images/icons.svg#angle-double-left"></use>
+                    </svg>
+                    <i class="fa fa-bars" aria-hidden="true"></i>
+                </a>
+            </div>
+            <div class="search-bar-area">
+                <a href="javascript:" class="search-bar-button">
+                    <svg class="menu-icon" style="fill: #666; height: 1em; margin-top: 6px;">
+                        <use xlink:href="/images/icons.svg#search"></use>
+                    </svg>
+                </a>
+                <input type="text" id="search-bar-input" name="search-bar-input" class="search-bar-input" placeholder="Search for projects, documents, invoices, etc..." />
+            </div>
+            <div class="search-bar">
+                <a href="javascript:" style="position: absolute;right: 1em;top: 10px; display: none;" class="search-bar-close-button">
+                    <svg class="menu-icon" style="fill: #666; height: 1em; margin-top: 6px; transform: rotate(45deg);">
+                        <use xlink:href="/images/icons.svg#plus"></use>
+                    </svg>
+                </a>
+            </div>
+        </div>
+
+        <div class="header-controls">
+            <a class="tooltip messageBox" href="#">
+                <span class="messageCounter"></span>
+                <i class="fa fa-envelope" aria-hidden="true"></i>
+                <span class="tooltiptext tooltip-bottom">Messaging</span>
+            </a><!--Messaging-->
+            <a class="tooltip" href="#">
+                <i class="fa fa-cog" aria-hidden="true"></i>
+                <span class="tooltiptext tooltip-bottom">Settings</span>
+            </a><!--Settings-->
+            <a class="tooltip" href="#">
+                <i class="fa fa-warning" aria-hidden="true"></i>
+                <span class="tooltiptext tooltip-bottom">Alert</span>
+            </a><!--Alert-->
+            <a class="tooltip" href="#">
+                <i class="fa fa-user-circle-o" aria-hidden="true"></i>
+                <span class="tooltiptext tooltip-bottom">Profile</span>
+            </a><!--Profile-->
+            <a class="tooltip" href="#">
+                <i class="fa fa-sign-out" aria-hidden="true"></i>
+                <span class="tooltiptext tooltip-bottom">Logout</span>
+            </a><!--Logout-->
+
+            <div class="clearfix"></div>
+            <div class="right-push-pin pushed" style="z-index:1500">
+                <a href="javascript:">
+                    <svg class="menu-icon">
+                        <use xlink:href="/images/icons.svg#angle-double-left"></use>
+                    </svg>
+                </a>
+            </div>
+            <div class="panel">
+                <ul class="notification-bar">
+                </ul>
+
+            </div>
+        </div>
+</header>
+
+    <main class="hide-transitions">
+        <nav class="docked">
+            <div class="sidebar visible">
+                <div class="title">
+                    <span>Project</span> Management
+                </div>
+                <div class="main-menu">
+                    <ul>
+                        <li>
+                            <h3>
+                                <a href="#" id="mmi1">
+                                    Projects
+                                    <svg class="main-menu-icon">
+                                        <use xlink:href="/images/icons.svg#plus"></use>
+                                    </svg>
+                                    <svg class="main-menu-icon">
+                                        <use xlink:href="/images/icons.svg#minus"></use>
+                                    </svg>
+                                </a>
+                            </h3>
+                            <ul>
+                                <li><a href="/" id="mmi3" class="@Html.IsSelected(controllers: "PCC", actions: "Index")">Control Center</a></li>
+                                <li><a href="/projects/" id="mmi2" class="@Html.IsSelected(controllers: "Projects", actions: "Index,New,Edit")">Project Details</a></li>
+                                <li><a href="/pmassignments/" id="mmi25" class="@Html.IsSelected(controllers: "PMAssignment", actions: "Index")">PM Assignment</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <h3>
+                                <a href="#" id="mmi4">
+                                    Financial
+                                    <svg class="main-menu-icon">
+                                        <use xlink:href="/images/icons.svg#plus"></use>
+                                    </svg>
+                                    <svg class="main-menu-icon">
+                                        <use xlink:href="/images/icons.svg#minus"></use>
+                                    </svg>
+                                </a>
+                            </h3>
+                            <ul>
+                                <li><a href="/budgets/" id="mmi5" class="@Html.IsSelected(controllers: "Budgets", actions: "Index,New,Edit")">Budget</a></li>
+                                <li><a href="/deposits/" id="mmi6" class="@Html.IsSelected(controllers: "Deposits", actions: "Index,New,Edit")">Deposit</a></li>
+                                <li><a href="/quotes/" id="mmi7" class="@Html.IsSelected(controllers: "Quotes", actions: "Index,New,Edit")">Quote</a></li>
+                                <li><a href="#" id="mmi8">Contracts </a></li>
+                                <li><a href="/PurchaseOrder/" id="mmi9">Purchase Order</a></li>
+                                <li><a href="#" id="mmi10">Change Order</a></li>
+                                <li><a href="#" id="mmi11">Invoice</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <h3>
+                                <a href="#" id="mmi12">
+                                    Reference
+                                    <svg class="main-menu-icon">
+                                        <use xlink:href="/images/icons.svg#plus"></use>
+                                    </svg>
+                                    <svg class="main-menu-icon">
+                                        <use xlink:href="/images/icons.svg#minus"></use>
+                                    </svg>
+                                </a>
+                            </h3>
+                            <ul>
+                                <li><a href="/rfis/" id="mmi13" class="@Html.IsSelected(controllers: "RFIs", actions: "Index,New,Edit")">RFI</a></li>
+                                <li><a href="/submittals/" id="mmi14" class="@Html.IsSelected(controllers: "Submittals", actions: "Index,New,Edit")">Submittal</a></li>
+                                <li><a href="#" id="mmi15">Field Report</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <h3>
+                                <a href="#" id="mmi16">
+                                    Contacts
+                                    <svg class="main-menu-icon">
+                                        <use xlink:href="/images/icons.svg#plus"></use>
+                                    </svg>
+                                    <svg class="main-menu-icon">
+                                        <use xlink:href="/images/icons.svg#minus"></use>
+                                    </svg>
+                                </a>
+                            </h3>
+                            <ul>
+                                <li><a href="/contacts/" id="mmi17" class="@Html.IsSelected(controllers: "Contacts", actions: "Index,New,Edit")">Contacts</a></li>
+                                <li><a href="/vendors/" id="mmi18" class="@Html.IsSelected(controllers: "Vendors", actions: "Index,New,Edit")">Vendors</a></li>
+                            </ul>
+                        </li>
+                        <li>
+                            <h3>
+                                <a href="#" id="mmi19">
+                                    Monitor
+                                    <svg class="main-menu-icon">
+                                        <use xlink:href="/images/icons.svg#plus"></use>
+                                    </svg>
+                                    <svg class="main-menu-icon">
+                                        <use xlink:href="/images/icons.svg#minus"></use>
+                                    </svg>
+                                </a>
+                            </h3>
+                            <ul>
+                                <li><a href="#" id="mmi20">ToDo</a></li>
+                                <li><a href="/schedules/" id="mmi21" class="@Html.IsSelected(controllers: "Schedules", actions: "Index")">Scheduling</a></li>
+                                <li><a href="/upload/" id="mmi22">Document</a></li>
+                                <li><a href="#" id="mmi23">Messaging</a></li>
+                                <li><a href="#" id="mmi24">Reporting</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                    <div style="height:20px"></div>
+                </div>
+            </div>
+            <div class="nav-slider">
+                <svg class="slider-icon">
+                    <use xlink:href="/images/icons.svg#angle-right"></use>
+                </svg>
+                <svg class="slider-icon" style="font-size: 2em;">
+                    <use xlink:href="/images/icons.svg#angle-right"></use>
+                </svg>
+                <svg class="slider-icon">
+                    <use xlink:href="/images/icons.svg#angle-right"></use>
+                </svg>
+            </div>
+        </nav>
+
+        <section class="content-panel">
+            <div class="content">
+                @RenderBody()
+            </div>
+        </section>
+
+        <div id="right-pane" class="docked">
+            <div class="right-sidebar">
+                <div class="chat-container">
+                    <div class="chat-header">
+                        <div class="logo"><img src="~/images/logo-circle.png" style="display: block;" /></div>
+                        <div class="title">Syvenn Concierge</div>
+                    </div>
+                    <div id="chat" style="height: 380px;"></div>
+                </div>
+                <div class="outlook-365">
+                    <div class="title">
+                        Messaging
+                    </div>
+                    <div class="content"></div>
+                </div>
+                <div class="doc-portal">
+                    <div class="title">
+                        DocPortal
+                    </div>
+                    <div class="content"></div>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer>
+        <div class="footer-file-info">
+            <span lass="file-info-source" style="margin-right: 1em;">Version 1.103.26.2</span>
+        </div>
+        <div class="footer-controls">
+            @*class="file-info-source"*@
+            <span id="logged_in_user" class="file-info-source" style="margin-left: 1em;">User logged in...</span>
+            @*<a href="#"><span class="icon-diff" style="margin-left: 1em;"></span> - 1 file</a>*@
+        </div>
+    </footer>
+
+    <span id="notification"></span>
+    <script id="successTemplate" type="text/x-kendo-template">
+        <div class="upload-success">
+            <img src="/images/success-icon.png" />
+            <h3>#= title #</h3>
+            <p>#= message #</p>
+        </div>
+    </script>
+
+    <script id="errorTemplate" type="text/x-kendo-template">
+        <div class="wrong-pass">
+            <img src="/images/error-icon.png" />
+            <h3>#= title #</h3>
+            <p>#= message #</p>
+        </div>
+    </script>
+    @*<environment include="Development">*@
+
+
+    <script src="~/lib/jquery/dist/jquery-3.3.1.min.js"></script>
+    <script src="~/lib/kendo-ui/js/kendo.all.min.js"></script>
+    <script src="~/lib/kendo-ui/js/jszip.min.js"></script>
+    <script src="~/lib/bootstrap/bootstrap.min.js"></script>
+    <script src="~/lib/gantt/codebase/dhtmlxgantt.js"></script>
+    <script src="~/lib/gantt/codebase/ext/dhtmlxgantt_fullscreen.js"></script>
+    <script src="~/lib/gantt/codebase/ext/dhtmlxgantt_undo.js"></script>
+    <script src="~/lib/gantt/codebase/toolbar.js"></script>
+
+    <script src="~/lib/scheduler/codebase/dhtmlxscheduler.js"></script>
+    <script src="~/lib/scheduler/codebase/ext/dhtmlxscheduler_limit.js"></script>
+    <script src="~/lib/scheduler/codebase/ext/dhtmlxscheduler_collision.js"></script>
+    <script src="~/lib/scheduler/codebase/ext/dhtmlxscheduler_timeline.js"></script>
+    <script src="~/lib/scheduler/codebase/ext/dhtmlxscheduler_minical.js"></script>
+
+
+
+    <script src="https://www.promisejs.org/polyfills/promise-6.1.0.js"></script>
+    <script src="https://cdn.rawgit.com/dialogflow/dialogflow-javascript-client/50e82e62/target/ApiAi.min.js"></script>
+
+    <script type="module" asp-append-version="true">
+        window.app = {};
+        window.app.data = @Html.Raw(Json.Serialize(this.ViewContext.RouteData.Values["data"]));
+        import { App } from "/js/app.js";
+        new App();
+    </script>
+
+
+    <script>
+        $(document).ready(function () {
+            var chat = $("#chat").kendoChat({
+                post: function (args) {
+                    agent.postMessage(args.text);
+                }
+            }).data("kendoChat");
+
+            var agent = new DialogFlowAgent(chat);
+
+            $('.messageBox').click(function () {
+             $('.panel').toggleClass('visible');
+            });
+        });
+
+
+
+        window.DialogFlowAgent = kendo.Class.extend({
+            init: function (chat) {
+                this.chat = chat;
+                this.userInfo = {
+                    id: "syvenn",
+                    name: ""
+                };
+
+                this.agent = new ApiAi.ApiAiClient({
+                    accessToken: "d597dba58cd64b9eadd15f3970d66a73"
+                });
+
+                this.postEvent("welcome");
+
+                this._timestamp;
+            },
+
+            postEvent: function (event) {
+                this.agent
+                    .eventRequest(event)
+                    .then($.proxy(this.onResponse, this));
+            },
+
+            postMessage: function (text) {
+                this.agent
+                    .textRequest(text)
+                    .then($.proxy(this.onResponse, this));
+            },
+
+            onResponse: function (response) {
+                this._timestamp = response.timestamp;
+
+                if (response.result && response.result.fulfillment) {
+                    var fulfillment = response.result.fulfillment;
+                    var data = fulfillment.data;
+
+                    this.renderMessages(fulfillment.messages);
+
+                    if (data && data.null) {
+                        this.renderAttachments(data.null);
+
+                        this.renderSuggestedActions(data.null.suggestedActions);
+                    }
+                }
+            },
+
+            renderMessages: function (messages) {
+                var that = this;
+
+                $(messages).each(function (index, message) {
+                    switch (message.type) {
+                        case 0:
+                            that.chat.renderMessage({ type: "text", text: message.speech, timestamp: that._timestamp }, that.userInfo);
+                            break;
+                        case 2:
+                            that.renderSuggestedActions(message.replies.map(function (reply) { return { title: reply, value: reply }; }));
+                            break;
+                        default:
+                    }
+                });
+
+            },
+
+            renderAttachments: function (data) {
+                var that = this;
+                data.attachments = $(data.attachments).map(function (index, attachment) {
+                    return {
+                        contentType: attachment.type || "heroCard",
+                        content: attachment
+                    };
+                }).toArray();
+
+                this.chat.renderAttachments(data, this.userInfo);
+            },
+
+            renderSuggestedActions: function (suggestedActions) {
+                this.chat.renderSuggestedActions($(suggestedActions).toArray());
+            }
+        });
+    </script>
+
+    @*</environment>
+        <environment exclude="Development">
+            <script src="~/js/app.min.js" type="module" asp-append-version="true"></script>
+        </environment>*@
+
+    @RenderSection("scripts", required: false)
+</body>
+</html>

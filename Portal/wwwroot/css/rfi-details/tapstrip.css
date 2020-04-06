@@ -1,0 +1,119 @@
+.sunny, .cloudy, .rainy {
+    display: block;
+
+}
+
+.cloudy{
+    background-position: -128px 0;
+}
+
+.rainy{
+    background-position: -256px 0;
+}
+
+.weather {
+    margin: 0 auto 30px;
+    text-align: center;
+}
+
+.tabstrip h2 {
+    font-weight: lighter;
+    /*font-size: 5em;*/
+    line-height: 1;
+    padding: 0 0 0 30px;
+    margin: 0;
+}
+
+.tabstrip h2 span {
+    background: none;
+    padding-left: 5px;
+    font-size: .3em;
+    vertical-align: top;
+}
+
+.tabstrip span {
+    cursor: default;
+}
+
+
+.tabstrip p {
+    margin: 0;
+    padding: 0;
+}
+
+
+.tabstrip .tapstrip-buttons li {
+    background: #5c6dc4;
+    border-color: #5c6dc4;
+    color: #fff;
+}
+
+.tabstrip .tapstrip-buttons li.k-state-active {
+    background-color: #3f51b5;
+    background-image: none;
+    border-bottom-color: #00b0ff;
+    color: #fff;
+}
+
+.response_tabstrip .tapstrip-buttons li {
+    background: #5c6dc4;
+    border-color: #5c6dc4;
+    color: #fff !important;
+}
+
+.response_tabstrip .tapstrip-buttons li.k-state-active {
+    background-color: #3f51b5;
+    background-image: none;
+    border-bottom-color: #00b0ff;
+    color: #fff !important;
+}
+
+#question_tabstrip .tapstrip-buttons li {
+    background: #5c6dc4;
+    border-color: #5c6dc4;
+    color: #fff;
+}
+
+#question_tabstrip .tapstrip-buttons li.k-state-active {
+    background-color: #3f51b5;
+    background-image: none;
+    border-bottom-color: #00b0ff;
+    color: #fff;
+}
+
+
+.message_tabstrip .tapstrip-buttons li {
+    /*background: #000 !important;
+        border-color: #5c6dc4 !important;*/
+        color: #fff !important;
+    }
+
+.message_tabstrip {
+    display: inline-flex !important;
+}
+
+    .message_tabstrip .tapstrip-buttons li.k-state-active {
+        background-color: #000 !important;
+        background-image: none !important;
+        border-bottom-color: #00b0ff !important;
+        color: #fff !important;
+    }
+
+ul.tapstrip-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    overflow-wrap: break-word;
+}
+
+.k-tabstrip-wrapper {
+    padding: 0 0;
+    border-width: 0;
+    border-style: solid;
+    display: flex;
+    flex-direction: column;
+    flex: 13;
+}
+
+.k-tabstrip-top > .k-tabstrip-items {
+    border-bottom-width: 0px !important;
+}

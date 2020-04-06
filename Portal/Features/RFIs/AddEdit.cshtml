@@ -1,0 +1,596 @@
+﻿@model RFIViewModel
+
+@{
+    ViewData["Title"] = "RFI Details";
+}
+
+
+@section styles {
+    <link rel="stylesheet" href="~/css/detail-page.css" />
+    <link rel="stylesheet" href="~/css/carousel.css" />
+    <link rel="stylesheet" href="~/css/rfi-details/tapstrip.css" />
+    <link rel="stylesheet" href="~/css/switch.css" />
+    <link rel="stylesheet" href="~/css/rfi-details/custom.css" />
+    <link href="~/css/project-details/switch-styles.css" rel="stylesheet" />
+    <link href="~/css/project-details/messaging.css" rel="stylesheet" />
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet" />
+}
+
+<div class="page-header">
+    <h3>RFI - @Model.rFI.RFI_ID</h3>
+    <div class="doc-button" title="Upload Document">
+        <svg class="icon">
+            <use xlink:href="/images/icons.svg#paperclip"></use>
+        </svg>
+    </div>
+    <div class="back-button" title="Back To List">
+        <svg class="icon">
+            <use xlink:href="/images/icons.svg#angle-double-left"></use>
+        </svg>
+        <span>Back To List</span>
+    </div>
+</div>
+
+<div class="project-info-container">
+    <div class="project-details">
+
+        <div class="row">
+            <div class="form-element half">
+                <div class="row">
+                    <div class="form-element two-thirds">
+                        <label for="project">Project: <abbr title="required">*</abbr></label>
+                        <input id="project" type="text" name="project">
+                    </div>
+                    <div class="form-element one-thirds">
+                        <label for="classification">Classification: <abbr title="required">*</abbr></label>
+                        <input id="classification" type="text" name="classification">
+                    </div>
+                </div>
+                <div class="row" style="margin-top: 10px;">
+                    <div class="form-element two-thirds">
+                        <div class="row">
+                            <div class="form-element small">
+                                <label for="category">Category: <abbr title="required">*</abbr></label>
+                                <input id="category" type="text" name="category">
+                            </div>
+                            <div class="form-element small" style="margin-right: 0px;">
+                                <label for="date-published">Date Published: <abbr title="required">*</abbr></label><!--  Published Date-->
+                                <input id="date-published" type="text" name="date-published">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-element one-thirds">
+                        <label for="date-due">Date Due: <abbr title="required">*</abbr></label>
+                        <input id="date-due" type="text" name="date-due">
+                    </div>
+                </div>
+                <div class="row" style="margin-top: 5px;">
+                    <div class="form-element two-thirds">
+                        <div class="row">
+                            <div class="form-element small">
+                                <label for="status">Status: <abbr title="required">*</abbr></label>
+                                <input id="status" type="text" name="status">
+                            </div>
+                            <div class="form-element small" style="margin-right: 0px;">
+                                <label for="requester">Requestor Name: <abbr title="required">*</abbr></label>
+                                <input id="requester" type="text" name="requester">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-element one-thirds">
+                        <label for="requester-company">Requestor Company: <abbr title="required">*</abbr></label>
+                        <input id="requester-company" type="text" name="requester-company">
+                    </div>
+                </div>
+                <div class="row" style="margin-top: 5px;">
+                    <div class="form-element two-thirds">
+                        <div class="row">
+                            <div class="form-element small">
+                                <label for="action">Action: <abbr title="required">*</abbr></label>
+                                <input id="action" type="text" name="action">
+                            </div>
+                            <div class="form-element small" style="margin-right: 0px;">
+                                <label for="to-name">Respondent Name: <abbr title="required">*</abbr></label>
+                                <input id="to-name" type="text" name="to-name">
+                            </div>
+                        </div>
+                    </div>
+                    <div class="form-element one-thirds">
+                        <label for="to-company">Respondent Company: <abbr title="required">*</abbr></label>
+                        <input id="to-company" type="text" name="to-company">
+                    </div>
+                </div>
+            </div>
+            <div class="form-element half">
+                <div class="row">
+                    <div class="form-element two-thirds">
+                        <label for="request-summary">Summary Description: <abbr title="required">*</abbr></label>
+                        <input id="request-summary" type="text" name="request-summary">
+                    </div>
+                    <div class="form-element one-thirds">
+                        <label for="sender-rfi-no">Sender's RFI #: <abbr title="required">*</abbr></label>
+                        <input id="sender-rfi-no" type="text" name="sender-rfi-no">
+                    </div>
+                </div>
+                <div class="row" style="margin-top: 10px;">
+                    <div class="form-element">
+                        <label for="request">Question: <abbr title="required">*</abbr></label>
+                        <textarea id="request" type="text" name="request" rows="6"></textarea>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-action">
+                        <a href="#" id="question-attach-add-button"><i class="fa fa-paperclip paperclip" aria-hidden="true"></i></a>
+                    </div>
+                    <div id="question_tabstrip" class="tapstrip">
+                        <ul class="tapstrip-buttons"></ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="row" style="margin-bottom: 0px;">
+            <div class="form-element distributionBox">
+                <div class="row">
+                    <div class="form-element" style="margin-right: 0px;">
+                        <label for="confirmation">Confirmation: <abbr title="required">*</abbr></label>
+                        <input id="confirmation" type="text" name="confirmation">
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="form-element" style="margin-right: 0px;">
+                        <label for="attachments">Attachments: <abbr title="required">*</abbr></label>
+                        <input id="attachments" type="text" name="attachments">
+                    </div>
+                </div>
+            </div>
+            <div class="form-element responseBox">
+                <div class="row" style="position:relative; line-height: 10px; display: block;">
+                    <span style="float: left; padding-right: 10px; color: #666; font-size: 0.9em;
+                            font-size: 14px;
+                            font-weight: 200;
+                            color: #989898;
+                            font-family: 'Lato', sans-serif;
+                            ">Response:</span>
+                    <a href="javascript:;" id="response-add-button">Add</a>
+
+                    <span class="response-reduce-btn fa fa-times" style="display: none; position: absolute; right: 1px; font-size: 14px; font-weight: 800; "></span>
+                    <span class="response-expand-btn fa fa-angle-double-down count-icon" style="position: absolute; right: 1px; font-size: 14px; font-weight: 800; color: #3ca6bc;"></span>
+                </div>
+                <div id="window" style="display: none;">
+                    <div class="row" style="border-bottom:1px solid #000;">
+                        <div class="form-element firstRow">
+                            <label class="lblResponseDate" for="lblFrom">From: </label>
+                            <label class="lblFrom" />
+                        </div>
+                        <div class="form-element firstRow">
+                            <label class="lblResponseDate">Date: </label>
+                            <label style="display:inline" id="response-today" class="response-today" name="response-today"></label>
+                        </div>
+                        <div class="form-element firstRow">
+                            <label class="lblResponseDate">Due: </label>
+                            <input id="add-response-date" style="display:inline" class="response-date" name="response-date">
+                        </div>
+                    </div>
+                    <div class="row" style="margin-top: 5px;">
+                        <div class="form-element" style="flex: 2;">
+                            <div class="row">
+                                <div class="form-element">
+                                    <label for="add-response-type">Type: </label>
+                                    <input id="add-response-type" class="response-type" type="text" name="add-response-type">
+                                </div>
+                                @*<div class="form-element">
+                    <label for="add-response-date">Date: </label>
+                    <input id="add-response-date" class="response-date" type="text" name="add-response-date">
+                </div>*@
+                                <div class="form-element">
+                                    <label for="add-from-name">To: </label>
+                                    <input id="add-from-name" class="from-name" type="text" name="add-from-name">
+                                </div>
+                            </div>
+                            <div class="row" style="margin-top: 5px;">
+                                <div class="form-element">
+                                    <label for="response-status">Status: </label>
+                                    <input id="response-status" class="response-status" type="text" name="response-status">
+                                </div>
+                                <div class="form-element">
+                                    <label>On Sched: </label>
+                                    <label class="switch">
+                                        <input id="has-scheduleRfi" type="checkbox">
+                                        <span class="slider round" />
+                                    </label>
+                                    <div id="schedule-list-rfi">
+                                        <div>
+                                            <label>
+                                                <input type="checkbox" value="Acee" /> Aceee
+                                            </label>
+                                        </div>
+                                        On
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-element" style="flex: 1;">
+                            <div class="row">
+                                <div class="form-element">
+                                    <label>
+                                        CC:
+                                    </label>
+                                    <div>
+                                        <div>
+                                            <label>
+                                                <input type="checkbox" value="Test" /> Test
+                                            </label>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="form-element" style="flex: 3;">
+                            <div class="row">
+                                <div class="form-element" style="position: relative;">
+                                    <label for="add-response">Response: </label>
+                                    <textarea id="add-response" type="text" name="add-response" rows="4"></textarea>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="row button-bar" style="margin-left: 0px; margin-top: 5px;">
+
+                        <button id="res-save-button" class="btn yellow">Save</button>
+                        <button id="res-cancel-button" class="btn gray">Cancel</button>
+
+                    </div>
+                </div>
+                <div class="singleBox responseResults">
+
+                </div>
+                <div class="scrollBox responseResults" style="display: none;">
+
+                </div>
+
+            </div>
+        </div>
+
+
+
+        <!--
+        <div class="row" style="margin-bottom: 0px;">
+            <div class="form-element">
+                <div class="row button-bar">
+                    <button id="save-button" class="btn yellow">Save</button>
+                    <button id="cancel-button" class="btn gray">Cancel</button>
+                </div>
+            </div>
+        </div>
+            -->
+        <div id="detail-right-border"></div>
+        <div id="detail-right-color-box"></div>
+    </div>
+
+    <div class="project-notes" style="position: relative;">
+        <div class="note-block">
+            <h4>Progress Notes</h4>
+            <textarea id="new-note" type="text" name="new-note" rows="3"></textarea>
+            <button class="btn" id="add-note-button">Add Note</button>
+            <div class="previous-notes">
+
+            </div>
+        </div>
+        <div class="row" style="margin-bottom: 0px; border: 0px; height: 35px; margin-top: 10px; position: absolute; top: calc(100% - 57px);">
+            <div class="form-element" style="position: relative;">
+                <div class="row button-bar">
+                    <button id="save-button" class="btn darkgreen">Save</button>
+                    <button id="cancel-button" class="btn gray">Cancel</button>
+                </div>
+            </div>
+            <div id="button-top-border"></div>
+            <div id="button-bottom-border"></div>
+            <div id="button-right-border"></div>
+        </div>
+    </div>
+</div>
+
+<div class="project-items-container">
+    <div class="container--tabs">
+        <ul class="nav-tabs">
+            <li class="active tooltip">
+                <a href="#tab-documents">Documents</a>
+                <span class="tooltiptext tooltip-top">Emails, Attachments & Correspondence</span>
+            </li>
+            <li><a href="#tab-project-items">Project Items</a></li>
+            <li><a href="#tab-schedule">Schedule</a></li>
+            <li><a href="#tab-messaging">Messaging</a></li>
+            <li><a href="#tab-team">Team</a></li>
+        </ul><a id="RFI" class="refreshButton"><i class="fa fa-refresh"></i></a>
+        <div class="tab-content">
+            <div id="emailBox" style="display: none;">
+                <div class="top-area">
+                </div>
+                <div id="emailBody">
+
+                </div>
+            </div>
+            <div id="tab-documents" class="tab-pane active">
+                <div class="inner_body">
+                    <div id="switchBox">
+                        Table <input type="checkbox" id="switch" /> &nbsp; Card
+                    </div>
+                    <div id="myCarousel" class="carousel slide" data-ride="carousel">
+
+                        <div class="carousel-inner">
+
+                        </div>
+                        <ol class="carousel-indicators"></ol>
+
+                        <!--<a class="carousel-control-prev" href="#carouselExampleIndicators" role="button" data-slide="prev">
+                    <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Previous</span>
+                </a>
+                <a class="carousel-control-next" href="#carouselExampleIndicators" role="button" data-slide="next">
+                    <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                    <span class="sr-only">Next</span>
+                </a>-->
+                    </div>
+                    @*<div id="emailBox" style="display: none;">
+                        <div class="top-area">
+                        </div>
+                        <div id="emailBody">
+
+                        </div>
+                    </div>*@
+                    <div id="emailGridBox" style="display: none;">
+                        <div id="emails-grid">
+
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="tab-project-items" class="tab-pane">
+                <div class="project-components-container">
+                    <div class="project-components">
+                        <ul>
+                            <li>
+                                <a href="estimate">
+                                    <span>
+                                        <span id="head_estimate">Estimate</span>
+                                    </span>
+                                    <span>
+                                        <svg class="expandable-list-icon">
+                                            <use xlink:href="/images/icons.svg#angle-right"></use>
+                                        </svg>
+                                    </span>
+                                </a>
+                                <div class="component-content">
+                                    <div class="component-table">
+                                        <div id="estimate-grid"></div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <a href="budget" class="open">
+                                    <span>
+                                        <span id="head_budget">Budget</span>
+                                    </span>
+                                    <span>
+                                        <svg class="expandable-list-icon">
+                                            <use xlink:href="/images/icons.svg#angle-right"></use>
+                                        </svg>
+                                    </span>
+                                </a>
+                                <div class="component-content">
+                                    <div class="component-table">
+                                        <div id="budget-grid"></div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <a href="accounts">
+                                    <span>
+                                        <span id="head_accounts">Accounts</span>
+                                    </span>
+                                    <span>
+                                        <svg class="expandable-list-icon">
+                                            <use xlink:href="/images/icons.svg#angle-right"></use>
+                                        </svg>
+                                    </span>
+                                </a>
+                                <div class="component-content">
+                                    <div class="component-table">
+                                        <div id="deposit-grid"></div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <a href="quotes">
+                                    <span>
+                                        <span id="head_quotes">Quotes</span>
+                                    </span>
+                                    <span>
+                                        <svg class="expandable-list-icon">
+                                            <use xlink:href="/images/icons.svg#angle-right"></use>
+                                        </svg>
+                                    </span>
+                                </a>
+                                <div class="component-content">
+                                    <div class="component-table">
+                                        <div id="proposal-grid"></div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <a href="contracts">
+                                    <span>
+                                        <span id="head_contracts">Contracts</span>
+                                    </span>
+                                    <span>
+                                        <svg class="expandable-list-icon">
+                                            <use xlink:href="/images/icons.svg#angle-right"></use>
+                                        </svg>
+                                    </span>
+                                </a>
+                                <div class="component-content">
+                                    <div class="component-table">
+                                        <div id="contract-grid"></div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <a href="pos">
+                                    <span>
+                                        <span id="head_pos">Purchase Orders</span>
+                                    </span>
+                                    <span>
+                                        <svg class="expandable-list-icon">
+                                            <use xlink:href="/images/icons.svg#angle-right"></use>
+                                        </svg>
+                                    </span>
+                                </a>
+                                <div class="component-content">
+                                    <div class="component-table">
+                                        <div id="pos-grid"></div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <a href="cos">
+                                    <span>
+                                        <span id="head_cos">Change Orders</span>
+                                    </span>
+                                    <span>
+                                        <svg class="expandable-list-icon">
+                                            <use xlink:href="/images/icons.svg#angle-right"></use>
+                                        </svg>
+                                    </span>
+                                </a>
+                                <div class="component-content">
+                                    <div class="component-table">
+                                        <div id="co-grid"></div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <a href="submittals">
+                                    <span>
+                                        <span id="head_subs">Submittals</span>
+                                    </span>
+                                    <span>
+                                        <svg class="expandable-list-icon">
+                                            <use xlink:href="/images/icons.svg#angle-right"></use>
+                                        </svg>
+                                    </span>
+                                </a>
+                                <div class="component-content">
+                                    <div class="component-table">
+                                        <div id="subs-grid"></div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <a href="invoices">
+                                    <span>
+                                        <span id="head_invoice">Invoices</span>
+                                    </span>
+                                    <span>
+                                        <svg class="expandable-list-icon">
+                                            <use xlink:href="/images/icons.svg#angle-right"></use>
+                                        </svg>
+                                    </span>
+                                </a>
+                                <div class="component-content">
+                                    <div class="component-table">
+                                        <div id="invoice-grid"></div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <a href="rfis">
+                                    <span>
+                                        <span id="head_rfi">RFIs</span>
+                                    </span>
+                                    <span>
+                                        <svg class="expandable-list-icon">
+                                            <use xlink:href="/images/icons.svg#angle-right"></use>
+                                        </svg>
+                                    </span>
+                                </a>
+                                <div class="component-content">
+                                    <div class="component-table">
+                                        <div id="rfi-grid"></div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                    <div class="project-preview">
+                        <div class="title">Financial Summary</div>
+                        <div class="items">
+                            <div class="row">
+                                <div class="property">Budget</div>
+                                <div class="value">$1,300,000.00</div>
+                            </div>
+                            <div class="row">
+                                <div class="property">Committed</div>
+                                <div class="value">$678,000.00</div>
+                            </div>
+                            <div class="row">
+                                <div class="property">Paid</div>
+                                <div class="value">$507,000.00</div>
+                            </div>
+                            <div class="spacer"></div>
+                            <div class="row">
+                                <div class="property">Start Date</div>
+                                <div class="value">04/04/2019</div>
+                            </div>
+                            <div class="row">
+                                <div class="property">End Date</div>
+                                <div class="value">05/19/2019</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div id="tab-schedule" class="tab-pane">
+                <h3>Coming soon...</h3>
+            </div>
+            <div id="tab-messaging" class="tab-pane">
+                @if (Model.MessagingData != null)
+                {
+                    @Html.Partial("~/Features/RFIs/_MessagingTemplate.cshtml", Model.MessagingData)
+                }
+            </div>
+            <div id="tab-team" class="tab-pane">
+                <h3>Coming soon...</h3>
+                <div class="team-member-container"></div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="~/lib/jquery/dist/jquery-3.3.1.min.js"></script>
+<script src="~/lib/bootstrap/bootstrap.min.js"></script>
+@*<script src="~/js/messaging.js"></script>*@
+<script>
+    $(document).ready(function () {
+
+    });
+
+
+</script>
+@section scripts {
+    <script id="noDataTemplate" type="text/x-kendo-tmpl">
+        <div>
+            No data found. Do you want to add new item - '#: instance.text() #' ?
+        </div>
+        <br />
+        <button id="new-contact-button" name="new-contact-button" class="new-contact-button">Add new item</button>
+    </script>
+
+    <script type="module" asp-append-version="true">
+        import { RFIDetailsItem } from "/js/rfis.js"
+        new RFIDetailsItem(@Html.Raw(Json.Serialize(Model)));
+    </script>
+
+}

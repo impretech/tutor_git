@@ -1,0 +1,29 @@
+﻿@{
+    ViewData["Title"] = "Deposits";
+}
+
+
+@section styles {
+    <link rel="stylesheet" href="~/css/list-page.css" />
+    <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet" />
+}
+
+<div class="page-header">
+    <h3>Deposits</h3>
+</div>
+
+<div class="">
+    <div class="action-item">
+        <h4 class="blue">Select a deposit below or </h4>
+        <button id="new-contact-button" class="btn yellow">Add a New Deposit</button>
+    </div>
+    <div id="contacts-grid"></div>
+</div>
+
+@section scripts {
+    <script type="module" asp-append-version="true">
+        import { DepositsList } from "/js/deposits.js"
+        new DepositsList(@Html.Raw(Json.Serialize(Model)));
+    </script>
+
+}

@@ -1,0 +1,19 @@
+{
+  "compilerOptions": {
+    "noImplicitAny": false,
+    "noEmitOnError": true,
+    "removeComments": false,
+    "sourceMap": false,
+    "target": "es2018",
+    "module": "ES6",
+    "rootDir": "",
+    "outDir": "../js/",
+    "typeRoots": [ "../TypeScript/@types/" ]
+  },
+  "compileOnSave": true,
+  "exclude": [
+    "../../node_modules",
+    "../../obj",
+    "../../bin"
+  ]
+}

@@ -1,0 +1,241 @@
+﻿body {
+}
+
+.messaging-container, #compose-container {
+    padding: 5px;
+    margin: 5px;
+    width: 80%;
+    position: relative;
+}
+.compose-container-reply {
+    padding: 5px;
+    margin: 5px;
+    width: 100%;
+    position: relative;
+}
+
+.messaging-container input {
+}
+
+#new-message {
+}
+
+#new-message-btn {
+    /*width: 10% !important;*/
+    position: absolute;
+    top: 18px;
+    /*left: 98%;*/
+    right: -9px;
+}
+.cancel-btn {
+    /*width: 10% !important;*/
+    position: absolute;
+    top: 70px;
+    /*left: 98%;*/
+    right: -9px;
+}
+.new-message-btn-reply {
+    position: absolute;
+    right: -9px !important;
+    top: 16px !important;
+}
+
+    #new-message-btn img {
+        width: 20px !important;
+    }
+.cancel-btn img {
+    width: 20px !important;
+}
+#new-message-btn-reply img {
+    width: 20px !important;
+}
+.new-message-btn-reply img {
+    width: 20px !important;
+}
+
+.message-controls {
+}
+
+.messaging-controls a {
+    width: 20px;
+    height: 20px;
+    border: 1px solid #ccc;
+    
+}
+
+.messaging-controls svg {
+    width: 15px;
+    height: 15px;
+    fill: #87D674;
+}
+
+.messaging-content, #compose-container {
+    display: block;
+    margin-top: 2px;
+}
+.messaging-content, #compose-container-reply {
+    display: block;
+    margin-top: 2px;
+}
+
+.messaging-content a {
+}
+
+    .messaging-content select {
+        width: 100%;
+        font-size: 15px;
+        padding: 2px;
+    }
+
+.borderRow {
+   
+}
+span.red{
+    color:red;
+}
+.action-type{
+    width:110% !important;
+}
+#message-container {
+    /*display: none;*/
+}
+
+#compose-container {
+    overflow: hidden;
+}
+#compose-container-reply {
+    overflow: hidden;
+}
+
+.compose-container {
+
+}
+
+#cc-list1 {
+    position: absolute;
+    top: 75px;
+    left: 430px;
+    padding: 5px;
+    padding-right: 10px;
+    /*border: solid 1px gray;*/
+    display: none;
+}
+.cc-list-reply1 {
+    position: absolute;
+    top: 93px;
+    left: 436px;
+    padding: 5px;
+    padding-right: 10px;
+    /*border: solid 1px gray;*/
+    display: none;
+}
+
+.cc-list-reply {
+    border: solid 1px #576A6F;
+}
+
+
+
+#schedule-list {
+    position: absolute;
+    top: 78px;
+    left: 625px; /*47%;*/
+    padding: 5px;
+    padding-right: 10px;
+    /* background-color: #eee;*/
+    /*border: solid 1px gray;*/
+    display: none;
+}
+.schedule-list-reply {
+    position: absolute;
+    top: 100px;
+    left: 625px;
+    padding: 5px;
+    padding-right: 10px;
+    /* background-color: #eee;*/
+    /*border: solid 1px gray;*/
+    display: none;
+}
+
+#schedule-list-rfi {
+    top: 68px;
+    left: 47%;
+    padding: 5px;
+    padding-right: 10px;
+    background-color: #eee;
+    /*border: solid 1px gray;*/
+    display: none;
+}
+
+.one-message {
+    width: 97%;
+    /*padding-top: 5px;
+    padding-bottom: 5px;*/
+    padding-left: 10px;
+    border: solid 1px gray;
+    cursor: pointer;
+    margin-top:5px;
+}
+
+.replyMessagePanel {
+    width: 97%;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 50px;
+    background:none !important;
+    /*border: solid 1px gray;*/
+    cursor: pointer;
+    margin-top: 5px;
+    padding-right:45px;
+}
+
+.replyMessagePanelSecond {
+    background-color: #f0e6ff !important;
+    width: 97%;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 50px;
+    cursor: pointer;
+    margin-top: 5px;
+    padding-right: 45px;
+}
+
+    .userIcon {
+        font-size: 36px !important;
+        background: #FFBF48;
+        float: left;
+    }
+
+.question {
+    background: #C8DEEE;
+}
+
+.k-tabstrip-wrapper
+{
+    display:inline-flex !important;
+}
+
+.msg li{ margin-left:0.8rem !important;}
+
+.k-input{
+    width:100% !important;
+}
+.error{
+    border:1px solid red !important;
+}
+.ScheduleCmb{
+    width:100% !important;
+}
+.paperclip {
+    font-size: 18px !important;
+    margin-bottom: 5px;
+    color: #ffbf48;
+}
+.paperclip:hover{
+    cursor:pointer;
+}
+
+textarea {
+    resize: none;
+    width:98.5%;
+}

@@ -1,0 +1,30 @@
+﻿@{
+    ViewData["Title"] = "Purchase Orders";
+}
+
+
+@section styles {
+    <link rel="stylesheet" href="~/css/list-page.css" />
+    <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet" />
+}
+
+<div class="page-header">
+    <h3>Purchase Order</h3>
+</div>
+
+<div class="">
+    <div class="action-item">
+
+        <h4 class="blue">Select a Purchase Order or </h4>
+        <button id="new-purchaseOrder-button" class="btn yellow">Add a Purchase Order</button>
+    </div>
+    <div id="purchase-order-grid"></div>
+</div>
+
+@section scripts {
+    <script type="module" asp-append-version="true">
+        import { PurchaseOrdersList } from "/js/purchaseOrders.js"
+        new PurchaseOrdersList(@Html.Raw(Json.Serialize(Model)));
+    </script>
+
+}

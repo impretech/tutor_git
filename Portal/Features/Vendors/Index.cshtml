@@ -1,0 +1,30 @@
+﻿@{
+    ViewData["Title"] = "Vendors";
+}
+
+
+@section styles {
+    
+    <link rel="stylesheet" href="~/css/list-page.css" />
+    <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet" />
+}
+
+<div class="page-header">
+    <h3>Vendors</h3>
+</div>
+
+<div class="">
+    <div class="action-item">
+        <h4 class="blue">Select a vendor below or </h4>
+        <button id="new-vendor-button" class="btn yellow">Add a New Vendor</button>
+    </div>
+    <div id="vendors-grid"></div>
+</div>
+
+@section scripts {
+    <script type="module" asp-append-version="true">
+        import { VendorsList } from "/js/vendors.js"
+        new VendorsList(@Html.Raw(Json.Serialize(Model)));
+    </script>
+
+}

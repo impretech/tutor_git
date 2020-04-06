@@ -1,0 +1,30 @@
+﻿@{
+    ViewData["Title"] = "Schedules";
+}
+
+@section styles {
+    <link rel="stylesheet" href="~/css/list-page.css" />
+    <link href="https://fonts.googleapis.com/css?family=Lato&display=swap" rel="stylesheet" />
+
+}
+
+<div class="page-header">
+    <h3>Schedules</h3>
+</div>
+
+<div class="project-details-list">
+    <div class="action-item">
+        <h4 class="blue">Select a Schedule below </h4>
+        @*<button id="new-sched-button" disabled class="btn yellow">Start a New Schedule</button>*@
+    </div>
+
+    <div id="sched-grid"></div>
+</div>
+
+@section scripts {
+    <script type="module" asp-append-version="true">
+        import { SchedList } from "/js/scheduling.js"
+        new SchedList(@Html.Raw(Json.Serialize(Model)));
+    </script>
+
+}
