@@ -620,22 +620,16 @@ h3#firstHeading {
     height: 280px;
 }
 
-
-
 .inner-content {
     position: absolute;
-    top: 50px;
-    left: 0px;
+    top: 30%;
+    left: 30%;  
     font-size: 20px;
     line-height: 100px;
     vertical-align: middle;
     text-align: center;
     color: green;
-    width: 200px; 
-    right: 50px;
 }
-
-
 div#content {
     height: 231px;
 }

@@ -541,28 +541,24 @@ export class ProjectControlCenter {
 
             $("#chartsection").css("display", "none");
             $(".project-items-container").css("display", "block");
-
             var grid = $("#activemap-grid").data("kendoGrid");
             var dataItem = grid.dataItem($(e.currentTarget).closest("tr")) as any;
-            var projectID;
-            if (dataItem.projectID == undefined) {
-                projectID = dataItem.id as string;
-            }
-            else {
-                projectID = dataItem.projectID as string;
-            }
- 
-            var protitle = dataItem.title as string;   
-            $("#TitleSummary").text("  Project Summery: " + protitle);  
+            var projectID = dataItem.id as string;
+            var protitle = dataItem.title as string;  
+           
+            $("#TitleSummary").text("  Project Summery: " + protitle); 
             this.getprojectID = projectID;  //----- Set value for globel variable-------------------- 
             getprojectIDEmail = projectID;  //----- Set value for globel variable for email--------------------
 
              this.LoadDocumentGrid(projectID);
              this.LoadFinancialGrid(projectID);
-            this.LoadScheduleGrid(projectID);  
+            this.LoadScheduleGrid(projectID); 
             
             var row = $(e.currentTarget).closest("tr");
-            var rowIdx = $("tr", grid.tbody).index(row); 
+            var rowIdx = $("tr", grid.tbody).index(row);
+
+
+       
 
             $("#toMsg").kendoComboBox({
                 index: 1,
@@ -717,51 +713,9 @@ export class ProjectControlCenter {
                 $("#dvlayer").css("display", "block");
             } else {
                 $("#dvlayer").css("display", "none");
-
-                $("#layer-type").data("kendoComboBox").value("");
-
-              //  $("#allActiveMapFilter").click();
-                removeheatmap();
+                $("#allActiveMapFilter").click();
             }
         }); 
-
-        function removeheatmap() {
-
-            heatMapData = [];
-             markers = []; 
-            var map = new google.maps.Map(document.getElementById('map'), {
-                zoom: 5,
-                center: new google.maps.LatLng(locations[0][0], locations[0][1]),
-                mapTypeId: google.maps.MapTypeId.ROADMAP
-            });
-
-
-            var heatmap = new google.maps.visualization.HeatmapLayer({
-                data: heatMapData
-            });
-            heatmap.set('radius', 100);
-            heatmap.setMap(map);
-
-            var infowindow = new google.maps.InfoWindow();
-
-            for (var i = 0; i < locations.length; i++) {
-                markers.push(createMarker(new google.maps.LatLng(locations[i][0], locations[i][1]), locations[i][7]));
-            }
-
-            function createMarker(latlng, html) {
-                var marker = new google.maps.Marker({
-                    position: latlng,
-                    map: map
-                });
-
-                google.maps.event.addListener(marker, 'click', function () {
-                    infowindow.setContent(html);
-                    infowindow.open(map, marker);
-                });
-
-                return marker;
-            }
-        }
         
 
         $("#closepop").click(function () {
@@ -919,9 +873,6 @@ export class ProjectControlCenter {
                 ]
 
             }).on("click", "tbody td", (e) => { 
-
- 
-
             });
         });
 
@@ -1122,20 +1073,6 @@ export class ProjectControlCenter {
             }
         });
 
-
-        let category: string;
-        var budgetDetailSource = new kendo.data.DataSource({
-            transport: {
-                read: { url: "/api/Project/GetBudgetDetailData?projid=" + this.getprojectID, dataType: "json" },
-            },
-            aggregate: [
-                { field: "depositTot", aggregate: "sum" },
-                { field: "budgetTot", aggregate: "sum" },
-                { field: "availFunds", aggregate: "sum" }
-            ]
-        });
-
-
         financialSource.read();
         $("#financial-summary-grid").kendoGrid({
             dataSource: financialSource,
@@ -1178,166 +1115,26 @@ export class ProjectControlCenter {
             //  $("#budgetDetailsGrid").hide();
             //  $("#budget-details-grid").data("kendoGrid").clearSelection();
 
-             // this.LoadFinancialDetailsGrid(itemType, id);
+            //    var grid = $("#document-summary-grid").data("kendoGrid");
+            //    var dataItem = grid.dataItem($(e.currentTarget).closest("tr")) as any;
 
-             var grid = $("#financial-summary-grid").data("kendoGrid");
-             var dataItem = grid.dataItem($(e.currentTarget).closest("tr")) as any;  
 
+
+
+
+            // this.LoadFinancialDetailsGrid(itemType, id);
+
+
+            var grid = $("#financial-summary-grid").data("kendoGrid");
+            var dataItem = grid.dataItem($(e.currentTarget).closest("tr")) as any;
             itemType = dataItem.item as string;
-            
-            if (itemType === 'Budget') { 
-                $("#financial-summary-grid").data("kendoGrid").clearSelection();
-                $("#financialDetailsGrid").hide();
-                $("#budgetDetailsGrid").show();
-
-
-                $("#budgetDetailTitle").text('Details: Financial - Budget');
-
-                budgetDetailSource = new kendo.data.DataSource({
-                    transport: {
-                        read: { url: "/api/Project/GetBudgetDetailData?projid=" + this.getprojectID, dataType: "json" },
-                    },
-                    aggregate: [
-                        { field: "depositTot", aggregate: "sum" },
-                        { field: "budgetTot", aggregate: "sum" },
-                        { field: "availFunds", aggregate: "sum" }
-                    ]
-                });
-                var detailGrid = $("#budget-details-grid").data("kendoGrid");
-                detailGrid.setDataSource(budgetDetailSource);
-                detailGrid.dataSource.read();
-
-            }
-            else {
-                $("#financialDetailsGrid").show();
-                $("#budgetDetailsGrid").hide();
-                var grid = $("#financial-summary-grid").data("kendoGrid");
-                var dataItem = grid.dataItem($(e.currentTarget).closest("tr")) as any;
-                $("#financialDetailTitle").text('Details: Financial - ' + itemType);
-                this.LoadFinancialDetailsGrid(itemType, this.getprojectID);
-            }
+            $("#financialDetailTitle").text('Details: Financial - ' + itemType);
+            this.LoadFinancialDetailsGrid(itemType, this.getprojectID);
 
         });
-
-
-        $("#budget-details-grid").kendoGrid({
-            dataSource: budgetDetailSource,
-            autoBind: false,
-            sortable: true,
-            scrollable: false,
-            selectable: true,
-            filterable: false,
-            persistSelection: true,
-            columns: [
-                { field: "budgetDetailID", hidden: true },
-                { field: "projectID", hidden: true },
-                { field: "code", title: "Code", width: '10%', attributes: { class: "text-center" }, },
-                { field: "category", title: "Category", width: '15%', attributes: { class: "text-center" } },
-                { field: "description", title: "Description", width: '20%', attributes: { class: "text-center" }, footerTemplate: "Total", footerAttributes: { "class": "text-center" } },
-                { field: "depositTot", title: "Deposit Total", width: '15%', format: "{0:c}", attributes: { class: "text-center" }, footerTemplate: "#= kendo.toString(sum, 'c') #", footerAttributes: { "class": "text-center" } },
-                { field: "budgetTot", title: "Budget Total", width: '15%', format: "{0:c}", attributes: { class: "text-center" }, footerTemplate: "#= kendo.toString(sum, 'c') #", footerAttributes: { "class": "text-center" } },
-                { field: "availFunds", title: "Available Funds", width: '15%', format: "{0:c}", attributes: { class: "text-center" }, footerTemplate: "#= kendo.toString(sum, 'c') #", footerAttributes: { "class": "text-center" } },
-                { field: "status", title: "Status", width: '10%', attributes: { class: "text-center" }, template: "<span class='alert-table-icon " + "#=status#" + "'></span>" },
-            ]
-        }).on("click", "tbody td", async (e) => {
-            var cell = $(e.currentTarget);
-            var grid = $("#budget-details-grid").data("kendoGrid");
-            var dataItem = grid.dataItem(cell.closest("tr")) as any;
-
-            category = dataItem.category as string;
-            $("#detailTitle").text(category);
-            if ($("#detailPanel").css("display") === "none") {
-                $("#detailPanel").animate({ width: 'toggle' }, 300);
-            }
-        });
-
-
-        let projectId = this.getprojectID;
-
-        $("#searchBudgetFilter").change(function (e) {
-            if (itemType) {
-                budgetDetailSource = new kendo.data.DataSource({
-                    transport: {
-                        read: { url: "/api/Project/GetBudgetDetailData?projid=" + projectId + "&search=" + $(this).val(), dataType: "json" },
-                    },
-                    aggregate: [
-                        { field: "depositTot", aggregate: "sum" },
-                        { field: "budgetTot", aggregate: "sum" },
-                        { field: "availFunds", aggregate: "sum" }
-                    ]
-                });
-
-                var budgetDetailsGrid = $("#budget-details-grid").data("kendoGrid");
-                budgetDetailsGrid.setDataSource(budgetDetailSource);
-                budgetDetailsGrid.dataSource.read();
-            }
-        });
-
-
-        $("#greenBudgetFilter").click(function (e) {
-            if (projectId !== "") {
-                budgetDetailSource = new kendo.data.DataSource({
-                    transport: {
-                        read: { url: "/api/Project/GetBudgetDetailData?projid=" + projectId + "&status=green", dataType: "json" },
-                    },
-                    aggregate: [
-                        { field: "depositTot", aggregate: "sum" },
-                        { field: "budgetTot", aggregate: "sum" },
-                        { field: "availFunds", aggregate: "sum" }
-                    ]
-                });
-
-                var budgetDetailsGrid = $("#budget-details-grid").data("kendoGrid");
-                budgetDetailsGrid.setDataSource(budgetDetailSource);
-                budgetDetailsGrid.dataSource.read();
-            }
-        });
-
-        $("#yellowBudgetFilter").click(function (e) {
-            if (projectId !== "") {
-                budgetDetailSource = new kendo.data.DataSource({
-                    transport: {
-                        read: { url: "/api/Project/GetBudgetDetailData?projid=" + projectId + "&status=yellow", dataType: "json" },
-                    },
-                    aggregate: [
-                        { field: "depositTot", aggregate: "sum" },
-                        { field: "budgetTot", aggregate: "sum" },
-                        { field: "availFunds", aggregate: "sum" }
-                    ]
-                });
-
-                var budgetDetailsGrid = $("#budget-details-grid").data("kendoGrid");
-                budgetDetailsGrid.setDataSource(budgetDetailSource);
-                budgetDetailsGrid.dataSource.read();
-            }
-        });
-
-        $("#redBudgetFilter").click(function (e) {
-            if (projectId !== "") {
-                budgetDetailSource = new kendo.data.DataSource({
-                    transport: {
-                        read: { url: "/api/Project/GetBudgetDetailData?projid=" + projectId + "&status=red", dataType: "json" },
-                    },
-                    aggregate: [
-                        { field: "depositTot", aggregate: "sum" },
-                        { field: "budgetTot", aggregate: "sum" },
-                        { field: "availFunds", aggregate: "sum" }
-                    ]
-                });
-
-                var budgetDetailsGrid = $("#budget-details-grid").data("kendoGrid");
-                budgetDetailsGrid.setDataSource(budgetDetailSource);
-                budgetDetailsGrid.dataSource.read();
-            }
-        });
-
-
     }
 
     private LoadFinancialDetailsGrid(itemType, id): void {
-
-        let category: string;
-      
 
         var financialDetailSource = new kendo.data.DataSource({
             transport: {
@@ -1370,10 +1167,6 @@ export class ProjectControlCenter {
         }).on("click", "tbody td", async (e) => {
 
         });
-
-  
-
-
     }
 
     private LoadScheduleGrid(id): void {
@@ -1415,8 +1208,6 @@ export class ProjectControlCenter {
             $("#financialDetailsGrid").hide();
             $("#financial-summary-grid").data("kendoGrid").clearSelection();
 
-            $("#budgetDetailsGrid").hide();
-            $("#budget-details-grid").data("kendoGrid").clearSelection();
 
 
             var grid = $("#schedule-summary-grid").data("kendoGrid");

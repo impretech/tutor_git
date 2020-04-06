@@ -66,4 +66,3 @@ F:\clients\Impre\ppc-master\Portal\obj\Debug\netcoreapp2.2\Portal.dll
 F:\clients\Impre\ppc-master\Portal\obj\Debug\netcoreapp2.2\Portal.pdb
 F:\clients\Impre\ppc-master\Portal\obj\Debug\netcoreapp2.2\Portal.genruntimeconfig.cache
 F:\clients\Impre\ppc-master\Portal\obj\Debug\netcoreapp2.2\Portal.csproj.CopyComplete
-F:\clients\Impre\ppc-master\Portal\obj\Debug\netcoreapp2.2\Portal.csprojAssemblyReference.cache
